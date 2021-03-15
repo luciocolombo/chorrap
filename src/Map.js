@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import CustomMarker from './CustomMarker'
+import { MapContainer, TileLayer } from 'react-leaflet'
+/* import CustomMarker from './CustomMarker' */
 import DraggableMarker from './DraggableMarker'
 /* import axios from "axios"; */
 function Map({showDraggable}) {
@@ -11,7 +11,7 @@ function Map({showDraggable}) {
     }
     function sendDraggableToDb(){
         console.log("Send draggable to db")
-        const crimePosition=draggablePosition
+       /*  const crimePosition=draggablePosition */
 /*         axios.post("URL",crimePosition) */
     }
    const position = [-32.959676, -60.661406]

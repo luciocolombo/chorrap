@@ -1,4 +1,14 @@
 
+
+*{
+    margin:0 auto auto;
+    padding:0;
+}
+.App{
+    width:80%;
+    border:5px solid blue;
+    background-color: antiquewhite;
+}
 .mapid{
     height: 480px;
     width:1000px;
@@ -12,4 +22,11 @@
 
 .mapcontainer{
     margin-top: 1%;
+}
+
+
+.hh1{
+    font-family: 'Redressed', cursive;
+    color:brown;
+    text-align:center;
 }
