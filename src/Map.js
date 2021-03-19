@@ -3,7 +3,7 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 /* import CustomMarker from './CustomMarker' */
 import DraggableMarker from './DraggableMarker'
 import { Button } from 'react-bootstrap';
-/* import axios from "axios"; */
+import axios from "axios"
 
 
 
@@ -17,8 +17,10 @@ function Map({showDraggable}) {
 
     function sendDraggableToDb(){
         console.log("Send draggable to db")
-       /*  const crimePosition=draggablePosition */
-/*         axios.post("URL",crimePosition) */
+       /*  const crimePosition=draggablePosition
+        axios.post("http://localhost:4000/postcrime",crimePosition)
+         .then(console.log("ENVIADO ")
+        ) */
     }
    const position = [-32.959676, -60.661406]
 
@@ -26,8 +28,8 @@ function Map({showDraggable}) {
     return (
         <div>
             {showDraggable?
-            <Button className="btn btn-info" onClick={sendDraggableToDb}>Save marker position</Button>:
-            <Button className="btn btn-info" disabled>Save marker position</Button>}
+            <Button className="btn btn-info ml-3" onClick={sendDraggableToDb}>Enviar perro perdido a DB</Button>:
+            <Button className="btn btn-info ml-3" disabled>Enviar perro perdido a DB</Button>}
                 
             <MapContainer className="mapcontainer" center={position} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
