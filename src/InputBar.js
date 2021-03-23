@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
+import Map from './Map'
 
 function InputBar() {
+    const [draggableVisibility, toggleDraggableVisibility]=useState(false)
     return (
         <div>
             <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
@@ -32,7 +34,8 @@ function InputBar() {
                     Submit
                 </Button>
             </Form>
-
+            <Map showDraggable={draggableVisibility}/>
+            <Button className="btn btn-info ml-3 mb-1" onClick={()=>{toggleDraggableVisibility(!draggableVisibility)}}>Toggle draggable marker visibility (and show all lost dogs)</Button>
         </div>
         
     )
