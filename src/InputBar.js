@@ -3,7 +3,7 @@ import {Form, Button} from 'react-bootstrap'
 import Map from './Map'
 
 function InputBar() {
-    const [draggableVisibility, toggleDraggableVisibility]=useState(false)
+   /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
     return (
         <div>
             <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
@@ -31,11 +31,13 @@ function InputBar() {
                     <Form.File id="exampleFormControlFile1" label="Example file input" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Submit to DB
+                    
                 </Button>
+               {/*  <Button className="btn btn-info ml-3 mb-1" onClick={()=>{toggleDraggableVisibility(!draggableVisibility)}}>Toggle draggable marker visibility (and show all lost dogs)</Button> */}
             </Form>
-            <Map showDraggable={draggableVisibility}/>
-            <Button className="btn btn-info ml-3 mb-1" onClick={()=>{toggleDraggableVisibility(!draggableVisibility)}}>Toggle draggable marker visibility (and show all lost dogs)</Button>
+            <Map /* showDraggable={draggableVisibility} *//>
+           
         </div>
         
     )
