@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button, Modal} from 'react-bootstrap'
 import Map from './Map'
+import axios from 'axios'
 
 function InputBar() {
 
@@ -19,9 +20,11 @@ function InputBar() {
     const handleShow = () => setShow(true);
     
     function sendToDb(){
-        var dog={position, email,raza,blackColor,whiteColor,brownColor,blackColor,redColor}
-    /*   axios.post("URL",dogInfo) */
-      console.log(dog)
+        if(position!="" & email!="" & blackColor!="" & whiteColor!="" &blondeColor!="" &redColor!=""){
+        var dog={position, email,raza,blackColor,whiteColor,brownColor,blondeColor,redColor}
+        axios.post('http://localhost:4000/senddog',dog)
+        console.log("el siguiente perro sale del frontend", dog)
+        }else{alert("Todos los campos requeridos deben ser completados")}
       handleClose()
   }
    /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
@@ -47,6 +50,7 @@ function InputBar() {
                     <Form.Check type="checkbox" label="Colorado" value={redColor} onChange={(e)=>toggleRedColor(e.target.checked)}/>
                 </Form.Group>
 
+{/* Agregar fecha */}
                 <Form.Group>
                     <h2>Subir imagen del perro</h2>
                     <Form.File id="exampleFormControlFile1" label="Example file input" />

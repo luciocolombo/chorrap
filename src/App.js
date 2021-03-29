@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './App.css';
 import { Button } from 'react-bootstrap';
-
+import {BrowserRouter as Router, Route, Redirect} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputBar from "./InputBar"
 /* import { Tabs, Tab, Sonet } from 'react-bootstrap';
@@ -14,12 +14,14 @@ function App() {
 
 return(
 
-  <div className="App">
-   
-    <InputBar/>
-   
-    
-  </div>
+    <Router>
+      <Route path="/" /* exact */>
+        <div className="App">
+          <InputBar/>
+        </div>
+      </Route>
+    </Router>
+
 )
 }
 export default App;
