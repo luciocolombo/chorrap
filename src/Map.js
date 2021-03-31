@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 /* import CustomMarker from './CustomMarker' */
 import DraggableMarker from './DraggableMarker'
-import { Button } from 'react-bootstrap';
-import axios from "axios"
 
 
 

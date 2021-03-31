@@ -5,8 +5,9 @@ import { Marker, Popup } from 'react-leaflet'
 function CustomMarker({position,popUpText, hoverText}) {
     return (
         <div>
-        <Marker position={position} onHover={hoverText}>
+        <Marker position={position} title={hoverText}>
           <Popup>
+            <img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fhips.hearstapps.com%2Fhmg-prod.s3.amazonaws.com%2Fimages%2Fdog-puppy-on-garden-royalty-free-image-1586966191.jpg%3Fcrop%3D1.00xw%3A0.669xh%3B0%2C0.190xh%26resize%3D1200%3A%2A&sp=1617193781Tfd739d7b6694db5eed23f39f434f97404ff3af32ca42870c7683aef0be6820c5" width="200px" height="200px"></img>
             {popUpText}
           </Popup>
         </Marker>
@@ -17,22 +18,3 @@ function CustomMarker({position,popUpText, hoverText}) {
 export default CustomMarker
 
 
-/* import React, { useState } from 'react';
-import { Tooltip } from 'reactstrap';
-
-const Example = (props) => {
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-
-  const toggle = () => setTooltipOpen(!tooltipOpen);
-
-  return (
-    <div>
-      <p>Somewhere in here is a <span style={{textDecoration: "underline", color:"blue"}} href="#" id="TooltipExample">tooltip</span>.</p>
-      <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
-        Hello world!
-      </Tooltip>
-    </div>
-  );
-}
-
-export default Example; */
