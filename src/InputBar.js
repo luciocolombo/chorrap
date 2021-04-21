@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Form, Button, Modal} from 'react-bootstrap'
 import Map from './Map'
 import axios from 'axios'
+import {Link} from "react-router-dom"
 
 function InputBar() {
 
@@ -34,7 +35,7 @@ function InputBar() {
             <h2>Completa los datos para comunicarlo a la comunidad. No olvides marcar la posición en el mapa</h2>
             {/*PORQUE NO SE IMPRIME ESTO? <p>{email, raza, blackColor, "asodkasod"}</p> */}
             <div>
-                <h2>Querés ver los perros perdidos? <Button className="btn-warning" >Ver todos los pichicuis</Button></h2>
+                <h2>Querés ver los perros perdidos? <Link to="/all"><Button className="btn-warning" >Ver todos los pichicuis</Button></Link></h2>
             </div>
             <Form>
                 <Form.Group controlId="formBasicEmailRaza">
