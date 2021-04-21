@@ -33,11 +33,12 @@ function InputBar() {
         <div>
             <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
             <h2>Completa los datos para comunicarlo a la comunidad. No olvides marcar la posición en el mapa</h2>
-            {/*PORQUE NO SE IMPRIME ESTO? <p>{email, raza, blackColor, "asodkasod"}</p> */}
+         
             <div>
                 <h2>Querés ver los perros perdidos? <Link to="/all"><Button className="btn-warning" >Ver todos los pichicuis</Button></Link></h2>
             </div>
             <Form>
+                {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
                 <Form.Group controlId="formBasicEmailRaza">
                     <Form.Label>Email de contacto</Form.Label>
                     <Form.Control type="email" placeholder="Ingrese email" value={email} onChange={(e)=>changeEmail(e.target.value)} />

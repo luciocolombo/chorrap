@@ -36,8 +36,19 @@ function MapAllDogs() {
                  info.data.map((x,index)=>{
                      return(
         
-                   
-                    <CustomMarker position={[info.data[index].position.lat,info.data[index].position.lng]}   hoverText={info.data[index].email} popUpText={JSON.stringify(info.data[index])}  />
+            
+                    <CustomMarker position={[info.data[index].position.lat,info.data[index].position.lng]}   hoverText={info.data[index].email} 
+                    popUpText={
+                    <ul>
+                        <li>Email: {JSON.stringify(info.data[index].email)}</li>
+                        <li>Raza: {JSON.stringify(info.data[index].raza)}</li>
+                        {info.data[index].blackColor?<li>Color: Negro</li>:console.log("no")}
+                        {info.data[index].redColor?<li>Color: Rojizo</li>:console.log("no")}
+                        {info.data[index].whiteColor?<li>Color: Blanco</li>:console.log("no")}
+                        {info.data[index].blondeColor?<li>Color: Rubio</li>:console.log("no")}
+                        {info.data[index].brownColor?<li>Color: Marron</li>:console.log("no")}
+                    </ul>
+                }  />
                      )
                 }):console.log("NAN")}
             </MapContainer>     
