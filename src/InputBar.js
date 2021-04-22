@@ -8,7 +8,7 @@ function InputBar() {
 
     const [position, setPosition]=useState("");
     const [email, changeEmail] = useState("");
-    const [raza, changeRaza]=useState("");
+    /* const [raza, changeRaza]=useState(""); */
     const [blackColor, toggleBlackColor]= useState(false);
     const [whiteColor, toggleWhiteColor]= useState(false);
     const [brownColor, toggleBrownColor]= useState(false);
@@ -19,13 +19,32 @@ function InputBar() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [file, setFile]=useState({})
+    
+    function handleFile(e){
+        setFile(e.target.files[0])
+        console.log("EL FILE ES",file)
+    }
     
     function sendToDb(){
-        if(position!="" & email!="" & blackColor!="" & whiteColor!="" &blondeColor!="" &redColor!=""){
-        var dog={position, email,raza,blackColor,whiteColor,brownColor,blondeColor,redColor}
-        axios.post('http://localhost:4000/senddog',dog)
-        console.log("el siguiente perro sale del frontend", dog)
-        }else{alert("Todos los campos requeridos deben ser completados")}
+        if(position!=="" & email!=="" & file!=={} /* & blackColor!="" & whiteColor!="" &blondeColor!="" &redColor!="" */){
+            let fileVar=file
+            let formData= new FormData()
+            formData.append('image',fileVar)
+
+            var dog={position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor} /* AGREGAR IMAGEN ACA */
+            axios.post('http://localhost:4000/senddog',dog) //Aca mando la info del perro excepto las imagenes (mongoDB)
+            .then(console.log("el siguiente perro sale del frontend a mongoDB"))
+
+            axios.post('http://localhost:4000/senddogphoto',formData)
+            /* axios({                                
+                url:`http://localhost:4000/senddog`),
+                method:'POST',
+                data:formData
+            }).then(console.log(las imagenes salen a google cloud)) */
+
+        }else{alert("Todos los campos requeridos deben ser completados"+JSON.stringify({position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor}))}
       handleClose()
   }
    /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
@@ -42,8 +61,8 @@ function InputBar() {
                 <Form.Group controlId="formBasicEmailRaza">
                     <Form.Label>Email de contacto</Form.Label>
                     <Form.Control type="email" placeholder="Ingrese email" value={email} onChange={(e)=>changeEmail(e.target.value)} />
-                    <Form.Label>Conoces la raza del perro?</Form.Label>
-                    <Form.Control type="String" placeholder="Introduzca raza si la conoce" value={raza} onChange={(e)=>changeRaza(e.target.value)}/>
+                   {/*  <Form.Label>Conoces la raza del perro?</Form.Label>
+                    <Form.Control type="String" placeholder="Introduzca raza si la conoce" value={raza} onChange={(e)=>changeRaza(e.target.value)}/> */}
                 </Form.Group>
 
                 <Form.Group controlId="formBasicCheckbox">
@@ -58,7 +77,8 @@ function InputBar() {
 {/* Agregar fecha */}
                 <Form.Group>
                     <h2>Subir imagen del perro</h2>
-                    <Form.File id="exampleFormControlFile1" label="Example file input" />
+                   {/*  <Form.File id="file" name="file" label="Imagen de perrito" onChange={(e)=>handleFile(e)}/> */}
+                    <input type="file" name="file"  onChange={(e)=>handleFile(e)}/>
                 </Form.Group>
                 <Button onClick={handleShow}> Send to DB
                 </Button>                
@@ -79,6 +99,8 @@ function InputBar() {
                {/*  <Button className="btn btn-info ml-3 mb-1" onClick={()=>{toggleDraggableVisibility(!draggableVisibility)}}>Toggle draggable marker visibility (and show all lost dogs)</Button> */}
             </Form>
             <Map setPosition={setPosition}/* showDraggable={draggableVisibility} *//>
+            
+                    
            
         </div>
         
