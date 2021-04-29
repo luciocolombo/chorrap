@@ -38,11 +38,7 @@ function InputBar() {
             .then(console.log("el siguiente perro sale del frontend a mongoDB"))
 
             axios.post('http://localhost:4000/senddogphoto',formData)
-            /* axios({                                
-                url:`http://localhost:4000/senddog`),
-                method:'POST',
-                data:formData
-            }).then(console.log(las imagenes salen a google cloud)) */
+ 
 
         }else{alert("Todos los campos requeridos deben ser completados"+JSON.stringify({position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor}))}
       handleClose()
