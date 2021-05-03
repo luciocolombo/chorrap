@@ -14,7 +14,7 @@ function InputBar() {
     const [brownColor, toggleBrownColor]= useState(false);
     const [blondeColor, toggleBlondeColor]= useState(false);
     const [redColor, toggleRedColor]= useState(false);
-    
+    const url=""
     
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -27,17 +27,21 @@ function InputBar() {
         console.log("EL FILE ES",file)
     }
     
-    function sendToDb(){
-        if(position!=="" & email!=="" & file!=={} /* & blackColor!="" & whiteColor!="" &blondeColor!="" &redColor!="" */){
+    async function sendToDb (){
+        if(position!=="" & email!=="" & file!=={}){
             let fileVar=file
             let formData= new FormData()
             formData.append('image',fileVar)
 
-            var dog={position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor} /* AGREGAR IMAGEN ACA */
-            axios.post('http://localhost:4000/senddog',dog) //Aca mando la info del perro excepto las imagenes (mongoDB)
-            .then(console.log("el siguiente perro sale del frontend a mongoDB"))
-
-            axios.post('http://localhost:4000/senddogphoto',formData)
+        
+            const url=await axios.post('http://localhost:4000/senddogphoto',formData).then((res)=>res.data.url)
+            console.log(url) //aca obtengo el url. Con él, mando toda la info a Mongo junta
+            var dog={position, email,blackColor,whiteColor,brownColor,blondeColor,redColor, url}
+            console.log("doggooo eeesss", dog)
+            axios.post('http://localhost:4000/senddog',dog)
+                .then(console.log("el siguiente perro sale del frontend a mongoDB"))
+            
+            
  
 
         }else{alert("Todos los campos requeridos deben ser completados"+JSON.stringify({position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor}))}
