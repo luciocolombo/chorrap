@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Form, Button, Modal} from 'react-bootstrap'
 import Map from './Map'
 import axios from 'axios'
@@ -14,19 +14,20 @@ function InputBar() {
     const [brownColor, toggleBrownColor]= useState(false);
     const [blondeColor, toggleBlondeColor]= useState(false);
     const [redColor, toggleRedColor]= useState(false);
-    const url=""
+   
     
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
     const [file, setFile]=useState({})
-    
+
     function handleFile(e){
         setFile(e.target.files[0])
-        console.log("EL FILE ES",file)
+        /* console.log("EL FILE ES",file) */
     }
-    
+
+    const[dogState,setDogState]=useState({})
+
     async function sendToDb (){
         if(position!=="" & email!=="" & file!=={}){
             let fileVar=file
@@ -35,18 +36,23 @@ function InputBar() {
 
         
             const url=await axios.post('http://localhost:4000/senddogphoto',formData).then((res)=>res.data.url)
-            console.log(url) //aca obtengo el url. Con él, mando toda la info a Mongo junta
-            var dog={position, email,blackColor,whiteColor,brownColor,blondeColor,redColor, url}
-            console.log("doggooo eeesss", dog)
-            axios.post('http://localhost:4000/senddog',dog)
-                .then(console.log("el siguiente perro sale del frontend a mongoDB"))
-            
-            
- 
-
-        }else{alert("Todos los campos requeridos deben ser completados"+JSON.stringify({position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor}))}
+            let dog={position, email,blackColor,whiteColor,brownColor,blondeColor,redColor, url}
+            setDogState(dog)
+            console.log("Google Cloud URL de imagen:", url)
+                      
+        }else{alert("Todos los campos requeridos deben ser completados"+JSON.stringify({position, email/* ,raza */,blackColor,whiteColor,brownColor,blondeColor,redColor}))}  
       handleClose()
   }
+
+  useEffect(()=>{
+    axios.post('http://localhost:4000/senddog',dogState)
+         .then((res)=>{console.log("MongoDB data:",dogState, "y la res", res)})
+    },[dogState])
+
+
+
+
+
    /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
     return (
         <div>

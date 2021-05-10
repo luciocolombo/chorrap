@@ -42,15 +42,19 @@ function MapAllDogs() {
                      return(
         
             
-                    <CustomMarker position={[info.data[index].position.lat,info.data[index].position.lng]}   hoverText={info.data[index].email} 
+                    <CustomMarker position={[info.data[index].position.lat,info.data[index].position.lng]}  /*  hoverText={info.data[index].email}  */
                     popUpText={
                     <ul>
+                        
+                        <img  className="w-50" alt="perro" src={info.data[index].url}></img>
+                        
                         <li>Email: {JSON.stringify(info.data[index].email)}</li>
                         {info.data[index].blackColor?<li>Color: Negro</li>:console.log("no")}
                         {info.data[index].redColor?<li>Color: Rojizo</li>:console.log("no")}
                         {info.data[index].whiteColor?<li>Color: Blanco</li>:console.log("no")}
                         {info.data[index].blondeColor?<li>Color: Rubio</li>:console.log("no")}
                         {info.data[index].brownColor?<li>Color: Marron</li>:console.log("no")}
+
                     </ul>
                 }  />
                      )
