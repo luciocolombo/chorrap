@@ -26,7 +26,7 @@ function MapAllDogs() {
     return (
         <div>      
             <div className="text-center my-5">
-                <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir pichicui perdido</Button></Link></h2>
+                <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir perro perdido</Button></Link></h2>
             </div>   
             <MapContainer className="mapcontainer" center={position} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
@@ -46,7 +46,7 @@ function MapAllDogs() {
                     popUpText={
                     <ul>
                         
-                        <img  className="w-50" alt="perro" src={info.data[index].url}></img>
+                        <img  className="imagenperro" alt="perro" src={info.data[index].url}></img>
                         
                         <li>Email: {JSON.stringify(info.data[index].email)}</li>
                         {info.data[index].blackColor?<li>Color: Negro</li>:console.log("no")}

@@ -60,7 +60,7 @@ function InputBar() {
             <h2>Completa los datos para comunicarlo a la comunidad. No olvides marcar la posición en el mapa</h2>
          
             <div>
-                <h2>Querés ver los perros perdidos? <Link to="/all"><Button className="btn-warning" >Ver todos los pichicuis</Button></Link></h2>
+                <h2>Querés ver los perros perdidos? <Link to="/all"><Button className="btn-warning" >Ver todos los perros</Button></Link></h2>
             </div>
             <Form>
                 {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
