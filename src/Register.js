@@ -1,15 +1,22 @@
 import {React, useState} from 'react'
 import {Button, Form, Container} from 'react-bootstrap'
 import axios from "axios"
+import { useHistory } from "react-router-dom"
 
 function Register() {
     const [password, setPassword]=useState("");
     const [email, setEmail]=useState("");
+    let history = useHistory();
+    
+    function Register(){
+        alert("Usuario creado")
+        history.push("/")
+    }
     function onClick(e){
        e.preventDefault()
        axios.post('http://localhost:4000/register',{email:email,password:password})
        .then((res)=>{
-          console.log(res.data.message.includes('E11000 duplicate key'))
+          res.data.message&&res.data.message.includes('E11000 duplicate key')?alert("Ya registrado"):Register()
     })
     }
     return (

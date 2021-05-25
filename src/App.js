@@ -13,25 +13,29 @@ import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom"; */
  
 function App() {
 
-   
 
 return(
-
+   
     <Router>
-      <Route path="/login">
-        
-      </Route>
-      <Route path="/"  exact >
+      <Route path="/" exact>
+       
+       {localStorage.getItem("state")==="logged"?
         <div className="App">
           <InputBar/>
         </div>
-      </Route>
+        :<h1>Auth first</h1> //redirect to login
+       }
+
+      </Route> 
+          
       <Route path="/all" exact>
         <MapAllDogs />
       </Route>
+
       <Route path="/login" exact>
         <Login/>
       </Route>
+
       <Route path="/register" exact>
         <Register/>
       </Route>
