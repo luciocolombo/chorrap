@@ -3,9 +3,10 @@ import {Form, Button, Modal} from 'react-bootstrap'
 import Map from './Map'
 import axios from 'axios'
 import {Link} from "react-router-dom"
-
+import { useHistory } from "react-router-dom"
+import UserBar from './UserBar'
 function InputBar() {
-
+    let history = useHistory();
     const [position, setPosition]=useState("");
     const [email, changeEmail] = useState("");
     /* const [raza, changeRaza]=useState(""); */
@@ -20,6 +21,11 @@ function InputBar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [file, setFile]=useState({})
+
+    function goLogin(){
+        localStorage.getItem("state")==="logged"?console.log("OK"):history.push('/login')
+    }
+    goLogin()
 
     function handleFile(e){
         setFile(e.target.files[0])
@@ -56,6 +62,7 @@ function InputBar() {
    /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
     return (
         <div>
+            <UserBar/>
             <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
             <h2>Completa los datos para comunicarlo a la comunidad. No olvides marcar la posición en el mapa</h2>
          

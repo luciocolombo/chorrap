@@ -19,6 +19,9 @@ function Register() {
           res.data.message&&res.data.message.includes('E11000 duplicate key')?alert("Ya registrado"):Register()
     })
     }
+    function goLogin(){
+        history.push('/login')
+    }
     return (
         <div>
             <Container className="mt-5">
@@ -38,6 +41,7 @@ function Register() {
                     Register
                 </Button>
             </Form>
+            <Button className="btn-secondary" onClick={goLogin}>Login instead</Button>
             </Container>
 
         </div>

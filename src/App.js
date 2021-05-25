@@ -7,6 +7,8 @@ import InputBar from "./InputBar"
 import MapAllDogs from "./MapAllDogs"
 import Login from "./Login"
 import Register from "./Register"
+
+
 /* import { Tabs, Tab, Sonet } from 'react-bootstrap';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom"; */
@@ -19,12 +21,10 @@ return(
     <Router>
       <Route path="/" exact>
        
-       {localStorage.getItem("state")==="logged"?
         <div className="App">
           <InputBar/>
         </div>
-        :<h1>Auth first</h1> //redirect to login
-       }
+    
 
       </Route> 
           

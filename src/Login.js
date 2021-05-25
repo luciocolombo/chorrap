@@ -17,13 +17,18 @@ function Login() {
 
     function loginNow(res){
         localStorage.setItem("state", "logged");
+        localStorage.setItem("user", email);
         console.log(res)
         history.push("/")
         //aca mandar a la ventana principal
     }
+    function goRegister(){
+        history.push("/register")
+    }
     return (
         <div>
             <Container className="mt-5">
+                
             <Form>
                 <h2>Login</h2>
                 <Form.Group controlId="formBasicEmail">
@@ -39,6 +44,7 @@ function Login() {
                     Login
                 </Button>
             </Form>
+            <Button className="btn-secondary" onClick={goRegister}>Register instead</Button>
             </Container>
 
         </div>
