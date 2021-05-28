@@ -37,11 +37,12 @@ function Register() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={onClick} >
+                <Button variant="btn btn-primary w-25" type="submit" onClick={onClick} >
                     Register
                 </Button>
+                <Button variant="outline-secondary ml-3" onClick={goLogin}>Login instead</Button>
             </Form>
-            <Button className="btn-secondary" onClick={goLogin}>Login instead</Button>
+            
             </Container>
 
         </div>

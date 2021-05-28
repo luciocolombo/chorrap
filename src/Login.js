@@ -22,13 +22,18 @@ function Login() {
         history.push("/")
         //aca mandar a la ventana principal
     }
+    
+  /*   function alreadyLogged(){
+        
+    }
+    alreadyLogged() */
+
     function goRegister(){
         history.push("/register")
     }
     return (
         <div>
-            <Container className="mt-5">
-                
+            <Container className="mt-5 background login">
             <Form>
                 <h2>Login</h2>
                 <Form.Group controlId="formBasicEmail">
@@ -40,11 +45,14 @@ function Login() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={onClick}>
+                <div>
+                <Button variant="btn btn-primary w-25" type="submit" onClick={onClick}>
                     Login
                 </Button>
+                <Button variant="outline-secondary ml-2" onClick={goRegister}>Register instead</Button>
+                </div>
             </Form>
-            <Button className="btn-secondary" onClick={goRegister}>Register instead</Button>
+            
             </Container>
 
         </div>

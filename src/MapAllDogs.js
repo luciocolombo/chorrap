@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import axios from "axios"
 import CustomMarker from "./CustomMarker"
-import {Link} from "react-router-dom"
-import {Button} from 'react-bootstrap'
 
+import UserBar from './UserBar'
 
 function MapAllDogs() {
     
@@ -25,9 +24,10 @@ function MapAllDogs() {
 
     return (
         <div>      
-            <div className="text-center my-5">
+            <UserBar seeAllDogs="disabled"/>
+           {/*  <div className="text-center my-5">
                 <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir perro perdido</Button></Link></h2>
-            </div>   
+            </div>    */}
             <MapContainer className="mapcontainer" center={position} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

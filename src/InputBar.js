@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Form, Button, Modal} from 'react-bootstrap'
 import Map from './Map'
 import axios from 'axios'
-import {Link} from "react-router-dom"
+
 import { useHistory } from "react-router-dom"
 import UserBar from './UserBar'
 function InputBar() {
@@ -62,13 +62,12 @@ function InputBar() {
    /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
     return (
         <div>
-            <UserBar/>
+        <UserBar uploadDog="disabled"/>
+        <div className="container bg-white border shadow mt-2 p-5 overflow-hidden">
+            
             <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
             <h2>Completa los datos para comunicarlo a la comunidad. No olvides marcar la posición en el mapa</h2>
          
-            <div>
-                <h2>Querés ver los perros perdidos? <Link to="/all"><Button className="btn-warning" >Ver todos los perros</Button></Link></h2>
-            </div>
             <Form>
                 {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
                 <Form.Group controlId="formBasicEmailRaza">
@@ -93,8 +92,9 @@ function InputBar() {
                    {/*  <Form.File id="file" name="file" label="Imagen de perrito" onChange={(e)=>handleFile(e)}/> */}
                     <input type="file" name="file"  onChange={(e)=>handleFile(e)}/>
                 </Form.Group>
-                <Button onClick={handleShow}> Send to DB
-                </Button>                
+                <h2 className="my-4">Ubique la ubicación de perro encontrado</h2>
+                <Map setPosition={setPosition}/* showDraggable={draggableVisibility} *//>
+                <Button className="my-5 w-100" onClick={handleShow}> Send to DB</Button>                
                 <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
                                 <Modal.Title>Sending dog...</Modal.Title>
@@ -111,12 +111,12 @@ function InputBar() {
                 </Modal>
                {/*  <Button className="btn btn-info ml-3 mb-1" onClick={()=>{toggleDraggableVisibility(!draggableVisibility)}}>Toggle draggable marker visibility (and show all lost dogs)</Button> */}
             </Form>
-            <Map setPosition={setPosition}/* showDraggable={draggableVisibility} *//>
+            
             
                     
            
         </div>
-        
+        </div>
     )
 }
 
