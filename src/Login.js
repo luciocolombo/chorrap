@@ -12,12 +12,13 @@ function Login() {
     function onClick(e){
        e.preventDefault()
         axios.post('http://localhost:4000/login',{email:email,password:password})
-        .then((res)=>res.data.logged==="yes"?loginNow(res):alert("acceso incorrecto"))
+        .then((res)=>res!==''?loginNow(res):alert("acceso incorrecto")) //la comprobacion es solo que exista respuesta... mejorar
     }
 
     function loginNow(res){
         localStorage.setItem("state", "logged");
         localStorage.setItem("user", email);
+        localStorage.setItem("userid",res.data.userId)
         console.log(res)
         history.push("/")
         //aca mandar a la ventana principal

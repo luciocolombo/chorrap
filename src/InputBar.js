@@ -42,7 +42,8 @@ function InputBar() {
 
         
             const url=await axios.post('http://localhost:4000/senddogphoto',formData).then((res)=>res.data.url)
-            let dog={position, email,blackColor,whiteColor,brownColor,blondeColor,redColor, url}
+            let userid=localStorage.getItem("userid")
+            let dog={userid, position, email,blackColor,whiteColor,brownColor,blondeColor,redColor, url}
             setDogState(dog)
             console.log("Google Cloud URL de imagen:", url)
                       

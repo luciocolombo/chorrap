@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom"
 
 function UserBar({uploadDog, seeAllDogs}) {
     let history = useHistory();
+
     function onClick(){
         localStorage.clear();
         document.cookie = `user=${localStorage.getItem("user")}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
@@ -21,7 +22,7 @@ function UserBar({uploadDog, seeAllDogs}) {
     return (
         <div className="d-flex justify-content-between mt-3">
             <div>
-            <p className="text-right align-middle mt-2">Logged as <span class="badge badge-light">{localStorage.getItem("user")?localStorage.getItem("user"):"n/a"}</span></p>
+            <p className="text-right align-middle mt-2">Logged as <span className="badge badge-light">{localStorage.getItem("user")?localStorage.getItem("user"):"n/a"}</span></p>
             </div>
             <div>
             <Button className="bg-white bhover" variant="outline-secondary" onClick={onClick}>Log off</Button>

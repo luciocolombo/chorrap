@@ -13,7 +13,7 @@ import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom"; */
  
 function App() {
 
-let user=localStorage.getItem('user')?localStorage.getItem('user'):'nodata'
+
 return(
    
     <Router>
@@ -36,7 +36,7 @@ return(
       </Route>
       
       <Route path="/reported" exact>
-        <Reported user={user}/>
+        <Reported />
       </Route>
     </Router>
 
