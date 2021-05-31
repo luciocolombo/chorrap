@@ -2,12 +2,15 @@ import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import UserBar from './UserBar';
 import { Button, Table } from 'react-bootstrap';
+import DeleteBtn from './DeleteBtn';
 function Reported() {
   const [imageArray, setImageArray] = useState([]);
   const [colorArray, setColorArray] = useState([]);
   const [positionArray, setPositionArray] = useState([]);
   const [emailsArray, setEmailsArray] = useState([]);
   const [reportedDogs, setReportedDogs] = useState({});
+  const [dogIdArray, setDogId] = useState([]);
+
   function retrieveData() {
     let userid = localStorage.getItem('userid')
       ? localStorage.getItem('userid')
@@ -23,11 +26,12 @@ function Reported() {
     let positionArray = [];
     let imageArray = [];
     let colorArray = [''];
+    let dogIdArray = [];
     for (let x = 0; x < amountDogs; x++) {
       emailsArray = [...emailsArray, reportedDogs[x].email];
       positionArray = [...positionArray, reportedDogs[x].position];
       imageArray = [...imageArray, reportedDogs[x].url];
-
+      dogIdArray = [...dogIdArray, reportedDogs[x]._id];
       if (reportedDogs[x].blackColor) {
         colorArray[x] = colorArray[x] ? colorArray[x] + ' Negro ' : 'Negro';
       }
@@ -50,11 +54,9 @@ function Reported() {
     setPositionArray(positionArray);
     setImageArray(imageArray);
     setColorArray(colorArray);
-    /*   const deleteItem=()=>{
-
-    } */
-    console.log('paso por define arrays', emailsArray, colorArray);
+    setDogId(dogIdArray);
   }
+
   useEffect(retrieveData, []);
   return (
     <div>
@@ -89,9 +91,7 @@ function Reported() {
                       {JSON.stringify(Object.values(positionArray)[x])}
                     </td>
                     <td>
-                      <Button variant="danger" /* onClick={deleteItem} */>
-                        <i className="far fa-times-circle"></i>
-                      </Button>
+                      <DeleteBtn dogId={dogIdArray[x]} />
                     </td>
                   </tr>
                 );
