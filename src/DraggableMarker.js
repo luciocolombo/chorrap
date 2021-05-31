@@ -23,30 +23,25 @@ function DraggableMarker({ savePosition }) {
     setDraggable((d) => !d);
   }, []);
 
-   useState((
-          savePosition(position)
-          ),[DraggableMarker])
-  
-  }
+  useState(savePosition(position), [DraggableMarker]);
+
   return (
-    
-      <div>
-        <Marker
-          draggable={draggable}
-          eventHandlers={eventHandlers}
-          position={position}
-          ref={markerRef}
-        >
-          <Popup minWidth={90}>
-            <span onClick={toggleDraggable}>
-              {draggable
-                ? 'Marker is draggable'
-                : 'Click here to make marker draggable'}
-            </span>
-          </Popup>
-        </Marker>
-      </div>
-   
+    <div>
+      <Marker
+        draggable={draggable}
+        eventHandlers={eventHandlers}
+        position={position}
+        ref={markerRef}
+      >
+        <Popup minWidth={90}>
+          <span onClick={toggleDraggable}>
+            {draggable
+              ? 'Marker is draggable'
+              : 'Click here to make marker draggable'}
+          </span>
+        </Popup>
+      </Marker>
+    </div>
   );
 }
 export default DraggableMarker;
