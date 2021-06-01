@@ -1,45 +1,43 @@
-import React from 'react'
+import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route} from "react-router-dom"
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import InputBar from "./InputBar"
-import MapAllDogs from "./MapAllDogs"
-import Login from "./Login"
-import Register from "./Register"
-import Reported from './Reported'
+import InputBar from './InputBar';
+import DogFiltering from './DogFiltering';
+import Login from './Login';
+import Register from './Register';
+import Reported from './Reported';
+import LandingPage from './LandingPage';
 /* import { Tabs, Tab, Sonet } from 'react-bootstrap';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom"; */
- 
+
 function App() {
-
-
-return(
-   
+  return (
     <Router>
-      
       <Route path="/" exact>
-      <InputBar/>
-      
-      </Route> 
-          
+        <LandingPage />
+      </Route>
+      <Route path="/reportar" exact>
+        <InputBar />
+      </Route>
+
       <Route path="/all" exact>
-        <MapAllDogs />
+        <DogFiltering />
       </Route>
 
       <Route path="/login" exact>
-        <Login/>
+        <Login />
       </Route>
 
       <Route path="/register" exact>
-        <Register/>
+        <Register />
       </Route>
-      
+
       <Route path="/reported" exact>
         <Reported />
       </Route>
     </Router>
-
-)
+  );
 }
 export default App;

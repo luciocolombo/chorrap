@@ -83,6 +83,7 @@ function Reported() {
                     <td>{x}</td>
                     <td>{emailsArray[x]}</td>
                     <img
+                      alt="perro"
                       className="col d-flex align-items-center justify-content-center"
                       src={imageArray[x]}
                     />
