@@ -12,7 +12,11 @@ function Login() {
   function onClick(e) {
     e.preventDefault();
     axios
-      .post('http://localhost:4000/login', { email: email, password: password })
+      .get(
+        'http://localhost:4000/login',
+        { withCredentials: true },
+        { email: email, password: password }
+      )
       .then((res) => (res !== '' ? loginNow(res) : alert('acceso incorrecto'))); //la comprobacion es solo que exista respuesta... mejorar
   }
 
