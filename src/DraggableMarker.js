@@ -1,4 +1,10 @@
-import React, { useState, useRef, useMemo, useCallback } from 'react';
+import React, {
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+  useEffect,
+} from 'react';
 import { Marker, Popup } from 'react-leaflet';
 function DraggableMarker({ savePosition }) {
   const center = {
@@ -23,7 +29,9 @@ function DraggableMarker({ savePosition }) {
     setDraggable((d) => !d);
   }, []);
 
-  useState(savePosition(position), [DraggableMarker]);
+  useEffect(() => {
+    savePosition(position);
+  }, [DraggableMarker]);
 
   return (
     <div>

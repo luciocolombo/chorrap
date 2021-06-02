@@ -4,27 +4,29 @@ function LandingPage() {
   return (
     <div className="landingpage">
       <div className="d-flex justify-content-center border col-8">
-        <h1 class="text-light">Encuentra a tu mascota perdida en Rosario</h1>
+        <h1 className="text-light">
+          Encuentra a tu mascota perdida en Rosario
+        </h1>
 
         <div
-          class="btn-group mt-2 mb-4"
+          className="btn-group mt-2 mb-4"
           role="group"
           aria-label="actionButtons"
         >
           <div>
             <a
               href="http://localhost:3000/login"
-              class="d-block btn btn-outline-light"
+              className="d-block btn btn-outline-light"
             >
-              <i class="fas fa-paw"></i> Busca mascotas
+              <i className="fas fa-paw"></i> Busca mascotas
             </a>
           </div>
           <div>
             <a
               href="http://localhost:3000/login"
-              class="d-block btn btn-outline-light"
+              className="d-block btn btn-outline-light"
             >
-              <i class="fas fa-dog"></i> Reporta mascotas
+              <i className="fas fa-dog"></i> Reporta mascotas
             </a>
           </div>
         </div>
