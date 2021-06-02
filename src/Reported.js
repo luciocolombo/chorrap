@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import UserBar from './UserBar';
-import { Button, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import DeleteBtn from './DeleteBtn';
 function Reported() {
   const [imageArray, setImageArray] = useState([]);
@@ -17,9 +17,10 @@ function Reported() {
       : 'nodata';
     axios.get(`http://localhost:4000/reported/${userid}`).then((res) => {
       setReportedDogs(res.data.dogs);
-      setTimeout(() => defineArrays(), 3000);
     });
   }
+  useEffect(retrieveData, []);
+  useEffect(defineArrays, [reportedDogs]);
   function defineArrays() {
     let amountDogs = Object.keys(reportedDogs).length;
     let emailsArray = [];
@@ -57,13 +58,10 @@ function Reported() {
     setDogId(dogIdArray);
   }
 
-  useEffect(retrieveData, []);
   return (
     <div>
       <UserBar />
       <div className="container bg-white border shadow mt-4">
-        <Button onClick={retrieveData}>Retrieve data</Button>
-
         <Table striped bordered hover className="table table-responsive">
           <thead>
             <tr>
@@ -80,7 +78,7 @@ function Reported() {
               for (let x = 0; x < emailsArray.length; x++) {
                 renglones.push(
                   <tr>
-                    <td>{x}</td>
+                    <td key={x}>{x}</td>
                     <td>{emailsArray[x]}</td>
                     <img
                       alt="perro"

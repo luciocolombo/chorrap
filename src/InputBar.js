@@ -26,7 +26,7 @@ function InputBar() {
       ? history.push('/login')
       : console.log('');
   }
-  goLogin();
+  useEffect(goLogin, []);
 
   function handleFile(e) {
     setFile(e.target.files[0]);

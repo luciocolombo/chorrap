@@ -52,43 +52,45 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
                   info.data[index].blondeColor === blonde &&
                   info.data[index].brownColor === brown ? (
                   <CustomMarker
+                    key={'custommarker' + index}
                     position={[
                       info.data[index].position.lat,
                       info.data[index].position.lng,
                     ]} /*  hoverText={info.data[index].email}  */
                     popUpText={
-                      <ul>
+                      <ul key={'ul' + index}>
                         <img
+                          key={'img' + index}
                           className="imagenperro"
                           alt="perro"
                           src={info.data[index].url}
                         ></img>
 
-                        <li key={index}>
+                        <li key={'email' + index}>
                           Email: {JSON.stringify(info.data[index].email)}
                         </li>
                         {info.data[index].blackColor ? (
-                          <li key={index * 100}>Color: Negro</li>
+                          <li key={'negro' + index}>Color: Negro</li>
                         ) : (
                           ''
                         )}
                         {info.data[index].redColor ? (
-                          <li key={index * 200}>Color: Rojizo</li>
+                          <li key={'rojo' + index}>Color: Rojizo</li>
                         ) : (
                           ''
                         )}
                         {info.data[index].whiteColor ? (
-                          <li key={index * 300}>Color: Blanco</li>
+                          <li key={'blanco' + index}>Color: Blanco</li>
                         ) : (
                           ''
                         )}
                         {info.data[index].blondeColor ? (
-                          <li key={index * 400}>Color: Rubio</li>
+                          <li key={'rubio' + index}>Color: Rubio</li>
                         ) : (
                           ''
                         )}
                         {info.data[index].brownColor ? (
-                          <li key={index * 500}>Color: Marron</li>
+                          <li key={'marron' + index}>Color: Marron</li>
                         ) : (
                           ''
                         )}
@@ -96,7 +98,7 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
                     }
                   />
                 ) : (
-                  <p>No hay perros así</p>
+                  <p key={'p' + index}>No hay perros así</p>
                 );
               })
             : ''}

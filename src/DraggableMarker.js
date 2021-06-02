@@ -31,8 +31,12 @@ function DraggableMarker({ savePosition }) {
 
   useEffect(() => {
     savePosition(position);
-  }, [DraggableMarker]);
+  }, [position, savePosition]);
 
+  /*   useEffect(() => {
+    savePosition(position);
+  }, [DraggableMarker]);
+ */
   return (
     <div>
       <Marker
