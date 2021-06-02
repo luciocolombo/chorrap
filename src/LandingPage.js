@@ -30,6 +30,12 @@ function LandingPage() {
           </div>
         </div>
       </div>
+      <div>
+        <h2>
+          Esta aplicacion sin ánimos de lucro busca facilitar el proceso de
+          búsqueda de mascotas perdidas
+        </h2>
+      </div>
     </div>
   );
 }
