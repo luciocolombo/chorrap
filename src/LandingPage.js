@@ -22,7 +22,6 @@ function LandingPage() {
           <div>
             <a
               href="http://localhost:3000/login"
-              target="_blank"
               class="d-block btn btn-outline-light"
             >
               <i class="fas fa-dog"></i> Reporta mascotas
