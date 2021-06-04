@@ -92,4 +92,16 @@ body {
   margin-top: 10%;
   padding: 1%;
   height: 15%;
+  max-width: 600px !important;
+}
+/* .loginbtn {
+  width: 150px;
+} */
+@media (max-width: 450px) {
+  .navbarra {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 1%;
+  }
 }

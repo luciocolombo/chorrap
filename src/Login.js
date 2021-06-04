@@ -37,7 +37,7 @@ function Login() {
   }
   return (
     <div>
-      <Container className="loginregister background login container col-3 border shadow bg-white">
+      <Container className="loginregister background login container border shadow bg-white">
         <Form>
           <h2>Login</h2>
           <Form.Group controlId="formBasicEmail">
@@ -59,15 +59,15 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <div>
+          <div className="navbarra">
             <Button
-              variant="btn btn-primary w-25"
+              variant="btn btn-primary loginbtn mr-2"
               type="submit"
               onClick={onClick}
             >
               Login
             </Button>
-            <Button variant="outline-secondary ml-2" onClick={goRegister}>
+            <Button variant="outline-secondary " onClick={goRegister}>
               Register instead
             </Button>
           </div>

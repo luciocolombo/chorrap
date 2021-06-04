@@ -25,7 +25,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
     <div className="d-flex justify-content-between mt-3">
       <div>
         <p className="text-right align-middle mt-2">
-          Logeado como{' '}
+          Logeado como
           <span className="badge badge-light">
             {localStorage.getItem('user')
               ? localStorage.getItem('user')
@@ -33,7 +33,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
           </span>
         </p>
       </div>
-      <div>
+      <div className="container">
         <Button
           className="bg-white bhover"
           variant="outline-secondary"

@@ -73,18 +73,7 @@ function InputBar() {
       setDogState(dog);
       /*       console.log('Google Cloud URL de imagen:', url); */
     } else {
-      alert(
-        'Todos los campos requeridos deben ser completados' +
-          JSON.stringify({
-            position,
-            email,
-            blackColor,
-            whiteColor,
-            brownColor,
-            blondeColor,
-            redColor,
-          })
-      );
+      alert('Todos los campos requeridos deben ser completados');
     }
     handleClose();
   }
@@ -110,7 +99,7 @@ function InputBar() {
 
         <Form>
           {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
-          <Form.Group controlId="formBasicEmailRaza">
+          <Form.Group controlId="formBasicEmail">
             <Form.Label>Email de contacto</Form.Label>
             <Form.Control
               type="email"
@@ -120,7 +109,7 @@ function InputBar() {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicCheckbox">
+          <Form.Group controlId="colornegro">
             <h2>Seleccione hasta 3 colores de perro</h2>
             <Form.Check
               type="checkbox"
@@ -128,24 +117,32 @@ function InputBar() {
               value={blackColor}
               onChange={(e) => toggleBlackColor(e.target.checked)}
             />
+          </Form.Group>
+          <Form.Group controlId="colorblanco">
             <Form.Check
               type="checkbox"
               label="Blanco"
               value={whiteColor}
               onChange={(e) => toggleWhiteColor(e.target.checked)}
             />
+          </Form.Group>
+          <Form.Group controlId="colormarron">
             <Form.Check
               type="checkbox"
               label="Marron"
               value={brownColor}
               onChange={(e) => toggleBrownColor(e.target.checked)}
             />
+          </Form.Group>
+          <Form.Group controlId="colorrubio">
             <Form.Check
               type="checkbox"
               label="Rubio"
               value={blondeColor}
               onChange={(e) => toggleBlondeColor(e.target.checked)}
             />
+          </Form.Group>
+          <Form.Group controlId="colorcolorado">
             <Form.Check
               type="checkbox"
               label="Colorado"
@@ -167,7 +164,6 @@ function InputBar() {
           <h2 className="my-4">Ubique la ubicación de perro encontrado</h2>
           <Map setPosition={setPosition} />
           <Button className="my-5 w-100" onClick={handleShow}>
-            {' '}
             Send to DB
           </Button>
           <Modal show={show} onHide={handleClose}>

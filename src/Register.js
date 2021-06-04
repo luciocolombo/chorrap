@@ -58,14 +58,15 @@ function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
+          <div className="navbarra">
+            <Button variant="btn btn-primary loginbtn mr-2" type="submit">
+              Register
+            </Button>
 
-          <Button variant="btn btn-primary w-25" type="submit">
-            Register
-          </Button>
-
-          <Button variant="outline-secondary ml-3" onClick={goLogin}>
-            Login instead
-          </Button>
+            <Button variant="outline-secondary " onClick={goLogin}>
+              Login instead
+            </Button>
+          </div>
         </Form>
       </Container>
     </div>
