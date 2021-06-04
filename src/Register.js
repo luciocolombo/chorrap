@@ -10,10 +10,12 @@ function Register() {
 
   function Register() {
     alert('Usuario creado');
+    localStorage.setItem('state', 'logged');
     history.push('/reportar');
   }
   function onClick(e) {
     e.preventDefault();
+
     axios
       .post('http://localhost:4000/register', {
         email: email,
@@ -30,7 +32,7 @@ function Register() {
   }
   return (
     <div>
-      <Container className="mt-5">
+      <Container className="loginregister background login container col-3 border shadow bg-white">
         <Form>
           <h2>Register</h2>
           <Form.Group controlId="formBasicEmail">
@@ -52,13 +54,15 @@ function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
+
           <Button
+            onClick={onClick}
             variant="btn btn-primary w-25"
             type="submit"
-            onClick={onClick}
           >
             Register
           </Button>
+
           <Button variant="outline-secondary ml-3" onClick={goLogin}>
             Login instead
           </Button>

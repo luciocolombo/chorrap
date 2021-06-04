@@ -87,3 +87,9 @@ body {
     background-position: 0% 50%;
   }
 }
+
+.loginregister {
+  margin-top: 10%;
+  padding: 1%;
+  height: 15%;
+}

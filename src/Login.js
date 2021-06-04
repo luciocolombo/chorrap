@@ -48,7 +48,7 @@ function Login() {
   }
   return (
     <div>
-      <Container className="mt-5 background login">
+      <Container className="loginregister background login container col-3 border shadow bg-white">
         <Form>
           <h2>Login</h2>
           <Form.Group controlId="formBasicEmail">
