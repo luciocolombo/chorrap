@@ -12,10 +12,13 @@ function Reported() {
   const [dogIdArray, setDogId] = useState([]);
 
   function retrieveData() {
+    const instance = axios.create({
+      withCredentials: true,
+    });
     let userid = localStorage.getItem('userid')
       ? localStorage.getItem('userid')
       : 'nodata';
-    axios.get(`http://localhost:4000/reported/${userid}`).then((res) => {
+    instance.get(`http://localhost:4000/reported/${userid}`).then((res) => {
       setReportedDogs(res.data.dogs);
     });
   }

@@ -14,7 +14,12 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
     setIsLoading(false);
   }
   useEffect(() => {
-    axios.get('http://localhost:4000/dogs').then((res) => afterAxios({ res }));
+    const instance = axios.create({
+      withCredentials: true,
+    });
+    instance
+      .get('http://localhost:4000/dogs')
+      .then((res) => afterAxios({ res }));
   }, []);
 
   if (isLoading) {

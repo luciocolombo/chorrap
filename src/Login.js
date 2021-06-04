@@ -9,18 +9,27 @@ function Login() {
   /* const [access, setAccess]=useState(false); */
   let history = useHistory();
 
+  const instance = axios.create({
+    withCredentials: true,
+  });
+
   function onClick(e) {
     e.preventDefault();
-    axios
-      .get(
+    instance
+      .post('http://localhost:4000/login', { email: email, password: password })
+      .then((res) => (res !== '' ? loginNow(res) : alert('acceso incorrecto')));
+
+    /*  axios
+      .post(
         'http://localhost:4000/login',
-        { withCredentials: true },
+       
         { email: email, password: password }
       )
-      .then((res) => (res !== '' ? loginNow(res) : alert('acceso incorrecto'))); //la comprobacion es solo que exista respuesta... mejorar
+      .then((res) => (res !== '' ? loginNow(res) : alert('acceso incorrecto')));  */ //la comprobacion es solo que exista respuesta... mejorar
   }
 
   function loginNow(res) {
+    console.log(res);
     localStorage.setItem('state', 'logged');
     localStorage.setItem('user', email);
     localStorage.setItem('userid', res.data.userId);

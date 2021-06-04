@@ -3,7 +3,10 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 function DeleteBtn({ dogId }) {
   function deleteItem(dogId) {
-    axios
+    const instance = axios.create({
+      withCredentials: true,
+    });
+    instance
       .delete(`http://localhost:4000/deletedog/${dogId}`)
       .then((res) => console.log(res));
   }

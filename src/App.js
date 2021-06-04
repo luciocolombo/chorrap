@@ -35,7 +35,7 @@ function App() {
       </Route>
 
       <Route path="/reported" exact>
-        <Reported />
+        {document.cookies ? <Reported /> : <h3>Forbidden</h3>}
       </Route>
     </Router>
   );

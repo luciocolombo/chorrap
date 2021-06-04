@@ -41,7 +41,10 @@ function InputBar() {
       let formData = new FormData();
       formData.append('image', fileVar);
 
-      const url = await axios
+      const instance = axios.create({
+        withCredentials: true,
+      });
+      const url = await instance
         .post('http://localhost:4000/senddogphoto', formData)
         .then((res) => res.data.url);
       let userid = localStorage.getItem('userid');
@@ -76,7 +79,10 @@ function InputBar() {
   }
 
   useEffect(() => {
-    axios.post('http://localhost:4000/senddog', dogState).then((res) => {
+    const instance = axios.create({
+      withCredentials: true,
+    });
+    instance.post('http://localhost:4000/senddog', dogState).then((res) => {
       console.log('MongoDB data:', dogState, 'y la res', res);
     });
   }, [dogState]);
