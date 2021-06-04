@@ -23,7 +23,7 @@ function Reported() {
     });
   }
   useEffect(retrieveData, []);
-  useEffect(defineArrays, [reportedDogs]);
+  useEffect(() => (reportedDogs ? defineArrays : ''), [reportedDogs]);
   function defineArrays() {
     let amountDogs = Object.keys(reportedDogs).length;
     let emailsArray = [];
@@ -65,7 +65,7 @@ function Reported() {
     <div>
       <UserBar />
       <div className="container bg-white border shadow mt-4">
-        <Table striped bordered hover className="table table-responsive">
+        <Table striped bordered hover className="table table-responsive mt-3">
           <thead>
             <tr>
               <th>#</th>
@@ -102,6 +102,11 @@ function Reported() {
             })()}
           </tbody>
         </Table>
+        {reportedDogs ? (
+          ''
+        ) : (
+          <p>Reporta tu primer perro perdido y ayuda a la comunidad a crecer</p>
+        )}
       </div>
     </div>
   );

@@ -19,11 +19,19 @@ function App() {
         <LandingPage />
       </Route>
       <Route path="/reportar" exact>
-        <InputBar />
+        {localStorage.getItem('state', 'logged') ? (
+          <InputBar />
+        ) : (
+          <h3>Forbidden</h3>
+        )}
       </Route>
 
       <Route path="/all" exact>
-        <DogFiltering />
+        {localStorage.getItem('state', 'logged') ? (
+          <DogFiltering />
+        ) : (
+          <h3>Forbidden</h3>
+        )}
       </Route>
 
       <Route path="/login" exact>
@@ -35,7 +43,11 @@ function App() {
       </Route>
 
       <Route path="/reported" exact>
-        {document.cookies ? <Reported /> : <h3>Forbidden</h3>}
+        {localStorage.getItem('state', 'logged') ? (
+          <Reported />
+        ) : (
+          <h3>Forbidden</h3>
+        )}
       </Route>
     </Router>
   );

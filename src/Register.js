@@ -15,17 +15,21 @@ function Register() {
   }
   function onClick(e) {
     e.preventDefault();
-
-    axios
-      .post('http://localhost:4000/register', {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        res.data.message && res.data.message.includes('E11000 duplicate key')
-          ? alert('Ya registrado')
-          : Register();
-      });
+    if (email !== '' && (password !== '') & (password.length > 5)) {
+      axios
+        .post('http://localhost:4000/register', {
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          res.data.message && res.data.message.includes('E11000 duplicate key')
+            ? alert('Ya registrado')
+            : Register();
+        });
+    }
+    if (password.length < 5) {
+      alert('Su password debe tener al menos 5 caracteres');
+    }
   }
   function goLogin() {
     history.push('/login');
@@ -33,7 +37,7 @@ function Register() {
   return (
     <div>
       <Container className="loginregister background login container col-3 border shadow bg-white">
-        <Form>
+        <Form onSubmit={(e) => onClick(e)}>
           <h2>Register</h2>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -56,7 +60,7 @@ function Register() {
           </Form.Group>
 
           <Button
-            onClick={onClick}
+            /* onClick={onClick} */
             variant="btn btn-primary w-25"
             type="submit"
           >
