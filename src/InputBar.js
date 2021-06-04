@@ -9,7 +9,6 @@ function InputBar() {
   let history = useHistory();
   const [position, setPosition] = useState('');
   const [email, changeEmail] = useState('');
-  /* const [raza, changeRaza]=useState(""); */
   const [blackColor, toggleBlackColor] = useState(false);
   const [whiteColor, toggleWhiteColor] = useState(false);
   const [brownColor, toggleBrownColor] = useState(false);
@@ -26,11 +25,10 @@ function InputBar() {
       ? history.push('/login')
       : console.log('');
   }
-  useEffect(goLogin, []);
+  useEffect(goLogin, [history]); //aca agregue history por warning de react
 
   function handleFile(e) {
     setFile(e.target.files[0]);
-    /* console.log("EL FILE ES",file) */
   }
 
   const [dogState, setDogState] = useState({});
@@ -60,13 +58,13 @@ function InputBar() {
         url,
       };
       setDogState(dog);
-      console.log('Google Cloud URL de imagen:', url);
+      /*       console.log('Google Cloud URL de imagen:', url); */
     } else {
       alert(
         'Todos los campos requeridos deben ser completados' +
           JSON.stringify({
             position,
-            email /* ,raza */,
+            email,
             blackColor,
             whiteColor,
             brownColor,
@@ -87,7 +85,6 @@ function InputBar() {
     });
   }, [dogState]);
 
-  /*  const [draggableVisibility, toggleDraggableVisibility]=useState(false) */
   return (
     <div>
       <UserBar uploadDog="disabled" />
@@ -108,8 +105,6 @@ function InputBar() {
               value={email}
               onChange={(e) => changeEmail(e.target.value)}
             />
-            {/*  <Form.Label>Conoces la raza del perro?</Form.Label>
-                    <Form.Control type="String" placeholder="Introduzca raza si la conoce" value={raza} onChange={(e)=>changeRaza(e.target.value)}/> */}
           </Form.Group>
 
           <Form.Group controlId="formBasicCheckbox">
@@ -149,13 +144,10 @@ function InputBar() {
           {/* Agregar fecha */}
           <Form.Group>
             <h2>Subir imagen del perro</h2>
-            {/*  <Form.File id="file" name="file" label="Imagen de perrito" onChange={(e)=>handleFile(e)}/> */}
             <input type="file" name="file" onChange={(e) => handleFile(e)} />
           </Form.Group>
           <h2 className="my-4">Ubique la ubicación de perro encontrado</h2>
-          <Map
-            setPosition={setPosition} /* showDraggable={draggableVisibility} */
-          />
+          <Map setPosition={setPosition} />
           <Button className="my-5 w-100" onClick={handleShow}>
             {' '}
             Send to DB
@@ -178,7 +170,6 @@ function InputBar() {
               </Button>
             </Modal.Footer>
           </Modal>
-          {/*  <Button className="btn btn-info ml-3 mb-1" onClick={()=>{toggleDraggableVisibility(!draggableVisibility)}}>Toggle draggable marker visibility (and show all lost dogs)</Button> */}
         </Form>
       </div>
     </div>

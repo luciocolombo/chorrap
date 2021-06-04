@@ -59,11 +59,7 @@ function Register() {
             />
           </Form.Group>
 
-          <Button
-            /* onClick={onClick} */
-            variant="btn btn-primary w-25"
-            type="submit"
-          >
+          <Button variant="btn btn-primary w-25" type="submit">
             Register
           </Button>
 

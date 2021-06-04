@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  /* const [access, setAccess]=useState(false); */
+
   let history = useHistory();
 
   const instance = axios.create({
@@ -17,31 +17,20 @@ function Login() {
     e.preventDefault();
     instance
       .post('http://localhost:4000/login', { email: email, password: password })
-      .then((res) => (res !== '' ? loginNow(res) : alert('acceso incorrecto')));
-
-    /*  axios
-      .post(
-        'http://localhost:4000/login',
-       
-        { email: email, password: password }
-      )
-      .then((res) => (res !== '' ? loginNow(res) : alert('acceso incorrecto')));  */ //la comprobacion es solo que exista respuesta... mejorar
+      .then((res) =>
+        res.data.logged === 'incorrect login'
+          ? alert('Acceso incorrecto')
+          : loginNow(res)
+      );
   }
 
   function loginNow(res) {
-    console.log(res);
     localStorage.setItem('state', 'logged');
     localStorage.setItem('user', email);
     localStorage.setItem('userid', res.data.userId);
-    console.log(res);
+    /*   console.log(res); */
     history.push('/reportar');
-    //aca mandar a la ventana principal
   }
-
-  /*   function alreadyLogged(){
-        
-    }
-    alreadyLogged() */
 
   function goRegister() {
     history.push('/register');

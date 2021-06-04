@@ -8,9 +8,6 @@ import Login from './Login';
 import Register from './Register';
 import Reported from './Reported';
 import LandingPage from './LandingPage';
-/* import { Tabs, Tab, Sonet } from 'react-bootstrap';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom"; */
 
 function App() {
   return (
