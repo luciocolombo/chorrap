@@ -15,50 +15,52 @@ function Reported() {
     const instance = axios.create({
       withCredentials: true,
     });
-    let userid = localStorage.getItem('userid')
-      ? localStorage.getItem('userid')
-      : 'nodata';
+    let userid = localStorage.getItem('userid'); ///
     instance.get(`http://localhost:4000/reported/${userid}`).then((res) => {
       setReportedDogs(res.data.dogs);
     });
   }
   useEffect(retrieveData, []);
-  useEffect(() => (reportedDogs ? defineArrays : ''), [reportedDogs]);
+  useEffect(defineArrays, [reportedDogs]);
   function defineArrays() {
-    let amountDogs = Object.keys(reportedDogs).length;
-    let emailsArray = [];
-    let positionArray = [];
-    let imageArray = [];
-    let colorArray = [''];
-    let dogIdArray = [];
-    for (let x = 0; x < amountDogs; x++) {
-      emailsArray = [...emailsArray, reportedDogs[x].email];
-      positionArray = [...positionArray, reportedDogs[x].position];
-      imageArray = [...imageArray, reportedDogs[x].url];
-      dogIdArray = [...dogIdArray, reportedDogs[x]._id];
-      if (reportedDogs[x].blackColor) {
-        colorArray[x] = colorArray[x] ? colorArray[x] + ' Negro ' : 'Negro';
+    if (reportedDogs !== undefined) {
+      let amountDogs = Object.keys(reportedDogs).length;
+      let emailsArray = [];
+      let positionArray = [];
+      let imageArray = [];
+      let colorArray = [''];
+      let dogIdArray = [];
+      for (let x = 0; x < amountDogs; x++) {
+        emailsArray = [...emailsArray, reportedDogs[x].email];
+        positionArray = [...positionArray, reportedDogs[x].position];
+        imageArray = [...imageArray, reportedDogs[x].url];
+        dogIdArray = [...dogIdArray, reportedDogs[x]._id];
+        if (reportedDogs[x].blackColor) {
+          colorArray[x] = colorArray[x] ? colorArray[x] + ' Negro ' : 'Negro';
+        }
+        if (reportedDogs[x].whiteColor) {
+          colorArray[x] = colorArray[x] ? colorArray[x] + ' Blanco ' : 'Blanco';
+        }
+        if (reportedDogs[x].redColor) {
+          colorArray[x] = colorArray[x]
+            ? colorArray[x] + ' Colorado '
+            : 'Colorado';
+        }
+        if (reportedDogs[x].blondeColor) {
+          colorArray[x] = colorArray[x] ? colorArray[x] + ' Rubio ' : 'Rubio';
+        }
+        if (reportedDogs[x].brownColor) {
+          colorArray[x] = colorArray[x] ? colorArray[x] + ' Marrón ' : 'Marrón';
+        }
       }
-      if (reportedDogs[x].whiteColor) {
-        colorArray[x] = colorArray[x] ? colorArray[x] + ' Blanco ' : 'Blanco';
-      }
-      if (reportedDogs[x].redColor) {
-        colorArray[x] = colorArray[x]
-          ? colorArray[x] + ' Colorado '
-          : 'Colorado';
-      }
-      if (reportedDogs[x].blondeColor) {
-        colorArray[x] = colorArray[x] ? colorArray[x] + ' Rubio ' : 'Rubio';
-      }
-      if (reportedDogs[x].brownColor) {
-        colorArray[x] = colorArray[x] ? colorArray[x] + ' Marrón ' : 'Marrón';
-      }
+      setEmailsArray(emailsArray);
+      setPositionArray(positionArray);
+      setImageArray(imageArray);
+      setColorArray(colorArray);
+      setDogId(dogIdArray);
+    } else {
+      console.log('No hay perros registrados');
     }
-    setEmailsArray(emailsArray);
-    setPositionArray(positionArray);
-    setImageArray(imageArray);
-    setColorArray(colorArray);
-    setDogId(dogIdArray);
   }
 
   return (
