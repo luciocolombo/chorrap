@@ -3,6 +3,7 @@ import axios from 'axios';
 import UserBar from './UserBar';
 import { Table } from 'react-bootstrap';
 import DeleteBtn from './DeleteBtn';
+import Footer from './Footer';
 function Reported() {
   const [imageArray, setImageArray] = useState([]);
   const [colorArray, setColorArray] = useState([]);
@@ -114,6 +115,7 @@ function Reported() {
           <p>Reporta tu primer perro perdido y ayuda a la comunidad a crecer</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Modal, Alert } from 'react-bootstrap';
 import Map from './Map';
 import axios from 'axios';
+import Footer from './Footer';
 
 import { useHistory } from 'react-router-dom';
 import UserBar from './UserBar';
@@ -208,6 +209,7 @@ function InputBar() {
           </Modal>
         </Form>
       </div>
+      <Footer />
     </div>
   );
 }

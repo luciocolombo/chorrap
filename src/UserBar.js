@@ -12,15 +12,6 @@ function UserBar({ uploadDog, seeAllDogs }) {
     )}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     history.push('/login');
   }
-  function goAllDogs() {
-    history.push('/all');
-  }
-  function goNewDog() {
-    history.push('/reportar');
-  }
-  function goReported() {
-    history.push('/reported');
-  }
   return (
     <div className="sticky-top">
       {/* <div className="d-flex justify-content-between mt-3"> */}
@@ -58,33 +49,6 @@ function UserBar({ uploadDog, seeAllDogs }) {
           </div>
         </Nav>
       </Navbar>
-
-      {/*  
-      <div className="container">
-        <Button
-          className="bg-white bhover"
-          variant="outline-secondary"
-          onClick={goAllDogs}
-        >
-          Buscar perro perdido
-        </Button>
-
-        <Button
-          className="bg-white bhover"
-          variant="outline-secondary"
-          onClick={goNewDog}
-        >
-          Reportar perro
-        </Button>
-
-        <Button
-          className="bg-white bhover"
-          variant="outline-secondary"
-          onClick={goReported}
-        >
-          Mis perros reportados
-        </Button>
-      </div> */}
     </div>
   );
 }

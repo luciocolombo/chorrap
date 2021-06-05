@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-
+import Footer from './Footer';
 function Register() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -69,6 +69,7 @@ function Register() {
           </div>
         </Form>
       </Container>
+      <Footer />
     </div>
   );
 }

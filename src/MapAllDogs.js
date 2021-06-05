@@ -31,86 +31,87 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
   }
 
   return (
-    <div>
-      {/*  <div className="text-center my-5">
+    <div className="container-fluid">
+      <div>
+        {/*  <div className="text-center my-5">
                 <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir perro perdido</Button></Link></h2>
             </div>    */}
-      <div className="mb-5">
-        <div className="overflow-hidden">
-          <MapContainer
-            className="mapcontainer"
-            center={position}
-            zoom={13}
-            scrollWheelZoom={false}
-          >
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
+        <div className="mb-5">
+          <div className="overflow-hidden">
+            <MapContainer
+              className="mapcontainer"
+              center={position}
+              zoom={13}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
 
-            {/*   AQUI METO A TODOS LOS PERROS PERDIDOS */}
+              {/*   AQUI METO A TODOS LOS PERROS PERDIDOS */}
 
-            {info.data[0].position !== undefined
-              ? info.data.map((x, index) => {
-                  return info.data[index].redColor === red && //estas condiciones son las de filtro de perros en el mapa
-                    info.data[index].blackColor === black &&
-                    info.data[index].whiteColor === white &&
-                    info.data[index].blondeColor === blonde &&
-                    info.data[index].brownColor === brown ? (
-                    <CustomMarker
-                      key={'custommarker' + index}
-                      position={[
-                        info.data[index].position.lat,
-                        info.data[index].position.lng,
-                      ]} /*  hoverText={info.data[index].email}  */
-                      popUpText={
-                        <ul key={'ul' + index}>
-                          <img
-                            key={'img' + index}
-                            className="imagenperro"
-                            alt="perro"
-                            src={info.data[index].url}
-                          ></img>
+              {info.data[0].position !== undefined
+                ? info.data.map((x, index) => {
+                    return info.data[index].redColor === red && //estas condiciones son las de filtro de perros en el mapa
+                      info.data[index].blackColor === black &&
+                      info.data[index].whiteColor === white &&
+                      info.data[index].blondeColor === blonde &&
+                      info.data[index].brownColor === brown ? (
+                      <CustomMarker
+                        key={'custommarker' + index}
+                        position={[
+                          info.data[index].position.lat,
+                          info.data[index].position.lng,
+                        ]} /*  hoverText={info.data[index].email}  */
+                        popUpText={
+                          <ul key={'ul' + index}>
+                            <img
+                              key={'img' + index}
+                              className="imagenperro"
+                              alt="perro"
+                              src={info.data[index].url}
+                            ></img>
 
-                          <li key={'email' + index}>
-                            Email: {JSON.stringify(info.data[index].email)}
-                          </li>
-                          {info.data[index].blackColor ? (
-                            <li key={'negro' + index}>Color: Negro</li>
-                          ) : (
-                            ''
-                          )}
-                          {info.data[index].redColor ? (
-                            <li key={'rojo' + index}>Color: Rojizo</li>
-                          ) : (
-                            ''
-                          )}
-                          {info.data[index].whiteColor ? (
-                            <li key={'blanco' + index}>Color: Blanco</li>
-                          ) : (
-                            ''
-                          )}
-                          {info.data[index].blondeColor ? (
-                            <li key={'rubio' + index}>Color: Rubio</li>
-                          ) : (
-                            ''
-                          )}
-                          {info.data[index].brownColor ? (
-                            <li key={'marron' + index}>Color: Marron</li>
-                          ) : (
-                            ''
-                          )}
-                        </ul>
-                      }
-                    />
-                  ) : (
-                    <p key={'p' + index}>No hay perros así</p>
-                  );
-                })
-              : ''}
-          </MapContainer>
+                            <li key={'email' + index}>
+                              Email: {JSON.stringify(info.data[index].email)}
+                            </li>
+                            {info.data[index].blackColor ? (
+                              <li key={'negro' + index}>Color: Negro</li>
+                            ) : (
+                              ''
+                            )}
+                            {info.data[index].redColor ? (
+                              <li key={'rojo' + index}>Color: Rojizo</li>
+                            ) : (
+                              ''
+                            )}
+                            {info.data[index].whiteColor ? (
+                              <li key={'blanco' + index}>Color: Blanco</li>
+                            ) : (
+                              ''
+                            )}
+                            {info.data[index].blondeColor ? (
+                              <li key={'rubio' + index}>Color: Rubio</li>
+                            ) : (
+                              ''
+                            )}
+                            {info.data[index].brownColor ? (
+                              <li key={'marron' + index}>Color: Marron</li>
+                            ) : (
+                              ''
+                            )}
+                          </ul>
+                        }
+                      />
+                    ) : (
+                      <p key={'p' + index}>No hay perros así</p>
+                    );
+                  })
+                : ''}
+            </MapContainer>
 
-          {/*ACa van las cartas con los perros  {info.data.map((x, index) => {
+            {/*ACa van las cartas con los perros  {info.data.map((x, index) => {
             return info.data[index].redColor === red && //estas condiciones son las de filtro de perros en el mapa
               info.data[index].blackColor === black &&
               info.data[index].whiteColor === white &&
@@ -122,9 +123,10 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
               console.log('nanan')
             );
           })} */}
+          </div>
         </div>
+        {/* FILTRAR RESULTADOS DE MAPA */}
       </div>
-      {/* FILTRAR RESULTADOS DE MAPA */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import MapAllDogs from './MapAllDogs';
 import UserBar from './UserBar';
-
+import Footer from './Footer';
 function DogFiltering() {
   const [blackColor, toggleBlackColor] = useState(false);
   const [whiteColor, toggleWhiteColor] = useState(false);
@@ -58,6 +58,7 @@ function DogFiltering() {
           brown={brownColor}
         />
       </div>
+      <Footer />
     </div>
   );
 }
