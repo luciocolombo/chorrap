@@ -40,11 +40,11 @@ html {
 }
 
 .hh1 {
-  font-family: 'Open sans';
-
+  font-size: xx-large;
   color: black;
   text-align: center;
 }
+
 .imagenperro {
   width: 25vh;
 }
@@ -94,6 +94,10 @@ body {
   height: 15%;
   max-width: 600px !important;
 }
+
+h4 {
+  margin-top: 7% !important;
+}
 /* .loginbtn {
   width: 150px;
 } */
@@ -103,5 +107,15 @@ body {
     flex-direction: column;
     width: 100% !important;
     margin: 1%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hh1 {
+    font-size: xx-large;
+  }
+  .hh2 {
+    font-size: large;
+    font-weight: bold;
   }
 }

@@ -64,12 +64,13 @@ function Reported() {
   }
 
   return (
-    <div>
+    <div className="overflow-scroll">
       <UserBar />
       <div className="container bg-white border shadow mt-4">
         <Table striped bordered hover className="table table-responsive mt-3">
           <thead>
             <tr>
+              <th>Borrar</th>
               <th>#</th>
               <th>Email de contacto</th>
               <th>Imagen</th>
@@ -83,6 +84,9 @@ function Reported() {
               for (let x = 0; x < emailsArray.length; x++) {
                 renglones.push(
                   <tr>
+                    <td>
+                      <DeleteBtn dogId={dogIdArray[x]} />
+                    </td>
                     <td key={x}>{x}</td>
                     <td>{emailsArray[x]}</td>
                     <img
@@ -93,9 +97,6 @@ function Reported() {
                     <td>{colorArray[x]}</td>
                     <td className="text-wrap">
                       {JSON.stringify(Object.values(positionArray)[x])}
-                    </td>
-                    <td>
-                      <DeleteBtn dogId={dogIdArray[x]} />
                     </td>
                   </tr>
                 );

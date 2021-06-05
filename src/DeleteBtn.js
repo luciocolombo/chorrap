@@ -8,7 +8,7 @@ function DeleteBtn({ dogId }) {
     });
     instance
       .delete(`http://localhost:4000/deletedog/${dogId}`)
-      .then((res) => console.log(res));
+      .then((res) => window.location.reload());
   }
   return (
     <div>

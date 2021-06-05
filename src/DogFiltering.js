@@ -13,9 +13,11 @@ function DogFiltering() {
   return (
     <div>
       <UserBar seeAllDogs="disabled" />
-      <div className="container bg-white border shadow">
+      <div className="container bg-white border shadow pl-4 pt-3">
         <Form.Group controlId="formBasicCheckbox">
-          <h2>Seleccione colores de perro para filtrar (simultáneos)</h2>
+          <h4 className="mt-3">
+            Seleccione colores de perro para filtrar (simultáneos)
+          </h4>
           <Form.Check
             type="checkbox"
             label="Negro"

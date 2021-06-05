@@ -24,9 +24,18 @@ function UserBar({ uploadDog, seeAllDogs }) {
   return (
     <div className="d-flex justify-content-between mt-3">
       <div>
-        <p className="text-right align-middle mt-2">
-          Logeado como
-          <span className="badge badge-light">
+        <p className="text-right align-middle ">
+          <Button
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Log off"
+            className=" bhover"
+            variant="btn btn-danger"
+            onClick={onClick}
+          >
+            <i class="fa fa-power-off" aria-hidden="true"></i>
+          </Button>
+          <span className="badge badge-light ml-3 ">
             {localStorage.getItem('user')
               ? localStorage.getItem('user')
               : 'n/a'}
@@ -34,14 +43,6 @@ function UserBar({ uploadDog, seeAllDogs }) {
         </p>
       </div>
       <div className="container">
-        <Button
-          className="bg-white bhover"
-          variant="outline-secondary"
-          onClick={onClick}
-        >
-          Log off
-        </Button>
-
         <Button
           className="bg-white bhover"
           variant="outline-secondary"

@@ -57,7 +57,11 @@ function InputBar() {
       });
       const url = await instance
         .post('http://localhost:4000/senddogphoto', formData)
-        .then((res) => res.data.url);
+        .then((res) =>
+          res.status === 404 //NO ANDA. Y CAMBIAR 404 POR OTRO
+            ? console.log('No puede reportar mas de 30 perros')
+            : res.data.url
+        );
       let userid = localStorage.getItem('userid');
       let dog = {
         userid,
@@ -92,10 +96,10 @@ function InputBar() {
       <UserBar uploadDog="disabled" />
       <div className="container bg-white border shadow mt-2 p-5 overflow-hidden">
         <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
-        <h2>
+        <h4 className="hh2">
           Completa los datos para comunicarlo a la comunidad. No olvides marcar
           la posición en el mapa
-        </h2>
+        </h4>
 
         <Form>
           {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
@@ -110,7 +114,7 @@ function InputBar() {
           </Form.Group>
 
           <Form.Group controlId="colornegro">
-            <h2>Seleccione hasta 3 colores de perro</h2>
+            <h4 className="hh2">Seleccione hasta 3 colores de perro</h4>
             <Form.Check
               type="checkbox"
               label="Negro"
@@ -153,7 +157,7 @@ function InputBar() {
 
           {/* Agregar fecha */}
           <Form.Group>
-            <h2>Subir imagen del perro</h2>
+            <h4 className="hh2">Subir imagen del perro</h4>
             <input
               type="file"
               name="file"
@@ -161,8 +165,10 @@ function InputBar() {
               onChange={(e) => handleFile(e)}
             />
           </Form.Group>
-          <h2 className="my-4">Ubique la ubicación de perro encontrado</h2>
-          <Map setPosition={setPosition} />
+          <h4 className="my-4 hh2">Ubique la ubicación de perro encontrado</h4>
+          <div className="overflow-hidden">
+            <Map setPosition={setPosition} />
+          </div>
           <Button className="my-5 w-100" onClick={handleShow}>
             Send to DB
           </Button>
