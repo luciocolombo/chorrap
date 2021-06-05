@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Button, Modal, Alert } from 'react-bootstrap';
 import Map from './Map';
 import axios from 'axios';
 
@@ -16,6 +16,7 @@ function InputBar() {
   const [redColor, toggleRedColor] = useState(false);
 
   const [show, setShow] = useState(false);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [file, setFile] = useState({});
@@ -103,6 +104,11 @@ function InputBar() {
   return (
     <div>
       <UserBar uploadDog="disabled" />
+      <Alert key="2" variant="warning">
+        Creado sin fines de lucro. Ayuda a sostener el sitio online con una
+        donación. Mercadopago:colombolucio@hotmail.com
+      </Alert>
+
       <div className="container bg-white border shadow mt-2 p-5 overflow-hidden">
         <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
         <h4 className="hh2">

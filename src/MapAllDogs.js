@@ -109,6 +109,19 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
                 })
               : ''}
           </MapContainer>
+
+          {/*ACa van las cartas con los perros  {info.data.map((x, index) => {
+            return info.data[index].redColor === red && //estas condiciones son las de filtro de perros en el mapa
+              info.data[index].blackColor === black &&
+              info.data[index].whiteColor === white &&
+              info.data[index].blondeColor === blonde &&
+              info.data[index].brownColor === brown ? (
+              
+              <img src={info.data[index].url}></img>
+            ) : (
+              console.log('nanan')
+            );
+          })} */}
         </div>
       </div>
       {/* FILTRAR RESULTADOS DE MAPA */}

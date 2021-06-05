@@ -22,7 +22,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
     history.push('/reported');
   }
   return (
-    <div>
+    <div className="sticky-top">
       {/* <div className="d-flex justify-content-between mt-3"> */}
       <Navbar
         bg="light"
