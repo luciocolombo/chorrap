@@ -47,7 +47,16 @@ function InputBar() {
   const [dogState, setDogState] = useState({});
 
   async function sendToDb() {
-    if ((position !== '') & (email !== '') & (file !== {})) {
+    if (
+      (position !== '') &
+      (email !== '') &
+      (file !== {}) &
+      (blackColor !== false ||
+        whiteColor !== false ||
+        brownColor !== false ||
+        blondeColor !== false ||
+        redColor !== false)
+    ) {
       let fileVar = file;
       let formData = new FormData();
       formData.append('image', fileVar);
@@ -114,7 +123,8 @@ function InputBar() {
           </Form.Group>
 
           <Form.Group controlId="colornegro">
-            <h4 className="hh2">Seleccione hasta 3 colores de perro</h4>
+            <h4 className="hh2">Seleccione los colores del perro</h4>
+
             <Form.Check
               type="checkbox"
               label="Negro"
