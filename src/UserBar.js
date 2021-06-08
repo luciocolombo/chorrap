@@ -5,11 +5,20 @@ import { useHistory } from 'react-router-dom';
 function UserBar({ uploadDog, seeAllDogs }) {
   let history = useHistory();
 
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(';');
+
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf('=');
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    }
+  }
+
   function onClick() {
     localStorage.clear();
-    document.cookie = `user=${localStorage.getItem(
-      'user'
-    )}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    deleteAllCookies();
     history.push('/login');
   }
   return (
@@ -20,7 +29,6 @@ function UserBar({ uploadDog, seeAllDogs }) {
         variant="light"
         className="navbar sticky-top border shadow"
       >
-        {' '}
         {/*  NO SE VUIELVE STICKY TOP */}
         <Navbar.Brand href="#home" className="d-none d-sm-block">
           <i className="fas fa-paw"></i> Mascotas perdidas
@@ -44,7 +52,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
               variant="btn btn-danger"
               onClick={onClick}
             >
-              <i class="fa fa-power-off" aria-hidden="true"></i>
+              <i className="fa fa-power-off" aria-hidden="true"></i>
             </Button>
           </div>
         </Nav>

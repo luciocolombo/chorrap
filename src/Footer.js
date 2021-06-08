@@ -2,13 +2,13 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer backgroundColor="light" className="text-center text-lg-left">
+    <footer backgroundcolor="light" className="text-center text-lg-left">
       <div
         className="text-center p-3"
-        style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
+        style={{ backgroundcolor: 'rgba(0, 0, 0, 0.2)' }}
       >
         &copy; {new Date().getFullYear()} Copyright:{' '}
-        <a className="text-dark" href="https://mdbootstrap.com/">
+        <a className="text-dark" href="https://luciocolombodev.netlify.app/">
           Sitio desarrollado por Lucio Colombo
         </a>
       </div>

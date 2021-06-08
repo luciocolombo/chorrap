@@ -67,7 +67,10 @@ function InputBar() {
         withCredentials: true,
       });
       const url = await instance
-        .post('http://localhost:4000/senddogphoto', formData)
+        .post(
+          `http://localhost:4000/senddogphoto/${JSON.stringify(position)}`,
+          formData
+        )
         .then((res) =>
           res.status === 404 //NO ANDA. Y CAMBIAR 404 POR OTRO
             ? console.log('No puede reportar mas de 30 perros')

@@ -85,20 +85,20 @@ function Reported() {
               for (let x = 0; x < emailsArray.length; x++) {
                 renglones.push(
                   <tr>
-                    <td class="align-middle">
+                    <td className="align-middle">
                       <DeleteBtn dogId={dogIdArray[x]} />
                     </td>
-                    <td class="align-middle" key={x}>
+                    <td className="align-middle" key={x}>
                       {x}
                     </td>
-                    <td class="align-middle">{emailsArray[x]}</td>
+                    <td className="align-middle">{emailsArray[x]}</td>
                     <img
-                      class="align-middle"
+                      /*   className="align-middle" */
                       alt="perro"
                       className="col d-flex align-items-center justify-content-center"
                       src={imageArray[x]}
                     />
-                    <td class="align-middle">{colorArray[x]}</td>
+                    <td className="align-middle">{colorArray[x]}</td>
                     <td className="text-wrap align-middle">
                       {JSON.stringify(Object.values(positionArray)[x])}
                     </td>

@@ -15,13 +15,20 @@ function Login() {
 
   function onClick(e) {
     e.preventDefault();
-    instance
-      .post('http://localhost:4000/login', { email: email, password: password })
-      .then((res) =>
-        res.data.logged === 'incorrect login'
-          ? alert('Acceso incorrecto')
-          : loginNow(res)
-      );
+    if (email !== '' && password !== '') {
+      instance
+        .post('http://localhost:4000/login', {
+          email: email,
+          password: password,
+        })
+        .then((res) =>
+          res.data.logged === 'incorrect login'
+            ? alert('Acceso incorrecto')
+            : loginNow(res)
+        );
+    } else {
+      alert('Ingrese usuario y contraseña');
+    }
   }
 
   function loginNow(res) {
