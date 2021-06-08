@@ -17,10 +17,14 @@ function Login() {
     e.preventDefault();
     if (email !== '' && password !== '') {
       instance
-        .post('http://localhost:4000/login', {
-          email: email,
-          password: password,
-        })
+        .post(
+          'http://localhost:4000/login' ||
+            'https://mascotasperdidasapi.herokuapp.com/login',
+          {
+            email: email,
+            password: password,
+          }
+        )
         .then((res) =>
           res.data.logged === 'incorrect login'
             ? alert('Acceso incorrecto')
