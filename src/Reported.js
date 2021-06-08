@@ -17,9 +17,14 @@ function Reported() {
       withCredentials: true,
     });
     let userid = localStorage.getItem('userid'); ///
-    instance.get(`http://localhost:4000/reported/${userid}`).then((res) => {
-      setReportedDogs(res.data.dogs);
-    });
+    instance
+      .get(
+        `http://localhost:4000/reported/${userid}` ||
+          `https://mascotasperdidasapi.herokuapp.com/reported${userid}`
+      )
+      .then((res) => {
+        setReportedDogs(res.data.dogs);
+      });
   }
   useEffect(retrieveData, []);
   useEffect(defineArrays, [reportedDogs]);

@@ -68,7 +68,10 @@ function InputBar() {
       });
       const url = await instance
         .post(
-          `http://localhost:4000/senddogphoto/${JSON.stringify(position)}`,
+          `http://localhost:4000/senddogphoto/${JSON.stringify(position)}` ||
+            `https://mascotasperdidasapi.herokuapp.com/${JSON.stringify(
+              position
+            )}`,
           formData
         )
         .then((res) =>
@@ -100,9 +103,15 @@ function InputBar() {
     const instance = axios.create({
       withCredentials: true,
     });
-    instance.post('http://localhost:4000/senddog', dogState).then((res) => {
-      console.log('MongoDB data:', dogState, 'y la res', res);
-    });
+    instance
+      .post(
+        'http://localhost:4000/senddog' ||
+          'https://mascotasperdidasapi.herokuapp.com/senddog',
+        dogState
+      )
+      .then((res) => {
+        console.log('MongoDB data:', dogState, 'y la res', res);
+      });
   }, [dogState]);
 
   return (

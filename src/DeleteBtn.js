@@ -7,7 +7,10 @@ function DeleteBtn({ dogId }) {
       withCredentials: true,
     });
     instance
-      .delete(`http://localhost:4000/deletedog/${dogId}`)
+      .delete(
+        `http://localhost:4000/deletedog/${dogId}` ||
+          `https://mascotasperdidasapi.herokuapp.com/deletedog/${dogId}`
+      )
       .then((res) => window.location.reload());
   }
   return (
