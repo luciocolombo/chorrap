@@ -17,14 +17,10 @@ function Register() {
     e.preventDefault();
     if (email !== '' && (password !== '') & (password.length > 5)) {
       axios
-        .post(
-          'http://localhost:4000/register' ||
-            'https://mascotasperdidasapi.herokuapp.com/register',
-          {
-            email: email,
-            password: password,
-          }
-        )
+        .post('https://mascotasperdidasapi.herokuapp.com/register', {
+          email: email,
+          password: password,
+        })
         .then((res) => {
           res.data.message && res.data.message.includes('E11000 duplicate key')
             ? alert('Ya registrado')

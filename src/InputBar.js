@@ -68,10 +68,9 @@ function InputBar() {
       });
       const url = await instance
         .post(
-          `http://localhost:4000/senddogphoto/${JSON.stringify(position)}` ||
-            `https://mascotasperdidasapi.herokuapp.com/${JSON.stringify(
-              position
-            )}`,
+          `https://mascotasperdidasapi.herokuapp.com/${JSON.stringify(
+            position
+          )}`,
           formData
         )
         .then((res) =>
@@ -104,11 +103,7 @@ function InputBar() {
       withCredentials: true,
     });
     instance
-      .post(
-        'http://localhost:4000/senddog' ||
-          'https://mascotasperdidasapi.herokuapp.com/senddog',
-        dogState
-      )
+      .post('https://mascotasperdidasapi.herokuapp.com/senddog', dogState)
       .then((res) => {
         console.log('MongoDB data:', dogState, 'y la res', res);
       });
