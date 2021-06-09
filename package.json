@@ -1,6 +1,9 @@
 {
   "name": "chorrap2",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -29,13 +32,9 @@
       "react-app/jest"
     ]
   },
- 
-  "browserslist": 
-     [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ]
-  
-  
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
