@@ -8,11 +8,16 @@ function Register() {
   const [email, setEmail] = useState('');
   let history = useHistory();
 
-  function Register() {
+  async function Register(res) {
     alert('Usuario creado');
-    localStorage.setItem('state', 'logged');
+    await setEmail(res.data.email);
+    await localStorage.setItem('state', 'logged');
+    await localStorage.setItem('user', email);
+    await localStorage.setItem('userid', res.data.userId);
     history.push('/reportar');
+    /*   console.log(res); */
   }
+
   function onClick(e) {
     e.preventDefault();
     if (email !== '' && (password !== '') & (password.length > 5)) {
