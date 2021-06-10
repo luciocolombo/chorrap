@@ -29,7 +29,7 @@ function Register() {
         .then((res) => {
           res.data.message && res.data.message.includes('E11000 duplicate key')
             ? alert('Ya registrado')
-            : Register();
+            : Register(res);
         });
     }
     if (password.length < 5) {
