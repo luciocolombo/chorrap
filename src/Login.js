@@ -31,17 +31,11 @@ function Login() {
     }
   }
 
-  function loginNow(res) {
-    localStorage.setItem('state', 'logged');
-    localStorage.setItem('user', email);
-    localStorage.setItem('userid', res.data.userId);
-    if (
-      localStorage.getItem('state') === 'logged' &&
-      localStorage.getItem('user') === email &&
-      localStorage.getItem('userid') === res.data.userId
-    ) {
-      history.push('/reportar');
-    }
+  async function loginNow(res) {
+    await localStorage.setItem('state', 'logged');
+    await localStorage.setItem('user', email);
+    await localStorage.setItem('userid', res.data.userId);
+    history.push('/reportar');
     /*   console.log(res); */
   }
 

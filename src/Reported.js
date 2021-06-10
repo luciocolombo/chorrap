@@ -18,7 +18,7 @@ function Reported() {
     });
     let userid = localStorage.getItem('userid'); ///
     instance
-      .get(`https://mascotasperdidasapi.herokuapp.com/reported${userid}`)
+      .get(`https://mascotasperdidasapi.herokuapp.com/reported/${userid}`)
       .then((res) => {
         setReportedDogs(res.data.dogs);
       });
