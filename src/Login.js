@@ -35,8 +35,14 @@ function Login() {
     localStorage.setItem('state', 'logged');
     localStorage.setItem('user', email);
     localStorage.setItem('userid', res.data.userId);
+    if (
+      localStorage.setItem('state') === 'logged' &&
+      localStorage.setItem('user') === email &&
+      localStorage.setItem('userid') === res.data.userId
+    ) {
+      history.push('/reportar');
+    }
     /*   console.log(res); */
-    history.push('/reportar');
   }
 
   function goRegister() {
