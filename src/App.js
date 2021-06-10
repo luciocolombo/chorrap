@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputBar from './InputBar';
 import DogFiltering from './DogFiltering';
@@ -16,18 +16,18 @@ function App() {
         <LandingPage />
       </Route>
       <Route path="/reportar" exact>
-        {localStorage.getItem('state', 'logged') ? (
+        {localStorage.getItem('state') === 'logged' ? (
           <InputBar />
         ) : (
-          <h3>Forbidden</h3>
+          <Redirect to="/login" />
         )}
       </Route>
 
       <Route path="/all" exact>
-        {localStorage.getItem('state', 'logged') ? (
+        {localStorage.getItem('state') === 'logged' ? (
           <DogFiltering />
         ) : (
-          <h3>Forbidden</h3>
+          <Redirect to="/login" />
         )}
       </Route>
 
@@ -40,10 +40,10 @@ function App() {
       </Route>
 
       <Route path="/reported" exact>
-        {localStorage.getItem('state', 'logged') ? (
+        {localStorage.getItem('state') === 'logged' ? (
           <Reported />
         ) : (
-          <h3>Forbidden</h3>
+          <Redirect to="/login" />
         )}
       </Route>
     </Router>
