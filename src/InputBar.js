@@ -68,7 +68,7 @@ function InputBar() {
       });
       const url = await instance
         .post(
-          `https://mascotasperdidasapi.herokuapp.com/${JSON.stringify(
+          `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
             position
           )}`,
           formData
