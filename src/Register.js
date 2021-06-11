@@ -10,6 +10,7 @@ function Register() {
 
   function Register(res) {
     alert('Usuario creado');
+    console.log('LA RES DE REGISTER ES', res);
     setEmail(res.data.email);
     localStorage.setItem('state', 'logged');
     localStorage.setItem('user', email);
@@ -22,10 +23,13 @@ function Register() {
     e.preventDefault();
     if (email !== '' && (password !== '') & (password.length > 5)) {
       axios
-        .post('https://mascotasperdidasapi.herokuapp.com/register', {
-          email: email,
-          password: password,
-        })
+        .post(
+          /* 'https://mascotasperdidasapi.herokuapp.com/register' */ 'http://localhost:4000/register',
+          {
+            email: email,
+            password: password,
+          }
+        )
         .then((res) => {
           res.data.message && res.data.message.includes('E11000 duplicate key')
             ? alert('Ya registrado')
