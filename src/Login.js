@@ -17,7 +17,7 @@ function Login() {
     e.preventDefault();
     if (email !== '' && password !== '') {
       instance
-        .post('https://mascotasperdidasapi.herokuapp.com/login', {
+        .post(`https://mascotasperdidasapi.herokuapp.com/login`, {
           email: email,
           password: password,
         })
@@ -31,10 +31,10 @@ function Login() {
     }
   }
 
-  async function loginNow(res) {
-    await localStorage.setItem('state', 'logged');
-    await localStorage.setItem('user', email);
-    await localStorage.setItem('userid', res.data.userId);
+  function loginNow(res) {
+    localStorage.setItem('state', 'logged');
+    localStorage.setItem('user', email);
+    localStorage.setItem('userid', res.data.userId);
     history.push('/reportar');
     /*   console.log(res); */
   }

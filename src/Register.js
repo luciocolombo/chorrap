@@ -8,12 +8,12 @@ function Register() {
   const [email, setEmail] = useState('');
   let history = useHistory();
 
-  async function Register(res) {
+  function Register(res) {
     alert('Usuario creado');
-    await setEmail(res.data.email);
-    await localStorage.setItem('state', 'logged');
-    await localStorage.setItem('user', email);
-    await localStorage.setItem('userid', res.data.userId);
+    setEmail(res.data.email);
+    localStorage.setItem('state', 'logged');
+    localStorage.setItem('user', email);
+    localStorage.setItem('userid', res.data.userId);
     history.push('/reportar');
     /*   console.log(res); */
   }
