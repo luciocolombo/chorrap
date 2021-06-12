@@ -7,10 +7,13 @@ import Footer from './Footer';
 function Reported() {
   const [imageArray, setImageArray] = useState([]);
   const [colorArray, setColorArray] = useState([]);
-  const [positionArray, setPositionArray] = useState([]);
+  /*   const [positionArray, setPositionArray] = useState([]); */
   const [emailsArray, setEmailsArray] = useState([]);
   const [reportedDogs, setReportedDogs] = useState({});
   const [dogIdArray, setDogId] = useState([]);
+  const [sizeArray, setSizeArray] = useState([]);
+  const [sexArray, setSexArray] = useState([]);
+  const [stateArray, setStateArray] = useState([]);
 
   function retrieveData() {
     const instance = axios.create({
@@ -19,8 +22,8 @@ function Reported() {
     let userid = localStorage.getItem('userid'); ///
     instance
       .get(
-        /*   `https://mascotasperdidasapi.herokuapp.com/reported/${userid}` || */
-        `http://localhost:4000/reported/${userid}`
+        `https://mascotasperdidasapi.herokuapp.com/reported/${userid}`
+        /* `http://localhost:4000/reported/${userid}` */
       )
       .then((res) => {
         setReportedDogs(res.data.dogs);
@@ -36,11 +39,18 @@ function Reported() {
       let imageArray = [];
       let colorArray = [''];
       let dogIdArray = [];
+      let sizeArray = [];
+      let sexArray = [];
+      let stateArray = [];
+
       for (let x = 0; x < amountDogs; x++) {
         emailsArray = [...emailsArray, reportedDogs[x].email];
         positionArray = [...positionArray, reportedDogs[x].position];
         imageArray = [...imageArray, reportedDogs[x].url];
         dogIdArray = [...dogIdArray, reportedDogs[x]._id];
+        sizeArray = [...sizeArray, reportedDogs[x].size];
+        sexArray = [...sexArray, reportedDogs[x].sex];
+        stateArray = [...stateArray, reportedDogs[x].estado];
         if (reportedDogs[x].blackColor) {
           colorArray[x] = colorArray[x] ? colorArray[x] + ' Negro ' : 'Negro';
         }
@@ -60,10 +70,13 @@ function Reported() {
         }
       }
       setEmailsArray(emailsArray);
-      setPositionArray(positionArray);
+      /*  setPositionArray(positionArray); */
       setImageArray(imageArray);
       setColorArray(colorArray);
       setDogId(dogIdArray);
+      setSizeArray(sizeArray);
+      setSexArray(sexArray);
+      setStateArray(stateArray);
     } else {
       console.log('No hay perros registrados');
     }
@@ -107,6 +120,9 @@ function Reported() {
                       src={imageArray[x]}
                     />
                     <td className="align-middle">{colorArray[x]}</td>
+                    <td className="align-middle">{sizeArray[x]}</td>
+                    <td className="align-middle">{sexArray[x]}</td>
+                    <td className="align-middle">{stateArray[x]}</td>
                     {/* <td className="text-wrap align-middle">
                       {JSON.stringify(Object.values(positionArray)[x])}
                     </td> */}

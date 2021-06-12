@@ -72,9 +72,11 @@ function InputBar() {
       });
       const url = await instance
         .post(
-          /* https://mascotasperdidasapi.herokuapp.com/senddogphoto/ */ `http://localhost:4000/senddogphoto/${JSON.stringify(
+          `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
             position
-          )}`,
+          )}` /* `http://localhost:4000/senddogphoto/${JSON.stringify(
+            position )}` */,
+
           formData
         )
         .then((res) =>
@@ -111,7 +113,7 @@ function InputBar() {
     });
     instance
       .post(
-        /* 'https://mascotasperdidasapi.herokuapp.com/senddog' */ 'http://localhost:4000/senddog',
+        'https://mascotasperdidasapi.herokuapp.com/senddog' /* 'http://localhost:4000/senddog', */,
         dogState
       )
       .then((res) => {

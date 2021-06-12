@@ -19,7 +19,7 @@ function MapAllDogs({ black, white, blonde, red, brown, sex, size }) {
     });
     instance
       .get(
-        /* 'https://mascotasperdidasapi.herokuapp.com/dogs' */ 'http://localhost:4000/dogs'
+        'https://mascotasperdidasapi.herokuapp.com/dogs' /* 'http://localhost:4000/dogs' */
       )
       .then((res) => afterAxios({ res }));
   }, []);
