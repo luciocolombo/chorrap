@@ -11,7 +11,7 @@ function DogFiltering() {
   const [redColor, toggleRedColor] = useState(false);
   const [sex, setSex] = useState('?');
   const [size, setSize] = useState('');
-  const [estado, setEstado] = useState('');
+  /*   const [estado, setEstado] = useState(''); */
 
   return (
     <div>
@@ -105,7 +105,7 @@ function DogFiltering() {
                 onChange={() => setSize('Grande')}
               />
             </div>
-            <div className="col-4">
+            {/* <div className="col-4">
               <h6>Seleccione estado</h6>
               <Form.Check
                 type="radio"
@@ -128,7 +128,7 @@ function DogFiltering() {
                 name="Estado"
                 onChange={() => setEstado('Avistado')}
               />
-            </div>
+            </div> */}
           </div>
         </Form.Group>
         <MapAllDogs
@@ -139,7 +139,7 @@ function DogFiltering() {
           brown={brownColor}
           sex={sex}
           size={size}
-          estado={estado}
+          /*   estado={estado} */
         />
       </div>
       <Footer />
