@@ -18,7 +18,10 @@ function Reported() {
     });
     let userid = localStorage.getItem('userid'); ///
     instance
-      .get(`https://mascotasperdidasapi.herokuapp.com/reported/${userid}`)
+      .get(
+        /*   `https://mascotasperdidasapi.herokuapp.com/reported/${userid}` || */
+        `http://localhost:4000/reported/${userid}`
+      )
       .then((res) => {
         setReportedDogs(res.data.dogs);
       });
@@ -78,7 +81,10 @@ function Reported() {
               <th>Email de contacto</th>
               <th>Imagen</th>
               <th>Colores</th>
-              <th>Coordenadas</th>
+              <th>Tamaño</th>
+              <th>Sexo</th>
+              <th>Estado</th>
+              {/*  <th>Coordenadas</th> */}
             </tr>
           </thead>
           <tbody>
@@ -101,9 +107,9 @@ function Reported() {
                       src={imageArray[x]}
                     />
                     <td className="align-middle">{colorArray[x]}</td>
-                    <td className="text-wrap align-middle">
+                    {/* <td className="text-wrap align-middle">
                       {JSON.stringify(Object.values(positionArray)[x])}
-                    </td>
+                    </td> */}
                   </tr>
                 );
               }
