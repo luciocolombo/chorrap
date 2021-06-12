@@ -4,7 +4,7 @@ import axios from 'axios';
 import CustomMarker from './CustomMarker';
 import { Spinner } from 'react-bootstrap';
 
-function MapAllDogs({ black, white, blonde, red, brown, sex, size }) {
+function MapAllDogs({ black, white, blonde, red, brown, sex, size, estado }) {
   const position = [-32.959676, -60.661406];
   const [info, setInfo] = useState({ data: [] }); //incluye toda la info de perros
   const [isLoading, setIsLoading] = useState(true);
@@ -62,6 +62,7 @@ function MapAllDogs({ black, white, blonde, red, brown, sex, size }) {
                         info.data[index].blondeColor === blonde &&
                         info.data[index].brownColor === brown &&
                         info.data[index].size === size &&
+                        info.data[index].estado === estado &&
                         info.data[index].sex === sex) ||
                         (info.data[index].redColor === red &&
                           info.data[index].blackColor === black &&
@@ -69,6 +70,7 @@ function MapAllDogs({ black, white, blonde, red, brown, sex, size }) {
                           info.data[index].blondeColor === blonde &&
                           info.data[index].brownColor === brown &&
                           info.data[index].size === size &&
+                          info.data[index].estado === estado &&
                           info.data[index].sex === '?') ? ( //repeti todo lo mismo pero con condicion de sexo="?". No lo pude hacer en un bloque
                         <CustomMarker
                           key={'custommarker' + index}
