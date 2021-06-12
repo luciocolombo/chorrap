@@ -15,6 +15,9 @@ function InputBar() {
   const [brownColor, toggleBrownColor] = useState(false);
   const [blondeColor, toggleBlondeColor] = useState(false);
   const [redColor, toggleRedColor] = useState(false);
+  const [estado, setEstado] = useState('');
+  const [sex, setSex] = useState('?');
+  const [size, setSize] = useState('Mediano');
 
   const [show, setShow] = useState(false);
 
@@ -53,6 +56,7 @@ function InputBar() {
       (position !== '') &
       (email !== '') &
       (file !== {}) &
+      (estado !== '') &
       (blackColor !== false ||
         whiteColor !== false ||
         brownColor !== false ||
@@ -68,7 +72,7 @@ function InputBar() {
       });
       const url = await instance
         .post(
-          `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
+          /* https://mascotasperdidasapi.herokuapp.com/senddogphoto/ */ `http://localhost:4000/senddogphoto/${JSON.stringify(
             position
           )}`,
           formData
@@ -89,6 +93,9 @@ function InputBar() {
         blondeColor,
         redColor,
         url,
+        estado,
+        sex,
+        size,
       };
       setDogState(dog);
       /*       console.log('Google Cloud URL de imagen:', url); */
@@ -103,7 +110,10 @@ function InputBar() {
       withCredentials: true,
     });
     instance
-      .post('https://mascotasperdidasapi.herokuapp.com/senddog', dogState)
+      .post(
+        /* 'https://mascotasperdidasapi.herokuapp.com/senddog' */ 'http://localhost:4000/senddog',
+        dogState
+      )
       .then((res) => {
         console.log('MongoDB data:', dogState, 'y la res', res);
       });
@@ -117,14 +127,46 @@ function InputBar() {
         donación. Mercadopago:colombolucio@hotmail.com
       </Alert>
 
-      <div className="container bg-white border shadow mt-2 p-5 overflow-hidden">
-        <h1 className="hh1">Encontraste un perro perdido en Rosario?</h1>
+      <div className="container bg-white border shadow mt-1 p-5 overflow-hidden">
+        <h1 className="hh1">Reporta un perro perdido en Rosario</h1>
         <h4 className="hh2">
           Completa los datos para comunicarlo a la comunidad. No olvides marcar
           la posición en el mapa
         </h4>
 
         <Form>
+          <Form.Group controlId="estado" required>
+            <h4 className="hh2">
+              Perdiste un perro, lo recogiste o solo lo viste en la calle?
+            </h4>
+            <div key="default-radio3" className="mb-3">
+              <Form.Check
+                name="estado"
+                value="perdido"
+                type="radio"
+                id="perdido"
+                label="Perdi un perro"
+                onClick={() => setEstado('Perdido')}
+              />
+              <Form.Check
+                type="radio"
+                name="estado"
+                id="encontrado"
+                value="encontrado"
+                label="
+                Recogí un perro de la calle"
+                onClick={() => setEstado('Recogido')}
+              />
+              <Form.Check
+                name="estado"
+                type="radio"
+                id="avistado"
+                label="Avisté un perro en la calle (no lo recogí)"
+                value="avistado"
+                onClick={() => setEstado('Avistado en la calle')}
+              />
+            </div>
+          </Form.Group>
           {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email de contacto</Form.Label>
@@ -179,7 +221,67 @@ function InputBar() {
             />
           </Form.Group>
 
-          {/* Agregar fecha */}
+          <Form.Group controlId="sexo">
+            <h4 className="hh2">Ingrese el sexo si lo conoce</h4>
+            <div key="default-radio" className="mb-3">
+              <Form.Check
+                name="sex"
+                value="macho"
+                type="radio"
+                id="macho"
+                label="Macho"
+                onClick={() => setSex('Macho')}
+              />
+              <Form.Check
+                type="radio"
+                name="sex"
+                id="hembra"
+                value="hembra"
+                label="
+                Hembra"
+                onClick={() => setSex('Hembra')}
+              />
+              <Form.Check
+                name="sex"
+                type="radio"
+                id="?"
+                label="?"
+                value="?"
+                onClick={() => setSex('?')}
+              />
+            </div>
+          </Form.Group>
+
+          <Form.Group controlId="tamaño">
+            <h4 className="hh2">Ingrese el tamaño</h4>
+            <div key="default-radio2" className="mb-3">
+              <Form.Check
+                name="tamaño"
+                value="pequeño"
+                type="radio"
+                id="pequeño"
+                label="Pequeño"
+                onClick={() => setSize('Pequeño')}
+              />
+              <Form.Check
+                type="radio"
+                name="tamaño"
+                id="mediano"
+                value="mediano"
+                label="
+                Mediano"
+                onClick={() => setSize('Mediano')}
+              />
+              <Form.Check
+                name="tamaño"
+                type="radio"
+                id="grande"
+                label="Grande"
+                value="grande"
+                onClick={() => setSize('Grande')}
+              />
+            </div>
+          </Form.Group>
           <Form.Group>
             <h4 className="hh2">Subir imagen del perro</h4>
             <input

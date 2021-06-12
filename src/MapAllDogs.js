@@ -4,7 +4,7 @@ import axios from 'axios';
 import CustomMarker from './CustomMarker';
 import { Spinner } from 'react-bootstrap';
 
-function MapAllDogs({ black, white, blonde, red, brown }) {
+function MapAllDogs({ black, white, blonde, red, brown, sex, size }) {
   const position = [-32.959676, -60.661406];
   const [info, setInfo] = useState({ data: [] }); //incluye toda la info de perros
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +18,9 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
       withCredentials: true,
     });
     instance
-      .get('https://mascotasperdidasapi.herokuapp.com/dogs')
+      .get(
+        /* 'https://mascotasperdidasapi.herokuapp.com/dogs' */ 'http://localhost:4000/dogs'
+      )
       .then((res) => afterAxios({ res }));
   }, []);
 
@@ -54,11 +56,20 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
               {
                 /* (async () => await */ info.data[0].position /* ) */
                   ? info.data.map((x, index) => {
-                      return info.data[index].redColor === red &&
+                      return (info.data[index].redColor === red &&
                         info.data[index].blackColor === black &&
                         info.data[index].whiteColor === white &&
                         info.data[index].blondeColor === blonde &&
-                        info.data[index].brownColor === brown ? (
+                        info.data[index].brownColor === brown &&
+                        info.data[index].size === size &&
+                        info.data[index].sex === sex) ||
+                        (info.data[index].redColor === red &&
+                          info.data[index].blackColor === black &&
+                          info.data[index].whiteColor === white &&
+                          info.data[index].blondeColor === blonde &&
+                          info.data[index].brownColor === brown &&
+                          info.data[index].size === size &&
+                          info.data[index].sex === '?') ? ( //repeti todo lo mismo pero con condicion de sexo="?". No lo pude hacer en un bloque
                         <CustomMarker
                           key={'custommarker' + index}
                           position={[
@@ -73,9 +84,26 @@ function MapAllDogs({ black, white, blonde, red, brown }) {
                                 alt="perro"
                                 src={info.data[index].url}
                               ></img>
-
+                              <li key={'fecha' + index}>
+                                Fecha:{' '}
+                                {JSON.stringify(info.data[index].date).substr(
+                                  1,
+                                  10
+                                )}
+                              </li>
+                              <li key={'estado' + index}>
+                                Estado:
+                                {info.data[index].estado}
+                              </li>
+                              <li key={'sex' + index}>
+                                Sexo:
+                                {info.data[index].sex}
+                              </li>
                               <li key={'email' + index}>
-                                Email: {JSON.stringify(info.data[index].email)}
+                                Contacto: {info.data[index].email}
+                              </li>
+                              <li key={'size' + index}>
+                                Tamaño: {info.data[index].size}
                               </li>
                               {info.data[index].blackColor ? (
                                 <li key={'negro' + index}>Color: Negro</li>
