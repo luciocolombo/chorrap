@@ -11,6 +11,7 @@ function DogFiltering() {
   const [redColor, toggleRedColor] = useState(false);
   const [sex, setSex] = useState('?');
   const [size, setSize] = useState('');
+  /*   const [exactColors, setExactColors] = useState(false); */
   /*   const [estado, setEstado] = useState(''); */
 
   return (
@@ -21,11 +22,14 @@ function DogFiltering() {
         <Form.Group controlId="formBasicCheckbox">
           <div className="row">
             <div className="col-4 px-5">
-              <h6>
-                Colores (simultáneos).
-                <br></br>
-                <small>Ej: Negro significa solo negro</small>
-              </h6>
+              <h6>Colores </h6>
+              {/*  <Form.Check
+                type="checkbox"
+                label="Busqueda exacta?"
+                value={exactColors}
+                onChange={() => setExactColors(!exactColors)}
+              /> */}
+
               <Form.Check
                 type="checkbox"
                 label="Negro"
@@ -78,6 +82,7 @@ function DogFiltering() {
                 label="?"
                 value="?"
                 name="sex"
+                defaultChecked
                 onChange={() => setSex('?')}
               />
             </div>
@@ -88,6 +93,7 @@ function DogFiltering() {
                 label="Pequeño"
                 value="Pequeño"
                 name="size"
+                defaultChecked
                 onChange={() => setSize('Pequeño')}
               />
               <Form.Check
@@ -139,6 +145,7 @@ function DogFiltering() {
           brown={brownColor}
           sex={sex}
           size={size}
+          /*  exactColors={exactColors} */
           /*   estado={estado} */
         />
       </div>

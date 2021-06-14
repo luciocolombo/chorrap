@@ -1,29 +1,23 @@
 import { React, useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
+import axios from './services/api';
+
 function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
   let history = useHistory();
 
-  const instance = axios.create({
-    withCredentials: true,
-  });
-
   function onClick(e) {
     e.preventDefault();
     if (email !== '' && password !== '') {
-      instance
-        .post(
-          `https://mascotasperdidasapi.herokuapp.com/login` /* 'http://localhost:4000/login' */,
-          {
-            email: email,
-            password: password,
-          }
-        )
+      axios
+        .post('/login', {
+          email: email,
+          password: password,
+        })
         .then((res) =>
           res.data.logged === 'incorrect login'
             ? alert('Acceso incorrecto')

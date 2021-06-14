@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
-import axios from 'axios';
+import axios from './services/api';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
 function Register() {
@@ -23,7 +23,7 @@ function Register() {
     e.preventDefault();
     if (email !== '' && (password !== '') & (password.length > 5)) {
       axios
-        .post('https://mascotasperdidasapi.herokuapp.com/register', {
+        .post('/register', {
           email: email,
           password: password,
         })

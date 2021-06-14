@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Modal, Alert } from 'react-bootstrap';
 import Map from './Map';
-import axios from 'axios';
+import axios from './services/api';
 import Footer from './Footer';
 
 import { useHistory } from 'react-router-dom';
@@ -67,15 +67,17 @@ function InputBar() {
       let formData = new FormData();
       formData.append('image', fileVar);
 
-      const instance = axios.create({
+      /*  const instance = axios.create({
         withCredentials: true,
       });
       const url = await instance
         .post(
           `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
             position
-          )}` /* `http://localhost:4000/senddogphoto/${JSON.stringify(
-            position )}` */,
+          )}` */
+      const url = await axios
+        .post(
+          `/senddogphoto/${JSON.stringify(position)}`,
 
           formData
         )
@@ -108,14 +110,12 @@ function InputBar() {
   }
 
   useEffect(() => {
-    const instance = axios.create({
+    /* const instance = axios.create({
       withCredentials: true,
     });
-    instance
-      .post(
-        'https://mascotasperdidasapi.herokuapp.com/senddog' /* 'http://localhost:4000/senddog', */,
-        dogState
-      )
+    instance */
+    axios
+      .post('/senddog' /* 'http://localhost:4000/senddog', */, dogState)
       .then((res) => {
         console.log('MongoDB data:', dogState, 'y la res', res);
       });

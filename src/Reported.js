@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from './services/api';
 import UserBar from './UserBar';
 import { Table } from 'react-bootstrap';
 import DeleteBtn from './DeleteBtn';
@@ -16,13 +16,13 @@ function Reported() {
   const [stateArray, setStateArray] = useState([]);
 
   function retrieveData() {
-    const instance = axios.create({
+    /*     const instance = axios.create({
       withCredentials: true,
-    });
+    }); */
     let userid = localStorage.getItem('userid'); ///
-    instance
+    axios
       .get(
-        `https://mascotasperdidasapi.herokuapp.com/reported/${userid}`
+        `/reported/${userid}`
         /* `http://localhost:4000/reported/${userid}` */
       )
       .then((res) => {
@@ -51,7 +51,8 @@ function Reported() {
         sizeArray = [...sizeArray, reportedDogs[x].size];
         sexArray = [...sexArray, reportedDogs[x].sex];
         stateArray = [...stateArray, reportedDogs[x].estado];
-        if (reportedDogs[x].blackColor) {
+        colorArray[x] = reportedDogs[x].colors;
+        /*  if (reportedDogs[x].blackColor) {
           colorArray[x] = colorArray[x] ? colorArray[x] + ' Negro ' : 'Negro';
         }
         if (reportedDogs[x].whiteColor) {
@@ -67,7 +68,7 @@ function Reported() {
         }
         if (reportedDogs[x].brownColor) {
           colorArray[x] = colorArray[x] ? colorArray[x] + ' Marrón ' : 'Marrón';
-        }
+        } */
       }
       setEmailsArray(emailsArray);
       /*  setPositionArray(positionArray); */

@@ -9,27 +9,25 @@ import Register from './Register';
 import Reported from './Reported';
 import LandingPage from './LandingPage';
 
+function AuthRoute(MyComponent) {
+  console.log('Render de la ruta');
+  const state = localStorage.getItem('state');
+  if (state === 'logged') {
+    return <MyComponent />;
+  }
+  return <Redirect to="/login" />;
+}
+
 function App() {
+  console.log('Render del router');
+  //
   return (
     <Router>
       <Route path="/" exact>
         <LandingPage />
       </Route>
-      <Route path="/reportar" exact>
-        {localStorage.getItem('state') === 'logged' ? (
-          <InputBar />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
-
-      <Route path="/all" exact>
-        {localStorage.getItem('state') === 'logged' ? (
-          <DogFiltering />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
+      <Route exact path="/reportar" render={() => AuthRoute(InputBar)} />
+      <Route path="/all" exact render={() => AuthRoute(DogFiltering)} />
 
       <Route path="/login" exact>
         <Login />
@@ -38,14 +36,7 @@ function App() {
       <Route path="/register" exact>
         <Register />
       </Route>
-
-      <Route path="/reported" exact>
-        {localStorage.getItem('state') === 'logged' ? (
-          <Reported />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
+      <Route path="/reported" exact render={() => AuthRoute(Reported)} />
     </Router>
   );
 }
