@@ -9,7 +9,7 @@ import UserBar from './UserBar';
 function InputBar() {
   let history = useHistory();
   const [position, setPosition] = useState('');
-  const [email, changeEmail] = useState('');
+  const [email, changeEmail] = useState(localStorage.getItem('user'));
   const [blackColor, toggleBlackColor] = useState(false);
   const [whiteColor, toggleWhiteColor] = useState(false);
   const [brownColor, toggleBrownColor] = useState(false);
@@ -107,6 +107,7 @@ function InputBar() {
       alert('Todos los campos requeridos deben ser completados');
     }
     handleClose();
+    history.push('/reported');
   }
 
   useEffect(() => {
@@ -301,7 +302,7 @@ function InputBar() {
             <Map setPosition={setPosition} />
           </div>
           <Button className="my-5 w-100" onClick={handleShow}>
-            Send to DB
+            Report dog
           </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -309,7 +310,7 @@ function InputBar() {
             </Modal.Header>
 
             <Modal.Body>
-              <p>Send dog to DB?</p>
+              <p>Report dog?</p>
             </Modal.Body>
 
             <Modal.Footer>
@@ -317,7 +318,7 @@ function InputBar() {
                 Close
               </Button>
               <Button variant="primary" type="submit" onClick={sendToDb}>
-                Save to DB
+                Report dog
               </Button>
             </Modal.Footer>
           </Modal>
