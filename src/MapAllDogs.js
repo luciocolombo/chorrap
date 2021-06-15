@@ -127,9 +127,9 @@ function MapAllDogs({
                             Tamaño: {info.data[index].size}
                           </li>
 
-                          <li key={'colors' + index + Math.random()}>
+                          {/*  <li key={'colors' + index + Math.random()}>
                             {info.data[index].colors}
-                          </li>
+                          </li> */}
                         </ul>
                       }
                     />
