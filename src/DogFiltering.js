@@ -10,7 +10,7 @@ function DogFiltering() {
   const [blondeColor, toggleBlondeColor] = useState(false);
   const [redColor, toggleRedColor] = useState(false);
   const [sex, setSex] = useState('?');
-  const [size, setSize] = useState('');
+  const [size, setSize] = useState('Mediano');
   /*   const [exactColors, setExactColors] = useState(false); */
   /*   const [estado, setEstado] = useState(''); */
 
@@ -93,7 +93,6 @@ function DogFiltering() {
                 label="Pequeño"
                 value="Pequeño"
                 name="size"
-                defaultChecked
                 onChange={() => setSize('Pequeño')}
               />
               <Form.Check
@@ -101,6 +100,7 @@ function DogFiltering() {
                 label="Mediano"
                 value="Mediano"
                 name="size"
+                defaultChecked
                 onChange={() => setSize('Mediano')}
               />
               <Form.Check

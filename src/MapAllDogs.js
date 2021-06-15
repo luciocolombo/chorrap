@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import axios from './services/api';
 import CustomMarker from './CustomMarker';
@@ -16,7 +16,7 @@ function MapAllDogs({
 }) {
   const position = [-32.959676, -60.661406];
   const [info, setInfo] = useState({ data: [] }); //incluye toda la info de perros
-  const [isLoading, setIsLoading] = useState(true); //CAMBIAR A TRUE PRO DEFECTO
+  const [isLoading, setIsLoading] = useState(true);
 
   function afterAxios({ res }) {
     setInfo(res);
@@ -25,10 +25,29 @@ function MapAllDogs({
 
   /* useEffect(() => axios.get('/dogs').then((res) => afterAxios({ res })), []); */ //SIN ESTO SE ROMPE, PERO BUSCA TODOS LOS PERROS. EL QUERY ES CON LO DE ABAJO
   function clickSearch() {
-    let colors = [black, white, blonde, red, brown];
+    let colors = [];
+    if (black) {
+      colors.push('black');
+    }
+    if (white) {
+      colors.push('white');
+    }
+    if (red) {
+      colors.push('red');
+    }
+    if (brown) {
+      colors.push('brown');
+    }
+    if (blonde) {
+      colors.push('blonde');
+    }
+    console.log(colors);
     axios
-      .get('/dogs/search', { colors, size, sex })
-      .then((res) => afterAxios({ res })); //aca es donde cambie dogs por dog/search para q la query la haga el backend
+      .get(`/dogs/search?colors=${colors}&size=${size}&sex=${sex}`)
+      /*  .then((res) => ; */ //aca es donde cambie dogs por dog/search para q la query la haga el backend
+      .then((res) =>
+        res.data[0] ? afterAxios({ res }) : alert('Sin resultados')
+      );
   }
 
   if (isLoading) {
@@ -38,9 +57,9 @@ function MapAllDogs({
           {' '}
           BUSCAR
         </Button>
-        <Spinner className="mt-5 mb-2" animation="border" role="status">
+        {/* <Spinner className="mt-5 mb-2" animation="border" role="status">
           <span className="sr-only">Loading...</span>
-        </Spinner>
+        </Spinner> */}
       </div>
     );
   }
@@ -54,6 +73,7 @@ function MapAllDogs({
         <div className="mb-5">
           <div className="overflow-hidden">
             <Button onClick={() => clickSearch()}> BUSCAR</Button>
+
             <MapContainer
               className="mapcontainer"
               center={position}
