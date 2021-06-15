@@ -23,42 +23,41 @@ function DogFiltering() {
           <div className="row">
             <div className="col-4 px-5">
               <h6>Colores </h6>
-              {/*  <Form.Check
-                type="checkbox"
-                label="Busqueda exacta?"
-                value={exactColors}
-                onChange={() => setExactColors(!exactColors)}
-              /> */}
 
               <Form.Check
                 type="checkbox"
                 label="Negro"
                 value={blackColor}
                 onChange={(e) => toggleBlackColor(e.target.checked)}
+                id="Negro"
               />
               <Form.Check
                 type="checkbox"
                 label="Blanco"
                 value={whiteColor}
                 onChange={(e) => toggleWhiteColor(e.target.checked)}
+                id="Blanco"
               />
               <Form.Check
                 type="checkbox"
                 label="Marron"
                 value={brownColor}
                 onChange={(e) => toggleBrownColor(e.target.checked)}
+                id="Marron"
               />
               <Form.Check
                 type="checkbox"
                 label="Rubio"
                 value={blondeColor}
                 onChange={(e) => toggleBlondeColor(e.target.checked)}
+                id="Rubio"
               />
               <Form.Check
                 type="checkbox"
                 label="Colorado"
                 value={redColor}
                 onChange={(e) => toggleRedColor(e.target.checked)}
+                id="Colorado"
               />
             </div>
             <div className="col-4">
@@ -69,6 +68,7 @@ function DogFiltering() {
                 value="macho"
                 name="sex"
                 onChange={() => setSex('Macho')}
+                id="Macho"
               />
               <Form.Check
                 type="radio"
@@ -76,6 +76,7 @@ function DogFiltering() {
                 value="hembra"
                 name="sex"
                 onChange={() => setSex('Hembra')}
+                id="Hembra"
               />
               <Form.Check
                 type="radio"
@@ -84,6 +85,7 @@ function DogFiltering() {
                 name="sex"
                 defaultChecked
                 onChange={() => setSex('?')}
+                id="?"
               />
             </div>
             <div className="col-4">
@@ -94,6 +96,7 @@ function DogFiltering() {
                 value="Pequeño"
                 name="size"
                 onChange={() => setSize('Pequeño')}
+                id="Pequeño"
               />
               <Form.Check
                 type="radio"
@@ -102,6 +105,7 @@ function DogFiltering() {
                 name="size"
                 defaultChecked
                 onChange={() => setSize('Mediano')}
+                id="Mediano"
               />
               <Form.Check
                 type="radio"
@@ -109,32 +113,9 @@ function DogFiltering() {
                 value="Grande"
                 name="size"
                 onChange={() => setSize('Grande')}
+                id="Grande"
               />
             </div>
-            {/* <div className="col-4">
-              <h6>Seleccione estado</h6>
-              <Form.Check
-                type="radio"
-                label="Perdido"
-                value="Perdido"
-                name="Estado"
-                onChange={() => setEstado('Perdido')}
-              />
-              <Form.Check
-                type="radio"
-                label="Recogido"
-                value="Recogido"
-                name="Estado"
-                onChange={() => setEstado('Recogido')}
-              />
-              <Form.Check
-                type="radio"
-                label="Avistado (no recogido)"
-                value="Avistado"
-                name="Estado"
-                onChange={() => setEstado('Avistado')}
-              />
-            </div> */}
           </div>
         </Form.Group>
         <MapAllDogs
@@ -145,8 +126,6 @@ function DogFiltering() {
           brown={brownColor}
           sex={sex}
           size={size}
-          /*  exactColors={exactColors} */
-          /*   estado={estado} */
         />
       </div>
       <Footer />

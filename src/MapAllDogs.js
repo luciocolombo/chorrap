@@ -41,13 +41,16 @@ function MapAllDogs({
     if (blonde) {
       colors.push('blonde');
     }
-    console.log(colors);
-    axios
-      .get(`/dogs/search?colors=${colors}&size=${size}&sex=${sex}`)
-      /*  .then((res) => ; */ //aca es donde cambie dogs por dog/search para q la query la haga el backend
-      .then((res) =>
-        res.data[0] ? afterAxios({ res }) : alert('Sin resultados')
-      );
+    if (colors.length !== 0) {
+      axios
+        .get(`/dogs/search?colors=${colors}&size=${size}&sex=${sex}`)
+        /*  .then((res) => ; */ //aca es donde cambie dogs por dog/search para q la query la haga el backend
+        .then((res) =>
+          res.data[0] ? afterAxios({ res }) : alert('Sin resultados')
+        );
+    } else {
+      alert('Elija algun color para la busqueda');
+    }
   }
 
   if (isLoading) {

@@ -10,7 +10,7 @@ import Reported from './Reported';
 import LandingPage from './LandingPage';
 
 function AuthRoute(MyComponent) {
-  console.log('Render de la ruta');
+  /*   console.log('Render de la ruta'); */
   const state = localStorage.getItem('state');
   if (state === 'logged') {
     return <MyComponent />;
@@ -19,7 +19,7 @@ function AuthRoute(MyComponent) {
 }
 
 function App() {
-  console.log('Render del router');
+  /*   console.log('Render del router'); */
   //
   return (
     <Router>

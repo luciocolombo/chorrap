@@ -6,7 +6,7 @@ import DeleteBtn from './DeleteBtn';
 import Footer from './Footer';
 function Reported() {
   const [imageArray, setImageArray] = useState([]);
-  const [colorArray, setColorArray] = useState([]);
+  /*   const [colorArray, setColorArray] = useState([]); */
   /*   const [positionArray, setPositionArray] = useState([]); */
   const [emailsArray, setEmailsArray] = useState([]);
   const [reportedDogs, setReportedDogs] = useState({});
@@ -73,7 +73,7 @@ function Reported() {
       setEmailsArray(emailsArray);
       /*  setPositionArray(positionArray); */
       setImageArray(imageArray);
-      setColorArray(colorArray);
+      /*  setColorArray(colorArray); */
       setDogId(dogIdArray);
       setSizeArray(sizeArray);
       setSexArray(sexArray);
@@ -94,7 +94,7 @@ function Reported() {
               <th>#</th>
               <th>Email de contacto</th>
               <th>Imagen</th>
-              <th>Colores</th>
+              {/* <th>Colores</th> */}
               <th>Tamaño</th>
               <th>Sexo</th>
               <th>Estado</th>
@@ -106,27 +106,36 @@ function Reported() {
               let renglones = [];
               for (let x = 0; x < emailsArray.length; x++) {
                 renglones.push(
-                  <tr>
-                    <td className="align-middle">
+                  <tr key={x + 5555555}>
+                    <td className="align-middle" key={dogIdArray[x] + x}>
                       <DeleteBtn dogId={dogIdArray[x]} />
                     </td>
                     <td className="align-middle" key={x}>
                       {x}
                     </td>
-                    <td className="align-middle">{emailsArray[x]}</td>
-                    <img
-                      /*   className="align-middle" */
-                      alt="perro"
-                      className="col d-flex align-items-center justify-content-center"
-                      src={imageArray[x]}
-                    />
-                    <td className="align-middle">{colorArray[x]}</td>
-                    <td className="align-middle">{sizeArray[x]}</td>
-                    <td className="align-middle">{sexArray[x]}</td>
-                    <td className="align-middle">{stateArray[x]}</td>
-                    {/* <td className="text-wrap align-middle">
-                      {JSON.stringify(Object.values(positionArray)[x])}
+                    <td className="align-middle" key={emailsArray[x] + x}>
+                      {emailsArray[x]}
+                    </td>
+                    <td>
+                      <img
+                        key={x + 50000}
+                        alt="perro"
+                        className="col d-flex align-items-center justify-content-center"
+                        src={imageArray[x]}
+                      />
+                    </td>
+                    {/*  <td className="align-middle" key={colorArray[x] + x}>
+                      {colorArray[x]}
                     </td> */}
+                    <td className="align-middle" key={sizeArray[x] + x}>
+                      {sizeArray[x]}
+                    </td>
+                    <td className="align-middle" key={sexArray[x] + x}>
+                      {sexArray[x]}
+                    </td>
+                    <td className="align-middle" key={stateArray[x] + x}>
+                      {stateArray[x]}
+                    </td>
                   </tr>
                 );
               }

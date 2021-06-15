@@ -18,7 +18,8 @@ function InputBar() {
   const [estado, setEstado] = useState('');
   const [sex, setSex] = useState('?');
   const [size, setSize] = useState('Mediano');
-
+  const [dogState, setDogState] = useState({});
+  const [firstRender, setFirstRender] = useState(true);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -33,7 +34,6 @@ function InputBar() {
   useEffect(goLogin, [history]); //aca agregue history por warning de react
 
   function handleFile(e) {
-    console.log(e);
     if (
       (e.target.files &&
         e.target.files[0].size < 5 * 1024 * 1024 &&
@@ -48,8 +48,6 @@ function InputBar() {
       );
     }
   }
-
-  const [dogState, setDogState] = useState({});
 
   async function sendToDb() {
     if (
@@ -101,7 +99,9 @@ function InputBar() {
         sex,
         size,
       };
+      setFirstRender(false);
       setDogState(dog);
+
       /*       console.log('Google Cloud URL de imagen:', url); */
     } else {
       alert('Todos los campos requeridos deben ser completados');
@@ -114,12 +114,15 @@ function InputBar() {
       withCredentials: true,
     });
     instance */
-    axios
-      .post('/senddog' /* 'http://localhost:4000/senddog', */, dogState)
-      .then((res) => {
-        console.log('MongoDB data:', dogState, 'y la res', res);
-      });
-  }, [dogState]);
+    if (firstRender) {
+    } else {
+      axios
+        .post('/senddog' /* 'http://localhost:4000/senddog', */, dogState)
+        .then((res) => {
+          console.log('MongoDB data:', dogState, 'y la res', res);
+        });
+    }
+  }, [dogState, firstRender]);
 
   return (
     <div>
