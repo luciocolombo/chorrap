@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import axios from './services/api';
 import CustomMarker from './CustomMarker';
-import { Spinner, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function MapAllDogs({
   black,
