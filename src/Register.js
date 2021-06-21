@@ -21,7 +21,7 @@ function Register() {
 
   function onClick(e) {
     e.preventDefault();
-    if (email !== '' && (password !== '') & (password.length > 5)) {
+    if (email !== '' && (password !== '') & (password.length >= 5)) {
       axios
         .post('/register', {
           email: email,
