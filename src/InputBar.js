@@ -302,23 +302,23 @@ function InputBar() {
             <Map setPosition={setPosition} />
           </div>
           <Button className="my-5 w-100" onClick={handleShow}>
-            Report dog
+            Reportar perro
           </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Sending dog...</Modal.Title>
+              <Modal.Title>Enviando perro...</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
-              <p>Report dog?</p>
+              <p> Reportar perro</p>
             </Modal.Body>
 
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                Cerrar
               </Button>
               <Button variant="primary" type="submit" onClick={sendToDb}>
-                Report dog
+                Reportar perro
               </Button>
             </Modal.Footer>
           </Modal>
