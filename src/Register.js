@@ -1,11 +1,12 @@
 import { React, useState } from 'react';
-import { Button, Form, Container } from 'react-bootstrap';
+import { Button, Form, Container, Spinner } from 'react-bootstrap';
 import axios from './services/api';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
 function Register() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [waiting, setWaiting] = useState(false);
   let history = useHistory();
 
   function Register(res) {
@@ -19,10 +20,11 @@ function Register() {
     /*   console.log(res); */
   }
 
-  function onClick(e) {
+  async function onClick(e) {
     e.preventDefault();
     if (email !== '' && (password !== '') & (password.length >= 5)) {
-      axios
+      setWaiting(true)
+      await axios
         .post('/register', {
           email: email,
           password: password,
@@ -32,6 +34,7 @@ function Register() {
             ? alert('Ya registrado')
             : Register(res);
         });
+        setWaiting(false)
     }
     if (password.length < 5) {
       alert('Su password debe tener al menos 5 caracteres');
@@ -68,10 +71,16 @@ function Register() {
             <Button variant="btn btn-primary loginbtn mr-2" type="submit">
               Register
             </Button>
+            
 
             <Button variant="outline-secondary " onClick={goLogin}>
               Login instead
             </Button>
+            {waiting?
+            <div className="p-3"><Spinner animation="border" role="status">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+            </div>:''}
           </div>
         </Form>
       </Container>

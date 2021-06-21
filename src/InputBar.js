@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Modal, Alert } from 'react-bootstrap';
+import { Form, Button, Modal, Alert, Spinner } from 'react-bootstrap';
 import Map from './Map';
 import axios from './services/api';
 import Footer from './Footer';
@@ -21,6 +21,7 @@ function InputBar() {
   const [dogState, setDogState] = useState({});
   const [firstRender, setFirstRender] = useState(true);
   const [show, setShow] = useState(false);
+  const [waiting, setWaiting] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -61,6 +62,7 @@ function InputBar() {
         blondeColor !== false ||
         redColor !== false)
     ) {
+      setWaiting(true)
       let fileVar = file;
       let formData = new FormData();
       formData.append('image', fileVar);
@@ -101,10 +103,13 @@ function InputBar() {
       };
       setFirstRender(false);
       setDogState(dog);
+      
 
       /*       console.log('Google Cloud URL de imagen:', url); */
     } else {
       alert('Todos los campos requeridos deben ser completados');
+      handleClose();
+      return
     }
     handleClose();
     history.push('/reported');
@@ -121,6 +126,7 @@ function InputBar() {
         .post('/senddog' /* 'http://localhost:4000/senddog', */, dogState)
         .then((res) => {
           console.log('MongoDB data:', dogState, 'y la res', res);
+          setWaiting(false)
         });
     }
   }, [dogState, firstRender]);
@@ -320,7 +326,13 @@ function InputBar() {
               <Button variant="primary" type="submit" onClick={sendToDb}>
                 Reportar perro
               </Button>
+             
             </Modal.Footer>
+            {waiting?
+            <div className="p-3"><Spinner animation="border" role="status">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+            </div>:''}
           </Modal>
         </Form>
       </div>

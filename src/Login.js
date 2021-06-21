@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Button, Form, Container } from 'react-bootstrap';
+import { Button, Form, Container, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
 import axios from './services/api';
@@ -7,13 +7,14 @@ import axios from './services/api';
 function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
+  const [waiting, setWaiting] = useState(false);
   let history = useHistory();
 
-  function onClick(e) {
+  async function onClick(e) {
+    setWaiting(true)
     e.preventDefault();
     if (email !== '' && password !== '') {
-      axios
+     await  axios
         .post('/login', {
           email: email,
           password: password,
@@ -23,6 +24,7 @@ function Login() {
             ? alert('Acceso incorrecto')
             : loginNow(res)
         );
+        setWaiting(false)
     } else {
       alert('Ingrese usuario y contraseña');
     }
@@ -74,6 +76,11 @@ function Login() {
             <Button variant="outline-secondary " onClick={goRegister}>
               Register instead
             </Button>
+            {waiting?
+            <div className="p-3"><Spinner animation="border" role="status">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+            </div>:''}
           </div>
         </Form>
       </Container>
