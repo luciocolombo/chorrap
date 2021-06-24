@@ -27,6 +27,7 @@ function Login() {
       setWaiting(false);
     } else {
       alert('Ingrese usuario y contraseña');
+      setWaiting(false);
     }
   }
 
