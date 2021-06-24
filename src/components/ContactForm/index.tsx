@@ -1,14 +1,14 @@
-import { Row, Col } from "antd";
-import { withTranslation } from "react-i18next";
-import { Slide, Zoom } from "react-awesome-reveal";
-import { ContactProps, ValidationTypeProps } from "./types";
-import { useForm } from "../../common/utils/useForm";
-import validate from "../../common/utils/validationRules";
-import { Button } from "../../common/Button";
-import Block from "../Block";
-import Input from "../../common/Input";
-import TextArea from "../../common/TextArea";
-import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
+import { Row, Col } from 'antd';
+import { withTranslation } from 'react-i18next';
+import { Slide, Zoom } from 'react-awesome-reveal';
+import { ContactProps, ValidationTypeProps } from './types';
+import { useForm } from '../../common/utils/useForm';
+import validate from '../../common/utils/validationRules';
+import { Button } from '../../common/Button';
+import Block from '../Block';
+import Input from '../../common/Input';
+import TextArea from '../../common/TextArea';
+import { ContactContainer, FormGroup, Span, ButtonContainer } from './styles';
 
 const Contact = ({ title, content, id, t }: ContactProps) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
@@ -30,11 +30,16 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         <Col lg={12} md={11} sm={24} xs={24}>
           <Slide direction="left">
             <Block title={title} content={content} />
-           <p> <i className="far fa-envelope"></i> colombolucio@hotmail.com</p>
-            <p><i className="fab fa-github"></i> https://github.com/luciocolombo</p>
+            <p>
+              {' '}
+              <i className="far fa-envelope"></i> colombolucio@hotmail.com
+            </p>
+            <p>
+              <i className="fab fa-github"></i> https://github.com/luciocolombo
+            </p>
           </Slide>
         </Col>
-         {/*<Col lg={12} md={12} sm={24} xs={24}>
+        {/*<Col lg={12} md={12} sm={24} xs={24}>
           <Slide direction="right">
             
 
