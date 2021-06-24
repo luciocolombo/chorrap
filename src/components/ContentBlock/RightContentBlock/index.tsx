@@ -10,7 +10,7 @@ import {
   ContentWrapper,
   ButtonWrapper,
 } from './styles';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+/* import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'; */
 
 const RightBlock = ({
   title,
@@ -20,12 +20,12 @@ const RightBlock = ({
   t,
   id,
 }: ContentBlockProps) => {
-  const scrollTo = (id: string) => {
+  /* const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
     element.scrollIntoView({
       behavior: 'smooth',
     });
-  };
+  }; */
   return (
     <RightBlockContainer>
       <Fade direction="right">

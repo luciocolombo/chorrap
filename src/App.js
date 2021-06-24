@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react'; */
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,7 +7,7 @@ import DogFiltering from './DogFiltering';
 import Login from './Login';
 import Register from './Register';
 import Reported from './Reported';
-import LandingPage from './LandingPage';
+/* import LandingPage from './LandingPage'; */
 
 /* import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom'; */
