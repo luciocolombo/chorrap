@@ -44,7 +44,7 @@ function Register() {
     history.push('/login');
   }
   return (
-    <div>
+    <div className="loginfather">
       <Container className="loginregister background login container col-3 border shadow bg-white">
         <Form onSubmit={(e) => onClick(e)}>
           <h2>Registrarse</h2>

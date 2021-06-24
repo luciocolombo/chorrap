@@ -68,7 +68,7 @@ function MapAllDogs({
   }
 
   return (
-    <div className="container-fluid">
+    <div /*className= "container-fluid" */>
       <div>
         {/*  <div className="text-center my-5">
                 <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir perro perdido</Button></Link></h2>
