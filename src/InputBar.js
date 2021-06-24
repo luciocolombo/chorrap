@@ -35,18 +35,19 @@ function InputBar() {
   useEffect(goLogin, [history]); //aca agregue history por warning de react
 
   function handleFile(e) {
-    if (
-      (e.target.files &&
-        e.target.files[0].size < 5 * 1024 * 1024 &&
-        e.target.files[0].type === 'image/jpeg') ||
-      e.target.files[0].type === 'image/png' ||
-      e.target.files[0].type === 'image/jpg'
-    ) {
-      setFile(e.target.files[0]);
-    } else {
-      alert(
-        'El tamaño de imagen máximo admisible es 1MB y en formatos JPG y PNG'
-      );
+    if (e.target.files[0] !== undefined) {
+      if (
+        (e.target.files[0].size < 5 * 1024 * 1024 &&
+          e.target.files[0].type === 'image/jpeg') ||
+        e.target.files[0].type === 'image/png' ||
+        e.target.files[0].type === 'image/jpg'
+      ) {
+        setFile(e.target.files[0]);
+      } else {
+        alert(
+          'El tamaño de imagen máximo admisible es 1MB y en formatos JPG y PNG'
+        );
+      }
     }
   }
 
