@@ -62,7 +62,7 @@ function InputBar() {
         blondeColor !== false ||
         redColor !== false)
     ) {
-      setWaiting(true)
+      setWaiting(true);
       let fileVar = file;
       let formData = new FormData();
       formData.append('image', fileVar);
@@ -103,13 +103,12 @@ function InputBar() {
       };
       setFirstRender(false);
       setDogState(dog);
-      
 
       /*       console.log('Google Cloud URL de imagen:', url); */
     } else {
       alert('Todos los campos requeridos deben ser completados');
       handleClose();
-      return
+      return;
     }
     handleClose();
     history.push('/reported');
@@ -126,7 +125,7 @@ function InputBar() {
         .post('/senddog' /* 'http://localhost:4000/senddog', */, dogState)
         .then((res) => {
           console.log('MongoDB data:', dogState, 'y la res', res);
-          setWaiting(false)
+          setWaiting(false);
         });
     }
   }, [dogState, firstRender]);
@@ -142,8 +141,7 @@ function InputBar() {
       <div className="container bg-white border shadow mt-1 p-5 overflow-hidden">
         <h1 className="hh1">Reporta un perro perdido en Rosario</h1>
         <h4 className="hh2">
-          Completa los datos para comunicarlo a la comunidad. No olvides marcar
-          la posición en el mapa
+          Completa los datos para comunicarlo a la comunidad.
         </h4>
 
         <Form>
@@ -303,7 +301,9 @@ function InputBar() {
               onChange={(e) => handleFile(e)}
             />
           </Form.Group>
-          <h4 className="my-4 hh2">Ubique la ubicación de perro encontrado</h4>
+          <h4 className="my-4 hh2">
+            Ubique la ubicación de perro arrastrando el marcador en el mapa
+          </h4>
           <div className="overflow-hidden">
             <Map setPosition={setPosition} />
           </div>
@@ -326,13 +326,16 @@ function InputBar() {
               <Button variant="primary" type="submit" onClick={sendToDb}>
                 Reportar perro
               </Button>
-             
             </Modal.Footer>
-            {waiting?
-            <div className="p-3"><Spinner animation="border" role="status">
-              <span className="sr-only">Loading...</span>
-            </Spinner>
-            </div>:''}
+            {waiting ? (
+              <div className="p-3">
+                <Spinner animation="border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </Spinner>
+              </div>
+            ) : (
+              ''
+            )}
           </Modal>
         </Form>
       </div>

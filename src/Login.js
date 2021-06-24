@@ -11,10 +11,10 @@ function Login() {
   let history = useHistory();
 
   async function onClick(e) {
-    setWaiting(true)
+    setWaiting(true);
     e.preventDefault();
     if (email !== '' && password !== '') {
-     await  axios
+      await axios
         .post('/login', {
           email: email,
           password: password,
@@ -24,7 +24,7 @@ function Login() {
             ? alert('Acceso incorrecto')
             : loginNow(res)
         );
-        setWaiting(false)
+      setWaiting(false);
     } else {
       alert('Ingrese usuario y contraseña');
     }
@@ -45,12 +45,12 @@ function Login() {
     <div>
       <Container className="loginregister background login container border shadow bg-white">
         <Form>
-          <h2>Login</h2>
+          <h2>Ingresar</h2>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="Ingrese email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -71,16 +71,20 @@ function Login() {
               type="submit"
               onClick={onClick}
             >
-              Login
+              Ingresar
             </Button>
             <Button variant="outline-secondary " onClick={goRegister}>
-              Register instead
+              Registrarse
             </Button>
-            {waiting?
-            <div className="p-3"><Spinner animation="border" role="status">
-              <span className="sr-only">Loading...</span>
-            </Spinner>
-            </div>:''}
+            {waiting ? (
+              <div className="p-3">
+                <Spinner animation="border" role="status">
+                  <span className="sr-only">Cargando...</span>
+                </Spinner>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </Form>
       </Container>

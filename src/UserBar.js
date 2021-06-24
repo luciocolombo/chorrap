@@ -19,7 +19,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
   function onClick() {
     localStorage.clear();
     deleteAllCookies();
-    history.push('/login');
+    history.push('/');
   }
   return (
     <div className="sticky-top">

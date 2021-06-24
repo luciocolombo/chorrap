@@ -23,7 +23,7 @@ function Register() {
   async function onClick(e) {
     e.preventDefault();
     if (email !== '' && (password !== '') & (password.length >= 5)) {
-      setWaiting(true)
+      setWaiting(true);
       await axios
         .post('/register', {
           email: email,
@@ -34,7 +34,7 @@ function Register() {
             ? alert('Ya registrado')
             : Register(res);
         });
-        setWaiting(false)
+      setWaiting(false);
     }
     if (password.length < 5) {
       alert('Su password debe tener al menos 5 caracteres');
@@ -47,9 +47,9 @@ function Register() {
     <div>
       <Container className="loginregister background login container col-3 border shadow bg-white">
         <Form onSubmit={(e) => onClick(e)}>
-          <h2>Register</h2>
+          <h2>Registrarse</h2>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
@@ -69,18 +69,21 @@ function Register() {
           </Form.Group>
           <div className="navbarra">
             <Button variant="btn btn-primary loginbtn mr-2" type="submit">
-              Register
+              Registrarse
             </Button>
-            
 
             <Button variant="outline-secondary " onClick={goLogin}>
-              Login instead
+              Ingresar
             </Button>
-            {waiting?
-            <div className="p-3"><Spinner animation="border" role="status">
-              <span className="sr-only">Loading...</span>
-            </Spinner>
-            </div>:''}
+            {waiting ? (
+              <div className="p-3">
+                <Spinner animation="border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </Spinner>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </Form>
       </Container>

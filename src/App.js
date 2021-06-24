@@ -9,6 +9,14 @@ import Register from './Register';
 import Reported from './Reported';
 import LandingPage from './LandingPage';
 
+/* import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom'; */
+import { I18nextProvider } from 'react-i18next';
+import 'antd/dist/antd.css';
+
+import Routerr from './router';
+import i18n from './translation';
+
 function AuthRoute(MyComponent) {
   /*   console.log('Render de la ruta'); */
   const state = localStorage.getItem('state');
@@ -24,7 +32,10 @@ function App() {
   return (
     <Router>
       <Route path="/" exact>
-        <LandingPage />
+        {/*  <LandingPage /> */}
+        <I18nextProvider i18n={i18n}>
+          <Routerr />
+        </I18nextProvider>
       </Route>
       <Route exact path="/reportar" render={() => AuthRoute(InputBar)} />
       <Route path="/all" exact render={() => AuthRoute(DogFiltering)} />
@@ -41,3 +52,22 @@ function App() {
   );
 }
 export default App;
+
+/* import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom";
+import { I18nextProvider } from "react-i18next";
+import "antd/dist/antd.css";
+
+import Router from "./router";
+import i18n from "./translation";
+
+const App = () => (
+  <BrowserRouter>
+    <I18nextProvider i18n={i18n}>
+      <Router />
+    </I18nextProvider>
+  </BrowserRouter>
+);
+
+ReactDOM.render(<App />, document.getElementById("root"));
+ */

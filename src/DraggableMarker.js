@@ -44,7 +44,7 @@ function DraggableMarker({ savePosition }) {
         <Popup minWidth={90}>
           <span onClick={toggleDraggable}>
             {draggable
-              ? 'Marker is draggable'
+              ? 'Arrastre el marcador'
               : 'Click here to make marker draggable'}
           </span>
         </Popup>

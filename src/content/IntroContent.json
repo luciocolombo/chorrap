@@ -1,0 +1,13 @@
+{
+  "title": "Perdiste tu mascota? Enconstraste una en la calle?",
+  "text": "Mascotas perdidas une mascotas perdidas con sus dueños, totalmente gratis",
+  "button": [
+    {
+      "title": "Ingresar"
+    },
+    {
+      "title": "Registrarse",
+      "color": "#fff"
+    }
+  ]
+}
