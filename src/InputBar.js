@@ -26,7 +26,13 @@ function InputBar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [file, setFile] = useState({});
-
+  useEffect(
+    () =>
+      alert(
+        'El sitio se encuentra en mantenimiento. Es posible que encuentre algunos inconvenientes hasta que terminemos con las tareas. Gracias'
+      ),
+    []
+  );
   function goLogin() {
     localStorage.getItem('state') !== 'logged'
       ? history.push('/login')
