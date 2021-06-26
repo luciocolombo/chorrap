@@ -3,17 +3,23 @@ import { Form } from 'react-bootstrap';
 import MapAllDogs from './MapAllDogs';
 import UserBar from './UserBar';
 import Footer from './Footer';
+import { Tooltip, OverlayTrigger, Badge } from 'react-bootstrap';
 function DogFiltering() {
   const [blackColor, toggleBlackColor] = useState(false);
   const [whiteColor, toggleWhiteColor] = useState(false);
   const [brownColor, toggleBrownColor] = useState(false);
   const [blondeColor, toggleBlondeColor] = useState(false);
   const [redColor, toggleRedColor] = useState(false);
-  const [sex, setSex] = useState('?');
+  const [sex, setSex] = useState('Macho');
   const [size, setSize] = useState('Mediano');
   /*   const [exactColors, setExactColors] = useState(false); */
   /*   const [estado, setEstado] = useState(''); */
-
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Conjunto incluyente (Un perro puede ser buscado por cualquiera de sus
+      colores o suma de ellos)
+    </Tooltip>
+  );
   return (
     <div>
       <UserBar seeAllDogs="disabled" />
@@ -22,8 +28,18 @@ function DogFiltering() {
         <Form.Group controlId="formBasicCheckbox">
           <div className="row">
             <div className="col-4 px-5">
-              <h6>Colores </h6>
-
+              <OverlayTrigger
+                placement="right"
+                delay={{ show: 50, hide: 300 }}
+                overlay={renderTooltip}
+              >
+                <h6>
+                  Colores{' '}
+                  <Badge pill variant="secondary">
+                    ?
+                  </Badge>
+                </h6>
+              </OverlayTrigger>
               <Form.Check
                 type="checkbox"
                 label="Negro"
@@ -68,6 +84,7 @@ function DogFiltering() {
                 value="macho"
                 name="sex"
                 onChange={() => setSex('Macho')}
+                defaultChecked
                 id="Macho"
               />
               <Form.Check
@@ -78,7 +95,7 @@ function DogFiltering() {
                 onChange={() => setSex('Hembra')}
                 id="Hembra"
               />
-              <Form.Check
+              {/*  <Form.Check
                 type="radio"
                 label="?"
                 value="?"
@@ -86,7 +103,7 @@ function DogFiltering() {
                 defaultChecked
                 onChange={() => setSex('?')}
                 id="?"
-              />
+              /> */}
             </div>
             <div className="col-4">
               <h6>Seleccione el tamaño</h6>
