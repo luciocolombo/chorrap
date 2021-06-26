@@ -20,11 +20,15 @@ function Login() {
             email: email,
             password: password,
           })
-          .then((res) =>
-            res.data.logged === 'incorrect login'
-              ? alert('Acceso incorrecto')
-              : loginNow(res)
-          );
+          .then((res) => {
+            if (res.data.logged === 'incorrect login') {
+              alert('Acceso incorrecto');
+            } else {
+              window.localStorage.setItem('jwt', res.data.token);
+
+              loginNow(res);
+            }
+          });
         setWaiting(false);
       } catch (error) {
         alert('Acceso incorrecto');

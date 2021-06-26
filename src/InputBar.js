@@ -82,9 +82,9 @@ function InputBar() {
           `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
             position
           )}` */
-      const url = {}; //added to avoid "url is undefined", that appeared after adding the trycath to the await
+      let url = '';
       try {
-        const url = await axios
+        url = await axios
           .post(
             `/senddogphoto/${JSON.stringify(position)}`,
 
