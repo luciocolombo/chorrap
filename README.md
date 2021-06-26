@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+https://mascotasperdidas.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.![image](https://user-images.githubusercontent.com/74058084/123521860-af05ea80-d68f-11eb-849b-8e0268b598c2.png)
 
-## Available Scripts
+How to use the site?
+It's very simple, you have to create an account ![image](https://user-images.githubusercontent.com/74058084/123521901-eb394b00-d68f-11eb-9974-61b5a7bf37b0.png) (this is to easier spot junk-uploading users) and then, it depends of what you want to do!
 
-In the project directory, you can run:
+1)Find your lost dog
+Go to the lost dogs section https://mascotasperdidas.netlify.app/all, and search for your dog giving their characteristics.
+Colors-> The search is inclusive, so you need only one color to find your dog ![image](https://user-images.githubusercontent.com/74058084/123521964-6dc20a80-d690-11eb-80ec-8e3c51d8bb88.png). If the amount of dogs grows large, I can add an exact search mode to be more specific in the query.
+Sex->Male or Female. Some dogs may have been uploaded as unknown sex, so even if you selected a sex, you may encounter "?" sex dogs
+Size->Yes, this is very subjective. You may need to try two sizes to spot your dog, given that the submitter may had chosen a size larger or smaller than your opinion or your dog. ![image](https://user-images.githubusercontent.com/74058084/123522017-d0b3a180-d690-11eb-9d44-29c2e1c44537.png)
+Any opinion in how to improve this? Let me know ![image](https://user-images.githubusercontent.com/74058084/123522021-d5785580-d690-11eb-869e-f1cb952df634.png)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
