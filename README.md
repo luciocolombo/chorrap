@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+https://mascotasperdidas.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.:dog:
 
-## Available Scripts
+How to use the site?
+It's very simple, you have to create an account :closed_lock_with_key:(this is to easier spot junk-uploading users) and then, it depends of what you want to do!
+find your dog or tell everybody you found one. The idea for the moment is for people to comunicate by email. I may add extra ways in the future if requested.
 
-In the project directory, you can run:
+:paw_prints: 1)Find your lost dog
+Go to the lost dogs section https://mascotasperdidas.netlify.app/all, and search for your dog giving their characteristics.
+Colors-> The search is inclusive, so you need only one color to find your dog :dog2: If the amount of dogs grows large, I can add an exact search mode to be more specific in the query.
+Sex->Male or Female. Some dogs may have been uploaded as unknown sex, so even if you selected a sex, you may encounter "?" sex dogs
+Size->Yes, this is very subjective. You may need to try two sizes to spot your dog, given that the submitter may had chosen a size larger or smaller than your opinion or your dog. :stuck_out_tongue:
+Any opinion in how to improve this? Let me know 	:smile:
 
-### `npm start`
+:paw_prints: 2)Report dog   
+Navigate to https://mascotasperdidas.netlify.app/reportar and fill in the form. You will be asked to input basic information. First, you should choose whether you saw a dog on the street, you lost it or you carried it to your house (need more people like that!:clap:)
+Don't forget to upload a good picture of the dog, so people can recognize them well. By now, only one picture is allowed by post.
+Select in the map the position of the dog. If you picked it up, you may prefer to select the place where it was found and not your actual house.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You can eliminate your reports in https://mascotasperdidas.netlify.app/reported, specially if the dog was found/returned to it's owner. Let's avoid unuseful old posts! Post older than 3 months will be deleted automatically.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:wrench::wrench:Technical details :wrench::wrench:
+For the technically inclined, the site is built with ReactJs and uses OpenStreetMaps (Leaflet library). Bootstrap made easier the design and also Landy by adrinlol 
+https://reactjs.org/
+https://leafletjs.com/
 
-### `npm run build`
+On the server side, I used Nodejs, Express and MongoDB. Also, images are stored in GoogleCloud Bucket.
+https://nodejs.org/en/
+https://www.npmjs.com/package/express
+https://cloud.mongodb.com/
+https://cloud.google.com/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you want more information or you want to contribute with the project, feel free to leave a message.
