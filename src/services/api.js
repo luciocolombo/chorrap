@@ -11,7 +11,7 @@ axiosInstance.interceptors.request.use(
     // Do something before request is sent
     const token = window.localStorage.getItem('jwt');
     config.headers.Authorization = `Bearer ${token}`;
-    return;
+    return config;
   },
   function (error) {
     // Do something with request error
