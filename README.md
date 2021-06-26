@@ -1,16 +1,37 @@
 https://mascotasperdidas.netlify.app/
 
-Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.![image](https://user-images.githubusercontent.com/74058084/123521860-af05ea80-d68f-11eb-849b-8e0268b598c2.png)
+Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.:dog:
 
 How to use the site?
-It's very simple, you have to create an account ![image](https://user-images.githubusercontent.com/74058084/123521901-eb394b00-d68f-11eb-9974-61b5a7bf37b0.png) (this is to easier spot junk-uploading users) and then, it depends of what you want to do!
+It's very simple, you have to create an account :closed_lock_with_key:(this is to easier spot junk-uploading users) and then, it depends of what you want to do!
+find your dog or tell everybody you found one. The idea for the moment is for people to comunicate by email. I may add extra ways in the future if requested.
 
-1)Find your lost dog
+:paw_prints: 1)Find your lost dog
 Go to the lost dogs section https://mascotasperdidas.netlify.app/all, and search for your dog giving their characteristics.
-Colors-> The search is inclusive, so you need only one color to find your dog ![image](https://user-images.githubusercontent.com/74058084/123521964-6dc20a80-d690-11eb-80ec-8e3c51d8bb88.png). If the amount of dogs grows large, I can add an exact search mode to be more specific in the query.
+Colors-> The search is inclusive, so you need only one color to find your dog :dog2: If the amount of dogs grows large, I can add an exact search mode to be more specific in the query.
 Sex->Male or Female. Some dogs may have been uploaded as unknown sex, so even if you selected a sex, you may encounter "?" sex dogs
-Size->Yes, this is very subjective. You may need to try two sizes to spot your dog, given that the submitter may had chosen a size larger or smaller than your opinion or your dog. ![image](https://user-images.githubusercontent.com/74058084/123522017-d0b3a180-d690-11eb-9d44-29c2e1c44537.png)
-Any opinion in how to improve this? Let me know ![image](https://user-images.githubusercontent.com/74058084/123522021-d5785580-d690-11eb-869e-f1cb952df634.png)
+Size->Yes, this is very subjective. You may need to try two sizes to spot your dog, given that the submitter may had chosen a size larger or smaller than your opinion or your dog. :stuck_out_tongue:
+Any opinion in how to improve this? Let me know 	:smile:
+
+:paw_prints: 2)Report dog   
+Navigate to https://mascotasperdidas.netlify.app/reportar and fill in the form. You will be asked to input basic information. First, you should choose whether you saw a dog on the street, you lost it or you carried it to your house (need more people like that!:clap:)
+Don't forget to upload a good picture of the dog, so people can recognize them well. By now, only one picture is allowed by post.
+Select in the map the position of the dog. If you picked it up, you may prefer to select the place where it was found and not your actual house.
 
 
+You can eliminate your reports in https://mascotasperdidas.netlify.app/reported, specially if the dog was found/returned to it's owner. Let's avoid unuseful old posts! Post older than 3 months will be deleted automatically.
 
+
+:wrench::wrench:Technical details :wrench::wrench:
+For the technically inclined, the site is built with ReactJs and uses OpenStreetMaps (Leaflet library). Bootstrap made easier the design and also Landy by adrinlol 
+https://reactjs.org/
+https://leafletjs.com/
+
+On the server side, I used Nodejs, Express and MongoDB. Also, images are stored in GoogleCloud Bucket.
+https://nodejs.org/en/
+https://www.npmjs.com/package/express
+https://cloud.mongodb.com/
+https://cloud.google.com/
+
+
+If you want more information or you want to contribute with the project, feel free to leave a message.
