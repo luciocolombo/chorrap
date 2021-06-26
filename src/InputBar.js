@@ -82,17 +82,19 @@ function InputBar() {
           `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
             position
           )}` */
-      const url = await axios
-        .post(
-          `/senddogphoto/${JSON.stringify(position)}`,
+      const url = {}; //added to avoid "url is undefined", that appeared after adding the trycath to the await
+      try {
+        const url = await axios
+          .post(
+            `/senddogphoto/${JSON.stringify(position)}`,
 
-          formData
-        )
-        .then((res) =>
-          res.status === 404 //NO ANDA. Y CAMBIAR 404 POR OTRO
-            ? console.log('No puede reportar mas de 30 perros')
-            : res.data.url
-        );
+            formData
+          )
+          .then((res) => res.data.url);
+      } catch (error) {
+        console.log(error);
+        alert('No puede reportar mas de 30 perros');
+      }
       let userid = localStorage.getItem('userid');
       let dog = {
         userid,

@@ -14,17 +14,22 @@ function Login() {
     setWaiting(true);
     e.preventDefault();
     if (email !== '' && password !== '') {
-      await axios
-        .post('/login', {
-          email: email,
-          password: password,
-        })
-        .then((res) =>
-          res.data.logged === 'incorrect login'
-            ? alert('Acceso incorrecto')
-            : loginNow(res)
-        );
-      setWaiting(false);
+      try {
+        await axios
+          .post('/login', {
+            email: email,
+            password: password,
+          })
+          .then((res) =>
+            res.data.logged === 'incorrect login'
+              ? alert('Acceso incorrecto')
+              : loginNow(res)
+          );
+        setWaiting(false);
+      } catch (error) {
+        alert('Acceso incorrecto');
+        console.log(error);
+      }
     } else {
       alert('Ingrese usuario y contraseña');
       setWaiting(false);
