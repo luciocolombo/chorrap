@@ -7,6 +7,7 @@ import DogFiltering from './DogFiltering';
 import Login from './Login';
 import Register from './Register';
 import Reported from './Reported';
+import Reset from './Reset';
 /* import LandingPage from './LandingPage'; */
 
 /* import { BrowserRouter } from 'react-router-dom';
@@ -48,6 +49,9 @@ function App() {
         <Register />
       </Route>
       <Route path="/reported" exact render={() => AuthRoute(Reported)} />
+      <Route path="/reset/">
+        <Reset />
+      </Route>
     </Router>
   );
 }

@@ -3,6 +3,7 @@ import { Button, Form, Container, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
 import axios from './services/api';
+import Forgot from './Forgot';
 
 function Login() {
   const [password, setPassword] = useState('');
@@ -75,17 +76,22 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <div className="navbarra">
-            <Button
-              variant="btn btn-primary loginbtn mr-2"
-              type="submit"
-              onClick={onClick}
-            >
-              Ingresar
-            </Button>
-            <Button variant="outline-secondary " onClick={goRegister}>
-              Registrarse
-            </Button>
+          <div className="navbarra d-flex">
+            <div>
+              <Button
+                variant="btn btn-primary loginbtn mr-2"
+                type="submit"
+                onClick={onClick}
+              >
+                Ingresar
+              </Button>
+              <Button variant="outline-secondary " onClick={goRegister}>
+                Registrarse
+              </Button>
+            </div>
+            <div>
+              <Forgot />
+            </div>
             {waiting ? (
               <div className="p-3">
                 <Spinner animation="border" role="status">
