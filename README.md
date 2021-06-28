@@ -33,5 +33,7 @@ https://www.npmjs.com/package/express
 https://cloud.mongodb.com/
 https://cloud.google.com/
 
+Authentication is done with JWT. 
+Passwords are stored encrypted with the help of Bcrypt library
 
 If you want more information or you want to contribute with the project, feel free to leave a message.
