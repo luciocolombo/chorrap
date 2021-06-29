@@ -11,7 +11,9 @@ function Reset() {
   const [password, setPassword] = useState('');
   async function onClick() {
     await axios
-      .post('/reset', { pathname: pathname, password: password })
+      .post(
+        `/reset/${pathname}` /* , { pathname: pathname, password: password } */
+      )
       .then(() => alert('Password actualizado'));
   }
   return (
@@ -32,7 +34,6 @@ function Reset() {
       >
         Cambiar password
       </Button>
-      <p>{pathname}</p>
     </div>
   );
 }

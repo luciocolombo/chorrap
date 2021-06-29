@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Button, Form, Container, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
@@ -11,6 +11,11 @@ function Login() {
   const [waiting, setWaiting] = useState(false);
   let history = useHistory();
 
+  useEffect(() => {
+    alert(
+      'Este sitio está en su versión Beta (Versión de prueba). En caso de encontrar sugerencias, por favor contactarse con colombolucio@hotmail.com. Gracias'
+    );
+  }, []);
   async function onClick(e) {
     setWaiting(true);
     e.preventDefault();
