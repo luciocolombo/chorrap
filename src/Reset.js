@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import axios from './services/api';
 
 function Reset() {
@@ -12,23 +12,26 @@ function Reset() {
       .then((res) => alert(res.data));
   }
   return (
-    <div>
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </Form.Group>
-      <Button
-        variant="btn btn-primary loginbtn mr-2"
-        type="submit"
-        onClick={onClick}
-      >
-        Cambiar password
-      </Button>
+    <div className="loginfather shadow">
+      <Container className="loginregister background login container border shadow bg-white">
+        <Form.Group controlId="formBasicPassword">
+          <h2>Setea el nuevo password</h2>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Button
+          variant="btn btn-primary loginbtn mr-2"
+          type="submit"
+          onClick={onClick}
+        >
+          Cambiar password
+        </Button>
+      </Container>
     </div>
   );
 }

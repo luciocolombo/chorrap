@@ -58,7 +58,7 @@ function Login() {
     history.push('/register');
   }
   return (
-    <div className="loginfather">
+    <div className="loginfather shadow">
       <Container className="loginregister background login container border shadow bg-white">
         <Form>
           <h2>Ingresar</h2>
