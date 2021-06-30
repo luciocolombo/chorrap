@@ -3,18 +3,24 @@ import { Form, Button } from 'react-bootstrap';
 import axios from './services/api';
 
 function Reset() {
-  const pathname = window.location.pathname.substring(
-    //the pathname IS the USERID
-    7,
-    window.location.pathname.length
-  );
+  const resetToken = window.location.pathname.split('/')[3];
+  const userid = window.location.pathname.split('/')[2];
   const [password, setPassword] = useState('');
   async function onClick() {
     await axios
-      .post(
-        `/reset/${pathname}` /* , { pathname: pathname, password: password } */
-      )
-      .then(() => alert('Password actualizado'));
+      .post(`/reset/${userid}/${resetToken}`, { password })
+      .then((res) => {
+        try {
+          console.log(res);
+          /* if (res.status(200)) {
+            alert('Password cambiado');
+          } else {
+            alert(
+              'Link expirado. Intente nuevamente el proceso de recuperación desde el inicio'
+            );
+          } */
+        } catch (error) {}
+      });
   }
   return (
     <div>
