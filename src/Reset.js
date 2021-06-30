@@ -9,18 +9,7 @@ function Reset() {
   async function onClick() {
     await axios
       .post(`/reset/${userid}/${resetToken}`, { password })
-      .then((res) => {
-        try {
-          console.log(res);
-          /* if (res.status(200)) {
-            alert('Password cambiado');
-          } else {
-            alert(
-              'Link expirado. Intente nuevamente el proceso de recuperación desde el inicio'
-            );
-          } */
-        } catch (error) {}
-      });
+      .then((res) => alert(res.data));
   }
   return (
     <div>
