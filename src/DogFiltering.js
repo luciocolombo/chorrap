@@ -28,18 +28,19 @@ function DogFiltering() {
         <Form.Group controlId="formBasicCheckbox">
           <div className="row">
             <div className="col-4 px-5">
-              <OverlayTrigger
-                placement="right"
-                delay={{ show: 50, hide: 300 }}
-                overlay={renderTooltip}
-              >
-                <h6>
-                  Colores{' '}
+              <h6>
+                Colores{' '}
+                <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 50, hide: 300 }}
+                  overlay={renderTooltip}
+                >
                   <Badge pill variant="secondary">
                     ?
                   </Badge>
-                </h6>
-              </OverlayTrigger>
+                </OverlayTrigger>
+              </h6>
+
               <Form.Check
                 type="checkbox"
                 label="Negro"
