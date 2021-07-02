@@ -38,6 +38,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
           <Nav.Link href="/all">Encontrar mascota</Nav.Link>
           <Nav.Link href="/reportar">Reportar mascota</Nav.Link>
           <Nav.Link href="/reported">Mis reportes</Nav.Link>
+          <Nav.Link href="/user">Mi perfil</Nav.Link>
           <div className="ml-auto">
             <span className="badge badge-dark mx-1 ">
               {localStorage.getItem('user')

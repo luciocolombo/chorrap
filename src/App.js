@@ -8,6 +8,7 @@ import Login from './Login';
 import Register from './Register';
 import Reported from './Reported';
 import Reset from './Reset';
+import UserPage from './UserPage';
 /* import LandingPage from './LandingPage'; */
 
 /* import { BrowserRouter } from 'react-router-dom';
@@ -52,6 +53,7 @@ function App() {
       <Route path="/reset/">
         <Reset />
       </Route>
+      <Route path="/user" exact render={() => AuthRoute(UserPage)} />
     </Router>
   );
 }
