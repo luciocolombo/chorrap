@@ -48,7 +48,9 @@ function MapAllDogs({
     }
     if (colors.length !== 0) {
       axios
-        .get(`/dogs/search?colors=${colors}&size=${size}&sex=${sex}`)
+        .get(
+          `/dogs/search?colors=${colors}&size=${size}&sex=${sex}&date=${date}&date2=${date2}`
+        )
         /*  .then((res) => ; */ //aca es donde cambie dogs por dog/search para q la query la haga el backend
         .then((res) =>
           res.data[0] ? afterAxios({ res }) : alert('Sin resultados')

@@ -27,7 +27,7 @@ function Login() {
             password: password,
           })
           .then((res) => {
-            if (res.data.logged === 'incorrect login') {
+            if (!res.data.token) {
               alert('Acceso incorrecto');
             } else {
               window.localStorage.setItem('jwt', res.data.token);
