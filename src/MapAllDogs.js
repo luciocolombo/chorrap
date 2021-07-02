@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import axios from './services/api';
 import CustomMarker from './CustomMarker';
@@ -11,18 +11,23 @@ function MapAllDogs({
   red,
   brown,
   sex,
-  size /* , estado */,
+  size,
+  date,
+  date2 /* , estado */,
   /* exactColors, */
 }) {
   const position = [-32.959676, -60.661406];
   const [info, setInfo] = useState({ data: [] }); //incluye toda la info de perros
   const [isLoading, setIsLoading] = useState(true);
-
+  const [btnEnabled, setBtnEnabled] = useState(true);
   function afterAxios({ res }) {
     setInfo(res);
     setIsLoading(false);
   }
-
+  useEffect(
+    () => (date > date2 ? setBtnEnabled(false) : setBtnEnabled(true)),
+    [date, date2]
+  );
   /* useEffect(() => axios.get('/dogs').then((res) => afterAxios({ res })), []); */ //SIN ESTO SE ROMPE, PERO BUSCA TODOS LOS PERROS. EL QUERY ES CON LO DE ABAJO
   function clickSearch() {
     let colors = [];
@@ -56,13 +61,15 @@ function MapAllDogs({
   if (isLoading) {
     return (
       <div>
-        <Button className="d-block" onClick={() => clickSearch()}>
-          {' '}
-          BUSCAR
-        </Button>
-        {/* <Spinner className="mt-5 mb-2" animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner> */}
+        {btnEnabled ? (
+          <Button className="d-block" onClick={() => clickSearch()}>
+            BUSCAR
+          </Button>
+        ) : (
+          <Button className="d-block disabled" disabled>
+            BUSCAR
+          </Button>
+        )}
       </div>
     );
   }

@@ -1,9 +1,12 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import MapAllDogs from './MapAllDogs';
 import UserBar from './UserBar';
 import Footer from './Footer';
-import { Tooltip, OverlayTrigger, Badge } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, Badge, Button } from 'react-bootstrap';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
 function DogFiltering() {
   const [blackColor, toggleBlackColor] = useState(false);
   const [whiteColor, toggleWhiteColor] = useState(false);
@@ -12,14 +15,18 @@ function DogFiltering() {
   const [redColor, toggleRedColor] = useState(false);
   const [sex, setSex] = useState('Macho');
   const [size, setSize] = useState('Mediano');
-  /*   const [exactColors, setExactColors] = useState(false); */
-  /*   const [estado, setEstado] = useState(''); */
+  const [date, onChange] = useState(new Date()); //calendar
+  const [date2, onChange2] = useState(new Date()); //calendar
+  const [calendarDisplay, calendarDisplayChange] = useState(false);
+  const [calendarDisplay2, calendarDisplayChange2] = useState(false);
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Conjunto incluyente (Un perro puede ser buscado por cualquiera de sus
       colores o suma de ellos)
     </Tooltip>
   );
+  useEffect(() => calendarDisplayChange(false), [date]);
+  useEffect(() => calendarDisplayChange2(false), [date2]);
   return (
     <div>
       <UserBar seeAllDogs="disabled" />
@@ -134,6 +141,51 @@ function DogFiltering() {
                 id="Grande"
               />
             </div>
+            <div className="w-100">
+              {date > date2 ? (
+                <div className="alert alert-danger" role="alert">
+                  Compruebe validez de las fechas
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+            <div>
+              <div className="d-flex">
+                <Button
+                  variant="outline-secondary"
+                  onClick={() => calendarDisplayChange(!calendarDisplay)}
+                >
+                  Fecha inicial:{' '}
+                  <Badge pill variant="info">
+                    {JSON.stringify(date).substring(1, 11)}
+                  </Badge>
+                </Button>
+              </div>
+              {calendarDisplay ? (
+                <Calendar onChange={onChange} value={date} />
+              ) : (
+                ''
+              )}
+            </div>
+            <div>
+              <div className="d-flex">
+                <Button
+                  variant="outline-secondary"
+                  onClick={() => calendarDisplayChange2(!calendarDisplay2)}
+                >
+                  Fecha inicial:{' '}
+                  <Badge pill variant="primary">
+                    {JSON.stringify(date2).substring(1, 11)}
+                  </Badge>
+                </Button>
+              </div>
+              {calendarDisplay2 ? (
+                <Calendar onChange={onChange2} value={date2} />
+              ) : (
+                ''
+              )}
+            </div>
           </div>
         </Form.Group>
         <MapAllDogs
@@ -144,6 +196,8 @@ function DogFiltering() {
           brown={brownColor}
           sex={sex}
           size={size}
+          date={date}
+          date2={date2}
         />
       </div>
       <Footer />
