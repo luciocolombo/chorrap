@@ -1,7 +1,27 @@
 import { React, useState } from 'react';
 import UserBar from './UserBar';
+import { Button, Modal } from 'react-bootstrap';
+import axios from './services/api';
 function UserPage() {
   const [pass, changePass] = useState('');
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+  async function sendChangePass() {
+    try {
+      const userid = localStorage.getItem('userid');
+      await axios.post('/changepass', { pass, userid }).then((res) => {
+        handleClose();
+        alert('Exito');
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div>
       <UserBar />
@@ -13,15 +33,15 @@ function UserPage() {
               Elija una contraseña segura de mínimo 6 caracteres.
             </small>
 
-            {/*   <label for="exampleInputPassword1">Password</label> */}
             <div className="d-flex">
               <input
                 type="password"
                 className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Password"
+                onChange={(e) => changePass(e.target.value)}
               />
-              <button className="btn btn-primary " onClick={changePass}>
+              <button className="btn btn-primary " onClick={handleShow}>
                 Cambiar
               </button>
             </div>
@@ -34,12 +54,24 @@ function UserPage() {
               requerido para iniciar sesión
             </small>
 
-            {/*   <label for="exampleInputPassword1">Password</label> */}
-            {/* <div className="d-flex"> */}
-            <button className="btn btn-success w-100 mt-2" onClick={changePass}>
+            <button className="btn btn-success w-100 mt-2" onClick={'#'}>
               Activar autenticación en dos pasos
             </button>
-            {/*   </div> */}
+
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Cambiar password?</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>No olvides tu password y no lo compartas</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cancelar
+                </Button>
+                <Button variant="primary" onClick={sendChangePass}>
+                  Aceptar
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
         </form>
       </div>
