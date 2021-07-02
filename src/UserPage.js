@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import UserBar from './UserBar';
 import { Button, Modal } from 'react-bootstrap';
 import axios from './services/api';
@@ -22,6 +22,7 @@ function UserPage() {
       console.log(error);
     }
   }
+  useEffect(() => alert('2FA en desarrollo'), []);
   return (
     <div>
       <UserBar />
