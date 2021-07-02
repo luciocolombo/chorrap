@@ -174,7 +174,7 @@ function DogFiltering() {
                   variant="outline-secondary"
                   onClick={() => calendarDisplayChange2(!calendarDisplay2)}
                 >
-                  Fecha inicial:{' '}
+                  Fecha Final:{' '}
                   <Badge pill variant="primary">
                     {JSON.stringify(date2).substring(1, 11)}
                   </Badge>
