@@ -6,7 +6,7 @@ function UserPage() {
   const [pass, changePass] = useState('');
   const [show, setShow] = useState(false);
 
-  const [twoFAStatus, setTwoFAStatus] = useState(false);
+  const [twoFAStatus, setTwoFAStatus] = useState('');
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
     e.preventDefault();
@@ -49,8 +49,8 @@ function UserPage() {
       console.log('Error al buscar info del estado de 2FA', error);
     }
   }
-  useEffect(() => get2FAStatus, []);
-  /* useEffect(() => alert('2FA en desarrollo'), []); */
+  useEffect(() => get2FAStatus(), []);
+
   return (
     <div>
       <UserBar />

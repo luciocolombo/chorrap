@@ -16,6 +16,7 @@ function Register() {
     localStorage.setItem('state', 'logged');
     localStorage.setItem('user', email);
     localStorage.setItem('userid', res.data.userId);
+    window.localStorage.setItem('jwt', res.data.token);
     history.push('/reportar');
     /*   console.log(res); */
   }
