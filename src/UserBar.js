@@ -34,7 +34,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
           <i className="fas fa-paw"></i> Mascotas perdidas
           <i className="fas fa-paw"></i>
         </Navbar.Brand>
-        <Nav className="mr-auto">
+        <Nav className="mr-auto navlinkuser ">
           <Nav.Link href="/all">Encontrar mascota</Nav.Link>
           <Nav.Link href="/reportar">Reportar mascota</Nav.Link>
           <Nav.Link href="/reported">Mis reportes</Nav.Link>

@@ -126,3 +126,12 @@ h4 {
 .loginfather {
   height: 100vh;
 }
+
+.imgdog {
+  max-height: 250px;
+}
+
+.navlinkuser {
+  line-height: 1em;
+  text-align: center;
+}

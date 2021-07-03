@@ -116,11 +116,11 @@ function Reported() {
                     <td className="align-middle" key={emailsArray[x] + x}>
                       {emailsArray[x]}
                     </td>
-                    <td>
+                    <td className="p-0">
                       <img
                         key={x + 50000}
                         alt="perro"
-                        className="col d-flex align-items-center justify-content-center"
+                        className=" d-flex align-items-center justify-content-center mw-100 imgdog"
                         src={imageArray[x]}
                       />
                     </td>
