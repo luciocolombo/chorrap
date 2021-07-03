@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { Button, Form, Container, Spinner } from 'react-bootstrap';
+import { Button, Form, Container, Spinner, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
 import axios from './services/api';
@@ -9,7 +9,27 @@ function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [waiting, setWaiting] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  /*  const [twoFA, setTwoFA] = useState(false); */
+  const [otp, setOtp] = useState(0);
   let history = useHistory();
+  async function loginWithTwoFA() {
+    try {
+      await axios.post('/login2fa', { otp, email }).then((res) => {
+        if (!res.data.token) {
+          alert('Acceso incorrecto');
+        } else {
+          window.localStorage.setItem('jwt', res.data.token);
+
+          loginNow(res);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     alert(
@@ -27,12 +47,17 @@ function Login() {
             password: password,
           })
           .then((res) => {
-            if (!res.data.token) {
-              alert('Acceso incorrecto');
+            if (res.data.twofa) {
+              /* setTwoFA(true); */
+              handleShow();
             } else {
-              window.localStorage.setItem('jwt', res.data.token);
+              if (!res.data.token) {
+                alert('Acceso incorrecto');
+              } else {
+                window.localStorage.setItem('jwt', res.data.token);
 
-              loginNow(res);
+                loginNow(res);
+              }
             }
           });
         setWaiting(false);
@@ -108,6 +133,37 @@ function Login() {
             )}
           </div>
         </Form>
+        <>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Autenticación de dos pasos</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Ingrese el código que fue enviado a su correo
+            </Modal.Body>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control
+                type="text"
+                placeholder="Password de uso unico recibido en el correo"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+              />
+            </Form.Group>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancelar
+              </Button>
+              <Button variant="primary" onClick={loginWithTwoFA}>
+                Aceptar
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
       </Container>
       <Footer />
     </div>
