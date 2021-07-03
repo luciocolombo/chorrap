@@ -42,7 +42,11 @@ const RightBlock = ({
                         key={id}
                         color={item.color}
                         fixedWidth={true}
-                        onClick={() => window.location.replace('/login')}
+                        onClick={() =>
+                          item.title === 'Ingresar'
+                            ? window.location.replace('/login')
+                            : window.location.replace('/register')
+                        }
                       >
                         {t(item.title)}
                       </Button>
