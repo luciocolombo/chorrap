@@ -109,15 +109,20 @@ function UserPage() {
 
             <Modal show={show2} onHide={handleClose2}>
               <Modal.Header closeButton>
-                <Modal.Title>2fa</Modal.Title>
+                <Modal.Title>Autenticación de dos pasos</Modal.Title>
               </Modal.Header>
-              <Modal.Body>2fa</Modal.Body>
+              <Modal.Body className="text-center">
+                Para ingresar necesitarás usuario, contraseña y un código que
+                recibirás en tu casilla de correo
+              </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose2}>
                   Cancelar
                 </Button>
                 <Button variant="primary" onClick={toggle2FA}>
-                  Aceptar
+                  {twoFAStatus
+                    ? 'Desactivar autenticación en dos pasos'
+                    : 'Activar autenticación en dos pasos'}
                 </Button>
               </Modal.Footer>
             </Modal>
