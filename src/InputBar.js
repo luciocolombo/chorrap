@@ -22,6 +22,7 @@ function InputBar() {
   const [firstRender, setFirstRender] = useState(true);
   const [show, setShow] = useState(false);
   const [waiting, setWaiting] = useState(false);
+  const [commentary, changeCommentary] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -109,6 +110,7 @@ function InputBar() {
         estado,
         sex,
         size,
+        commentary,
       };
       setFirstRender(false);
       setDogState(dog);
@@ -326,6 +328,19 @@ function InputBar() {
                 placeholder="Ingrese email "
                 value={email}
                 onChange={(e) => changeEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="my-3" controlId="formBasicCommentary">
+              <Form.Label>
+                Información extra, comentarios, lo que quieras!
+              </Form.Label>
+              <Form.Control
+                className="w-110"
+                type="text"
+                maxlength="100"
+                placeholder="Teléfono de contacto, información extra, etc"
+                value={commentary}
+                onChange={(e) => changeCommentary(e.target.value)}
               />
             </Form.Group>
           </Form.Group>

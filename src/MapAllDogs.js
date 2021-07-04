@@ -117,32 +117,38 @@ function MapAllDogs({
                       ]}
                       popUpText={
                         <ul key={'ul' + index}>
-                          <img
-                            key={'img' + index}
-                            className="imagenperro"
-                            alt="perro"
-                            src={info.data[index].url}
-                          ></img>
+                          <div className="text-center mb-1">
+                            <img
+                              key={'img' + index}
+                              className="imagenperro"
+                              alt="perro"
+                              src={info.data[index].url}
+                            ></img>
+                          </div>
                           <li key={'fecha' + index}>
-                            Fecha:{' '}
+                            <strong>Fecha: </strong>
                             {JSON.stringify(info.data[index].date).substr(
                               1,
                               10
                             )}
                           </li>
                           <li key={'estado' + index}>
-                            Estado:
+                            <strong>Estado: </strong>
                             {info.data[index].estado}
                           </li>
                           <li key={'sex' + index}>
-                            Sexo:
+                            <strong>Sexo:</strong>
                             {info.data[index].sex}
                           </li>
                           <li key={'email' + index}>
-                            Contacto: {info.data[index].email}
+                            <strong>Contacto:</strong> {info.data[index].email}
                           </li>
                           <li key={'size' + index}>
-                            Tamaño: {info.data[index].size}
+                            <strong> Tamaño:</strong> {info.data[index].size}
+                          </li>
+                          <li key={'commentary' + index}>
+                            <strong>Comentario:</strong>{' '}
+                            {info.data[index].commentary}
                           </li>
 
                           {/*  <li key={'colors' + index + Math.random()}>
