@@ -144,3 +144,20 @@ h4 {
   margin-top: 3%;
   width: 350px;
 }
+.emailinput {
+  min-width: 200px;
+}
+
+@media (max-width: 576px) {
+  .headerbadge {
+    font-size: x-small !important;
+  }
+  .inputfile {
+    font-size: small !important;
+  }
+}
+
+/* .selectcolors {
+  line-height: 1rem !important;
+}
+ */

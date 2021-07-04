@@ -54,7 +54,7 @@ function UserPage() {
   return (
     <div>
       <UserBar />
-      <div className="container bg-white shadow border col-md-4 mt-5 p-4 pt-5">
+      <div className="container bg-white shadow border col-md-5 mt-5 p-4 pt-5">
         <form>
           <div className="form-group">
             <h5>Actualizar contraseña</h5>

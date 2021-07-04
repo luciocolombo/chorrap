@@ -36,13 +36,14 @@ function DogFiltering() {
       <UserBar seeAllDogs="disabled" />
       <div className="container bg-white border shadow pl-4 pt-3 ">
         <h4 className="text-center">
-          Seleccione características para encontrar su mascota
+          <i class="fas fa-paw"></i>Seleccione características para encontrar su
+          mascota
         </h4>
         <Form.Group controlId="formBasicCheckbox">
           <div className="row">
             <div /* className="col-4" */>
               <h6>
-                Colores{' '}
+                <i class="fas fa-palette"></i>Colores{' '}
                 <OverlayTrigger
                   placement="right"
                   delay={{ show: 50, hide: 300 }}
@@ -91,7 +92,9 @@ function DogFiltering() {
               />
             </div>
             <div /* className="col-4" */>
-              <h6>Seleccione el sexo</h6>
+              <h6>
+                <i class="fas fa-venus-mars"></i>Seleccione el sexo
+              </h6>
               <Form.Check
                 type="radio"
                 label="Macho"
@@ -120,7 +123,9 @@ function DogFiltering() {
               /> */}
             </div>
             <div /* className="col-4" */>
-              <h6>Seleccione el tamaño</h6>
+              <h6>
+                <i class="fas fa-ruler"></i>Seleccione el tamaño
+              </h6>
               <Form.Check
                 type="radio"
                 label="Pequeño"

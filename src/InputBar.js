@@ -148,15 +148,22 @@ function InputBar() {
       </Alert>
 
       <div className="container bg-white border shadow mt-1 p-5 overflow-hidden">
-        <h1 className="hh1">Reporta un perro perdido en Rosario</h1>
-        <h4 className="hh2">
-          Completa los datos para comunicarlo a la comunidad.
+        <h1 className="hh1">
+          <i className="fas fa-search-location"></i>
+          Reporta un perro perdido en Rosario
+          <i className="fas fa-search-location"></i>
+        </h1>
+        <h4 className="hh2 text-center">
+          <span className="badge badge-info headerbadge">
+            Completa los datos para comunicarlo a la comunidad!
+          </span>
         </h4>
 
         <Form>
           <Form.Group controlId="estado" required>
             <h4 className="hh2">
-              Perdiste un perro, lo recogiste o solo lo viste en la calle?
+              <i class="fas fa-dog"></i>
+              Perdiste un perro, lo recogiste o solo lo viste en la calle?{' '}
             </h4>
             <div key="default-radio3" className="mb-3">
               <Form.Check
@@ -187,18 +194,11 @@ function InputBar() {
             </div>
           </Form.Group>
           {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email de contacto</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Ingrese email"
-              value={email}
-              onChange={(e) => changeEmail(e.target.value)}
-            />
-          </Form.Group>
 
           <Form.Group controlId="colornegro">
-            <h4 className="hh2">Seleccione los colores del perro</h4>
+            <h4 className="hh2">
+              <i class="fas fa-palette"></i>Seleccione los colores del perro
+            </h4>
 
             <Form.Check
               type="checkbox"
@@ -241,7 +241,9 @@ function InputBar() {
           </Form.Group>
 
           <Form.Group controlId="sexo">
-            <h4 className="hh2">Ingrese el sexo si lo conoce</h4>
+            <h4 className="hh2">
+              <i class="fas fa-venus-mars"></i>Ingrese el sexo si lo conoce
+            </h4>
             <div key="default-radio" className="mb-3">
               <Form.Check
                 name="sex"
@@ -272,7 +274,9 @@ function InputBar() {
           </Form.Group>
 
           <Form.Group controlId="tamaño">
-            <h4 className="hh2">Ingrese el tamaño</h4>
+            <h4 className="hh2">
+              <i class="fas fa-ruler"></i>Ingrese el tamaño
+            </h4>
             <div key="default-radio2" className="mb-3">
               <Form.Check
                 name="tamaño"
@@ -302,21 +306,37 @@ function InputBar() {
             </div>
           </Form.Group>
           <Form.Group>
-            <h4 className="hh2">Subir imagen del perro</h4>
+            <h4 className="hh2">
+              <i class="fas fa-camera-retro"></i>Subir imagen del perro
+            </h4>
             <input
+              className="btn btn-info inputfile"
               type="file"
               name="file"
               accept=".jpg,.jpeg,.png"
               onChange={(e) => handleFile(e)}
             />
+            <Form.Group className="my-3" controlId="formBasicEmail">
+              <Form.Label>
+                Email de contacto (Visible en tus publicaciones)
+              </Form.Label>
+              <Form.Control
+                className="w-25 emailinput"
+                type="email"
+                placeholder="Ingrese email "
+                value={email}
+                onChange={(e) => changeEmail(e.target.value)}
+              />
+            </Form.Group>
           </Form.Group>
           <h4 className="my-4 hh2">
-            Ubique la ubicación de perro arrastrando el marcador en el mapa
+            <i class="fas fa-map-marked-alt"></i>Ubique la ubicación de perro
+            arrastrando el marcador en el mapa
           </h4>
           <div className="overflow-hidden">
             <Map setPosition={setPosition} />
           </div>
-          <Button className="my-5 w-100" onClick={handleShow}>
+          <Button className="mt-5 w-100" onClick={handleShow}>
             Reportar perro
           </Button>
           <Modal show={show} onHide={handleClose}>
