@@ -124,6 +124,8 @@ h4 {
 }
 .loginfather {
   height: 100vh;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .imgdog {

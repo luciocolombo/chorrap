@@ -317,7 +317,7 @@ function InputBar() {
               <Form.Control
                 className="w-110"
                 type="text"
-                maxlength="100"
+                maxLength="100"
                 placeholder="Teléfono de contacto, información extra, etc"
                 value={commentary}
                 onChange={(e) => changeCommentary(e.target.value)}

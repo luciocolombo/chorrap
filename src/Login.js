@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState /* useEffect */ } from 'react';
 import { Button, Form, Container, Spinner, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Footer from './Footer';
@@ -83,7 +83,7 @@ function Login() {
     history.push('/register');
   }
   return (
-    <div className="loginfather shadow row ">
+    <div className="loginfather shadow row">
       <div className="col-md-7 halfloginregisterdiv">
         <Container className="loginregister background login container border shadow bg-white">
           <Form>

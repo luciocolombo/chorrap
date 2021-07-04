@@ -8,8 +8,10 @@ import React, {
 import { Marker, Popup } from 'react-leaflet';
 function DraggableMarker({ savePosition }) {
   const center = {
-    lat: -32.959676,
-    lng: -60.661406,
+    /* lat: -32.959676,
+    lng: -60.661406, */
+    lat: -32.958796,
+    lng: -60.712158,
   };
   const [draggable, setDraggable] = useState(true);
   const [position, setPosition] = useState(center);
