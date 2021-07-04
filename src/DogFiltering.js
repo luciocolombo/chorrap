@@ -34,11 +34,13 @@ function DogFiltering() {
   return (
     <div>
       <UserBar seeAllDogs="disabled" />
-      <div className="container bg-white border shadow pl-4 pt-3">
-        <h4>Seleccione características para encontrar su mascota</h4>
+      <div className="container bg-white border shadow pl-4 pt-3 ">
+        <h4 className="text-center">
+          Seleccione características para encontrar su mascota
+        </h4>
         <Form.Group controlId="formBasicCheckbox">
           <div className="row">
-            <div className="col-4 px-5">
+            <div /* className="col-4" */>
               <h6>
                 Colores{' '}
                 <OverlayTrigger
@@ -88,7 +90,7 @@ function DogFiltering() {
                 id="Colorado"
               />
             </div>
-            <div className="col-4">
+            <div /* className="col-4" */>
               <h6>Seleccione el sexo</h6>
               <Form.Check
                 type="radio"
@@ -117,7 +119,7 @@ function DogFiltering() {
                 id="?"
               /> */}
             </div>
-            <div className="col-4">
+            <div /* className="col-4" */>
               <h6>Seleccione el tamaño</h6>
               <Form.Check
                 type="radio"
@@ -155,7 +157,7 @@ function DogFiltering() {
               )}
             </div>
             <div>
-              <div className="d-flex">
+              <div className="d-flex justify-content-center calendardiv">
                 <Button
                   variant="outline-secondary"
                   onClick={() => calendarDisplayChange(!calendarDisplay)}
@@ -173,7 +175,7 @@ function DogFiltering() {
               )}
             </div>
             <div>
-              <div className="d-flex">
+              <div className="d-flex justify-content-center calendardiv">
                 <Button
                   variant="outline-secondary"
                   onClick={() => calendarDisplayChange2(!calendarDisplay2)}

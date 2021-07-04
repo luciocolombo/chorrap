@@ -64,11 +64,14 @@ function MapAllDogs({
     return (
       <div>
         {btnEnabled ? (
-          <Button className="d-block" onClick={() => clickSearch()}>
+          <Button
+            className=" w-75 d-block button1 btn btn-success mb-4"
+            onClick={() => clickSearch()}
+          >
             BUSCAR
           </Button>
         ) : (
-          <Button className="d-block disabled" disabled>
+          <Button className="d-block disabled " disabled>
             BUSCAR
           </Button>
         )}
@@ -83,8 +86,14 @@ function MapAllDogs({
                 <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir perro perdido</Button></Link></h2>
             </div>    */}
         <div className="mb-5">
-          <div /* className="overflow-hidden" */>
-            <Button onClick={() => clickSearch()}> BUSCAR</Button>
+          <div className="overflow-hidden">
+            <Button
+              className="w-75 d-block button1 btn btn-success"
+              onClick={() => clickSearch()}
+            >
+              {' '}
+              BUSCAR
+            </Button>
 
             <MapContainer
               className="mapcontainer"

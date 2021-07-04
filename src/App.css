@@ -36,8 +36,7 @@ body {
 }
 
 .mapcontainer {
-  /* margin-top: 1%; */
-  width: 100vw;
+  margin-top: 1%;
 }
 
 .hh1 {
@@ -135,4 +134,13 @@ h4 {
 .navlinkuser {
   line-height: 1em;
   text-align: center;
+}
+
+.button1 {
+  margin: 0 auto;
+}
+
+.calendardiv {
+  margin-top: 3%;
+  width: 350px;
 }
