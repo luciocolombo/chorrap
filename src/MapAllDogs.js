@@ -83,7 +83,7 @@ function MapAllDogs({
                 <h2>Querés subir un perro perdido? <Link to="/"><Button className="btn-secondary" >Subir perro perdido</Button></Link></h2>
             </div>    */}
         <div className="mb-5">
-          <div className="overflow-hidden">
+          <div /* className="overflow-hidden" */>
             <Button onClick={() => clickSearch()}> BUSCAR</Button>
 
             <MapContainer
