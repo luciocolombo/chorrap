@@ -86,9 +86,13 @@ function Login() {
     <div className="loginfather shadow">
       <Container className="loginregister background login container border shadow bg-white">
         <Form>
-          <h2>Ingresar</h2>
+          <h2>
+            <i class="fas fa-sign-in-alt"></i>Ingresar
+          </h2>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
+            <Form.Label>
+              <i class="fas fa-envelope-open-text"></i>Email
+            </Form.Label>
             <Form.Control
               type="email"
               placeholder="Ingrese email"
@@ -98,7 +102,9 @@ function Login() {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>
+              <i class="fas fa-key"></i>Password
+            </Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
