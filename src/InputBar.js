@@ -195,7 +195,7 @@ function InputBar() {
           </Form.Group>
           {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
 
-          <Form.Group controlId="colornegro">
+          <Form.Group className="mb-0" controlId="colornegro">
             <h4 className="hh2">
               <i class="fas fa-palette"></i>Seleccione los colores del perro
             </h4>
@@ -207,7 +207,7 @@ function InputBar() {
               onChange={(e) => toggleBlackColor(e.target.checked)}
             />
           </Form.Group>
-          <Form.Group controlId="colorblanco">
+          <Form.Group className="mb-0" controlId="colorblanco">
             <Form.Check
               type="checkbox"
               label="Blanco"
@@ -215,7 +215,7 @@ function InputBar() {
               onChange={(e) => toggleWhiteColor(e.target.checked)}
             />
           </Form.Group>
-          <Form.Group controlId="colormarron">
+          <Form.Group className="mb-0" controlId="colormarron">
             <Form.Check
               type="checkbox"
               label="Marron"
@@ -223,7 +223,7 @@ function InputBar() {
               onChange={(e) => toggleBrownColor(e.target.checked)}
             />
           </Form.Group>
-          <Form.Group controlId="colorrubio">
+          <Form.Group className="mb-0" controlId="colorrubio">
             <Form.Check
               type="checkbox"
               label="Rubio"
@@ -231,7 +231,7 @@ function InputBar() {
               onChange={(e) => toggleBlondeColor(e.target.checked)}
             />
           </Form.Group>
-          <Form.Group controlId="colorcolorado">
+          <Form.Group className="mb-0" controlId="colorcolorado">
             <Form.Check
               type="checkbox"
               label="Colorado"
