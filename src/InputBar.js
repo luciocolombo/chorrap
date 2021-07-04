@@ -332,7 +332,7 @@ function InputBar() {
             </Form.Group>
             <Form.Group className="my-3" controlId="formBasicCommentary">
               <Form.Label>
-                Información extra, comentarios, lo que quieras!
+                Número de celular, Whatsapp, información extra, etc
               </Form.Label>
               <Form.Control
                 className="w-110"
@@ -360,7 +360,12 @@ function InputBar() {
             </Modal.Header>
 
             <Modal.Body>
-              <p> Reportar perro</p>
+              <p className="text-center">
+                {' '}
+                Asegurate que toda la información proporcionada es correcta{' '}
+                <br></br> y que los demas usuarios puedan contactarse a tu{' '}
+                <strong>email o celular</strong> si lo proporcionaste
+              </p>
             </Modal.Body>
 
             <Modal.Footer>
