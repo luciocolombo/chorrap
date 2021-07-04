@@ -31,11 +31,11 @@ function Login() {
     }
   }
 
-  useEffect(() => {
+  /*  useEffect(() => {
     alert(
       'Este sitio está en su versión Beta (Versión de prueba). En caso de encontrar sugerencias, por favor contactarse con colombolucio@hotmail.com. Gracias'
     );
-  }, []);
+  }, []); */
   async function onClick(e) {
     setWaiting(true);
     e.preventDefault();
@@ -83,95 +83,98 @@ function Login() {
     history.push('/register');
   }
   return (
-    <div className="loginfather shadow">
-      <Container className="loginregister background login container border shadow bg-white">
-        <Form>
-          <h2>
-            <i class="fas fa-sign-in-alt"></i>Ingresar
-          </h2>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>
-              <i class="fas fa-envelope-open-text"></i>Email
-            </Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Ingrese email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>
-              <i class="fas fa-key"></i>Password
-            </Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <div className="navbarra d-flex">
-            <div>
-              <Button
-                variant="btn btn-primary loginbtn mr-2"
-                type="submit"
-                onClick={onClick}
-              >
-                Ingresar
-              </Button>
-              <Button variant="outline-secondary " onClick={goRegister}>
-                Registrarse
-              </Button>
-            </div>
-            <div>
-              <Forgot />
-            </div>
-            {waiting ? (
-              <div className="p-3">
-                <Spinner animation="border" role="status">
-                  <span className="sr-only">Cargando...</span>
-                </Spinner>
-              </div>
-            ) : (
-              ''
-            )}
-          </div>
-        </Form>
-        <>
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Autenticación de dos pasos</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              Ingrese el código que fue enviado a su correo
-            </Modal.Body>
-            <Form.Group controlId="formBasicPassword">
+    <div className="loginfather shadow row ">
+      <div className="col-md-7 halfloginregisterdiv">
+        <Container className="loginregister background login container border shadow bg-white">
+          <Form>
+            <h2>
+              <i className="fas fa-sign-in-alt"></i>Ingresar
+            </h2>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>
+                <i className="fas fa-envelope-open-text"></i>Email
+              </Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Password de uso unico recibido en el correo"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
+                type="email"
+                placeholder="Ingrese email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Cancelar
-              </Button>
-              <Button variant="primary" onClick={loginWithTwoFA}>
-                Aceptar
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
-      </Container>
-      <Footer />
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>
+                <i className="fas fa-key"></i>Password
+              </Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <div className="navbarra d-flex">
+              <div>
+                <Button
+                  variant="btn btn-primary loginbtn mr-2"
+                  type="submit"
+                  onClick={onClick}
+                >
+                  <i className="fas fa-sign-in-alt"></i>Ingresar
+                </Button>
+                <Button variant="outline-secondary " onClick={goRegister}>
+                  <i className="fas fa-user-plus"></i>Registrarse
+                </Button>
+              </div>
+              <div>
+                <Forgot />
+              </div>
+              {waiting ? (
+                <div className="p-3">
+                  <Spinner animation="border" role="status">
+                    <span className="sr-only">Cargando...</span>
+                  </Spinner>
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+          </Form>
+          <>
+            <Modal
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Autenticación de dos pasos</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Ingrese el código que fue enviado a su correo
+              </Modal.Body>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Control
+                  type="text"
+                  placeholder="Password de uso unico recibido en el correo"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                />
+              </Form.Group>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cancelar
+                </Button>
+                <Button variant="primary" onClick={loginWithTwoFA}>
+                  Aceptar
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        </Container>
+        <Footer />
+      </div>
+      <div className="col-5 h-100 loginimgdiv"></div>
     </div>
   );
 }

@@ -49,7 +49,7 @@ function UserBar({ uploadDog, seeAllDogs }) {
               data-toggle="tooltip"
               data-placement="right"
               title="Log off"
-              className=" bhover"
+              className=" bhover btndanger"
               variant="btn btn-danger"
               onClick={onClick}
             >

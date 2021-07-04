@@ -164,7 +164,7 @@ function InputBar() {
         <Form>
           <Form.Group controlId="estado" required>
             <h4 className="hh2">
-              <i class="fas fa-dog"></i>
+              <i className="fas fa-dog"></i>
               Perdiste un perro, lo recogiste o solo lo viste en la calle?{' '}
             </h4>
             <div key="default-radio3" className="mb-3">
@@ -199,7 +199,7 @@ function InputBar() {
 
           <Form.Group className="mb-0" controlId="colornegro">
             <h4 className="hh2">
-              <i class="fas fa-palette"></i>Seleccione los colores del perro
+              <i className="fas fa-palette"></i>Seleccione los colores del perro
             </h4>
 
             <Form.Check
@@ -244,7 +244,7 @@ function InputBar() {
 
           <Form.Group controlId="sexo">
             <h4 className="hh2">
-              <i class="fas fa-venus-mars"></i>Ingrese el sexo si lo conoce
+              <i className="fas fa-venus-mars"></i>Ingrese el sexo si lo conoce
             </h4>
             <div key="default-radio" className="mb-3">
               <Form.Check
@@ -277,7 +277,7 @@ function InputBar() {
 
           <Form.Group controlId="tamaño">
             <h4 className="hh2">
-              <i class="fas fa-ruler"></i>Ingrese el tamaño
+              <i className="fas fa-ruler"></i>Ingrese el tamaño
             </h4>
             <div key="default-radio2" className="mb-3">
               <Form.Check
@@ -309,7 +309,7 @@ function InputBar() {
           </Form.Group>
           <Form.Group>
             <h4 className="hh2">
-              <i class="fas fa-camera-retro"></i>Subir imagen del perro
+              <i className="fas fa-camera-retro"></i>Subir imagen del perro
             </h4>
             <input
               className="btn btn-info inputfile"
@@ -345,8 +345,8 @@ function InputBar() {
             </Form.Group>
           </Form.Group>
           <h4 className="my-4 hh2">
-            <i class="fas fa-map-marked-alt"></i>Ubique la ubicación de perro
-            arrastrando el marcador en el mapa
+            <i className="fas fa-map-marked-alt"></i>Ubique la ubicación de
+            perro arrastrando el marcador en el mapa
           </h4>
           <div className="overflow-hidden">
             <Map setPosition={setPosition} />

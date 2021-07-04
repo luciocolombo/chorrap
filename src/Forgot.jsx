@@ -18,7 +18,7 @@ function Forgot() {
   return (
     <div>
       <Button variant="outline-info" onClick={handleShow}>
-        Olvidaste la contraseña?
+        <i className="fas fa-question-circle"></i> Olvidaste la contraseña?
       </Button>
 
       <Modal show={show} onHide={handleClose}>

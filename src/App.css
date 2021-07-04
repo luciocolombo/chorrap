@@ -89,7 +89,6 @@ body {
 }
 
 .loginregister {
-  margin-top: 10%;
   padding: 1%;
   height: auto;
   max-width: 600px !important;
@@ -156,8 +155,28 @@ h4 {
     font-size: small !important;
   }
 }
+@media (max-width: 900px) {
+  .loginimgdiv {
+    display: none;
+  }
+}
 
+.loginimgdiv {
+  overflow: hidden;
+  background-image: cover;
+  background-size: 100% 100%;
+  background-image: url(bg.jpeg);
+  box-shadow: 0 0 10px 10px grey;
+}
 /* .selectcolors {
   line-height: 1rem !important;
 }
  */
+
+.halfloginregisterdiv {
+  margin-top: auto;
+}
+
+.btndanger {
+  padding: 0.2rem 0.75rem !important;
+}

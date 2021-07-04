@@ -45,50 +45,60 @@ function Register() {
     history.push('/login');
   }
   return (
-    <div className="loginfather">
-      <Container className="loginregister background login container col-3 border shadow bg-white">
-        <Form onSubmit={(e) => onClick(e)}>
-          <h2>Registrarse</h2>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+    <div className="loginfather row">
+      <div className="col-md-7 halfloginregisterdiv">
+        <Container className="loginregister background login container col-3 border shadow bg-white">
+          <Form onSubmit={(e) => onClick(e)}>
+            <h2>
+              <i className="fas fa-user-plus"></i>Registrarse
+            </h2>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>
+                {' '}
+                <i className="fas fa-envelope-open-text"></i>Email
+              </Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <div className="navbarra">
-            <Button variant="btn btn-primary loginbtn mr-2" type="submit">
-              Registrarse
-            </Button>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>
+                <i className="fas fa-key"></i>Password
+              </Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <div className="navbarra">
+              <Button variant="btn btn-primary loginbtn mr-2" type="submit">
+                <i className="fas fa-user-plus"></i>Registrarse
+              </Button>
 
-            <Button variant="outline-secondary " onClick={goLogin}>
-              Ingresar
-            </Button>
-            {waiting ? (
-              <div className="p-3">
-                <Spinner animation="border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </Spinner>
-              </div>
-            ) : (
-              ''
-            )}
-          </div>
-        </Form>
-      </Container>
-      <Footer />
+              <Button variant="outline-secondary " onClick={goLogin}>
+                <i className="fas fa-sign-in-alt"></i>Ingresar
+              </Button>
+              {waiting ? (
+                <div className="p-3">
+                  <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+          </Form>
+        </Container>
+        <Footer />
+      </div>
+      <div className="col-5 h-100 loginimgdiv"></div>
     </div>
   );
 }
