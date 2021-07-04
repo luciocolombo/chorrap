@@ -60,29 +60,17 @@ function InputBar() {
 
   async function sendToDb() {
     if (
-      (position !== '') &
-      (email !== '') &
-      (file !== {}) &
-      (estado !== '') &
-      (blackColor !== false ||
-        whiteColor !== false ||
-        brownColor !== false ||
-        blondeColor !== false ||
-        redColor !== false)
+      position &&
+      email &&
+      file.name &&
+      estado &&
+      (blackColor || whiteColor || brownColor || blondeColor || redColor)
     ) {
       setWaiting(true);
       let fileVar = file;
       let formData = new FormData();
       formData.append('image', fileVar);
 
-      /*  const instance = axios.create({
-        withCredentials: true,
-      });
-      const url = await instance
-        .post(
-          `https://mascotasperdidasapi.herokuapp.com/senddogphoto/${JSON.stringify(
-            position
-          )}` */
       let url = '';
       try {
         url = await axios
@@ -114,8 +102,6 @@ function InputBar() {
       };
       setFirstRender(false);
       setDogState(dog);
-
-      /*       console.log('Google Cloud URL de imagen:', url); */
     } else {
       alert('Todos los campos requeridos deben ser completados');
       handleClose();
@@ -126,18 +112,12 @@ function InputBar() {
   }
 
   useEffect(() => {
-    /* const instance = axios.create({
-      withCredentials: true,
-    });
-    instance */
     if (firstRender) {
     } else {
-      axios
-        .post('/senddog' /* 'http://localhost:4000/senddog', */, dogState)
-        .then((res) => {
-          console.log('MongoDB data:', dogState, 'y la res', res);
-          setWaiting(false);
-        });
+      axios.post('/senddog', dogState).then((res) => {
+        console.log('MongoDB data:', dogState, 'y la res', res);
+        setWaiting(false);
+      });
     }
   }, [dogState, firstRender]);
 
