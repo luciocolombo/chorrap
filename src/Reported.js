@@ -86,6 +86,13 @@ function Reported() {
   return (
     <div className="overflow-scroll">
       <UserBar />
+      <div
+        className="alert alert-warning text-center alertsmallscreen"
+        role="alert"
+      >
+        <i className="fas fa-exclamation-triangle"></i>La tabla continúa hacia
+        la derecha de la pantalla!
+      </div>
       <div className="container bg-white border shadow mt-4">
         <Table striped bordered hover className="table table-responsive mt-3">
           <thead>
