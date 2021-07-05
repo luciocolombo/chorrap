@@ -1,4 +1,4 @@
-https://mascotasperdidas.netlify.app/
+www.mascotasperdidas.club
 
 Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.:dog:
 
