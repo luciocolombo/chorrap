@@ -11,8 +11,9 @@ function Forgot() {
   async function forgotPassword() {
     if (email) {
       handleClose();
-      await axios.post('/forgot', { email });
-      alert('Verifique su casilla de correo');
+      await axios
+        .post('/forgot', { email })
+        .then(() => alert('Verifique su casilla de correo'));
     } else alert('Inserte email');
   }
   return (
