@@ -79,7 +79,7 @@ function Reported() {
       setSexArray(sexArray);
       setStateArray(stateArray);
     } else {
-      console.log('No hay perros registrados');
+      console.log('No hay mascotas registradas');
     }
   }
 
@@ -153,7 +153,9 @@ function Reported() {
         {reportedDogs ? (
           ''
         ) : (
-          <p>Reporta tu primer perro perdido y ayuda a la comunidad a crecer</p>
+          <p>
+            Reporta tu primera mascota perdida y ayuda a la comunidad a crecer
+          </p>
         )}
       </div>
       <Footer />

@@ -122,7 +122,7 @@ function MapAllDogs({
                             <img
                               key={'img' + index}
                               className="imagenperro"
-                              alt="perro"
+                              alt="mascota"
                               src={info.data[index].url}
                             ></img>
                           </div>

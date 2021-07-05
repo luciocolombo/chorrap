@@ -26,7 +26,7 @@ function DogFiltering() {
   const [calendarDisplay2, calendarDisplayChange2] = useState(false);
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      Conjunto incluyente (Un perro puede ser buscado por cualquiera de sus
+      Conjunto incluyente (Una mascota puede ser buscado por cualquiera de sus
       colores o suma de ellos)
     </Tooltip>
   );

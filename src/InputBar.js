@@ -87,7 +87,7 @@ function InputBar() {
           .then((res) => res.data.url);
       } catch (error) {
         console.log(error);
-        alert('No puede reportar mas de 30 perros');
+        alert('No puede reportar mas de 30 mascotas');
       }
       let userid = localStorage.getItem('userid');
       let dog = {
@@ -358,8 +358,8 @@ function InputBar() {
             </Form.Group>
           </Form.Group>
           <h4 className="my-4 hh2">
-            <i className="fas fa-map-marked-alt"></i>Ubique la ubicación de
-            perro arrastrando el marcador en el mapa
+            <i className="fas fa-map-marked-alt"></i>Ubique la ubicación de la
+            mascota arrastrando el marcador en el mapa
           </h4>
           <div className="overflow-hidden">
             <Map setPosition={setPosition} />
