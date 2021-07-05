@@ -15,6 +15,7 @@ function DogFiltering() {
   const [redColor, toggleRedColor] = useState(false);
   const [sex, setSex] = useState('Macho');
   const [size, setSize] = useState('Mediano');
+  const [catdog, setCatDog] = useState('Perro');
   const auxDate = new Date();
   const threeMonthsAgo = new Date(
     auxDate.toLocaleString(auxDate.setDate(auxDate.getDate() - 90))
@@ -31,6 +32,11 @@ function DogFiltering() {
   );
   useEffect(() => calendarDisplayChange(false), [date]);
   useEffect(() => calendarDisplayChange2(false), [date2]);
+  useEffect(() => {
+    if (catdog === 'gato') {
+      setSize('Pequeño');
+    }
+  }, [catdog]);
   return (
     <div>
       <UserBar seeAllDogs="disabled" />
@@ -123,7 +129,7 @@ function DogFiltering() {
               /> */}
             </div>
             <div /* className="col-4" */>
-              <h6>
+              <h6 className="marginmobile">
                 <i className="fas fa-ruler"></i>Seleccione el tamaño
               </h6>
               <Form.Check
@@ -132,6 +138,7 @@ function DogFiltering() {
                 value="Pequeño"
                 name="size"
                 onChange={() => setSize('Pequeño')}
+                disabled={catdog === 'gato' ? true : false}
                 id="Pequeño"
               />
               <Form.Check
@@ -141,6 +148,7 @@ function DogFiltering() {
                 name="size"
                 defaultChecked
                 onChange={() => setSize('Mediano')}
+                disabled={catdog === 'gato' ? true : false}
                 id="Mediano"
               />
               <Form.Check
@@ -149,9 +157,36 @@ function DogFiltering() {
                 value="Grande"
                 name="size"
                 onChange={() => setSize('Grande')}
+                disabled={catdog === 'gato' ? true : false}
                 id="Grande"
               />
             </div>
+            <Form.Group controlId="catdog">
+              <h6 className="marginmobile">
+                <i class="fas fa-cat"></i>
+                Perro o gato?
+              </h6>
+              <div key="default-radio2" className="mb-3">
+                <Form.Check
+                  name="dog"
+                  value="catdog"
+                  type="radio"
+                  id="gato"
+                  label="Gato"
+                  onClick={() => setCatDog('gato')}
+                />
+                <Form.Check
+                  name="dog"
+                  value="dog"
+                  type="radio"
+                  id="perro"
+                  label="Perro"
+                  defaultChecked
+                  onClick={() => setCatDog('perro')}
+                />
+              </div>
+            </Form.Group>
+
             <div className="w-100">
               {date > date2 ? (
                 <div className="alert alert-danger" role="alert">
@@ -209,6 +244,7 @@ function DogFiltering() {
           size={size}
           date={date}
           date2={date2}
+          catdog={catdog}
         />
       </div>
       <Footer />

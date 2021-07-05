@@ -23,6 +23,7 @@ function InputBar() {
   const [show, setShow] = useState(false);
   const [waiting, setWaiting] = useState(false);
   const [commentary, changeCommentary] = useState('');
+  const [catdog, setCatDog] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -40,7 +41,11 @@ function InputBar() {
       : console.log('');
   }
   useEffect(goLogin, [history]); //aca agregue history por warning de react
-
+  useEffect(() => {
+    if (catdog === 'gato') {
+      setSize('Pequeño');
+    }
+  }, [catdog]);
   function handleFile(e) {
     if (e.target.files[0] !== undefined) {
       if (
@@ -99,6 +104,7 @@ function InputBar() {
         sex,
         size,
         commentary,
+        catdog,
       };
       setFirstRender(false);
       setDogState(dog);
@@ -132,7 +138,7 @@ function InputBar() {
       <div className="container bg-white border shadow mt-1 p-5 overflow-hidden">
         <h1 className="hh1">
           <i className="fas fa-search-location"></i>
-          Reporta un perro perdido en Rosario
+          Reporta una mascota perdida en Rosario
           <i className="fas fa-search-location"></i>
         </h1>
         <h4 className="hh2 text-center">
@@ -144,16 +150,16 @@ function InputBar() {
         <Form>
           <Form.Group controlId="estado" required>
             <h4 className="hh2">
-              <i className="fas fa-dog"></i>
-              Perdiste un perro, lo recogiste o solo lo viste en la calle?{' '}
+              <i class="fas fa-paw"></i>
+              Perdiste una mascota, la recogiste o solo la viste en la calle?{' '}
             </h4>
             <div key="default-radio3" className="mb-3">
               <Form.Check
                 name="estado"
-                value="perdido"
+                value="perdid"
                 type="radio"
                 id="perdido"
-                label="Perdi un perro"
+                label="Perdi una mascota"
                 onClick={() => setEstado('Perdido')}
               />
               <Form.Check
@@ -162,24 +168,48 @@ function InputBar() {
                 id="encontrado"
                 value="encontrado"
                 label="
-                Recogí un perro de la calle"
+                Recogí una mascota de la calle"
                 onClick={() => setEstado('Recogido')}
               />
               <Form.Check
                 name="estado"
                 type="radio"
                 id="avistado"
-                label="Avisté un perro en la calle (no lo recogí)"
+                label="Avisté una mascota en la calle (no lo recogí)"
                 value="avistado"
                 onClick={() => setEstado('Avistado en la calle')}
               />
             </div>
           </Form.Group>
-          {/* ME FALTA AGREGAR SEXO Y NOMBRE */}
+
+          <Form.Group controlId="catdog">
+            <h4 className="hh2">
+              <i class="fas fa-cat"></i>
+              Perro o gato?
+            </h4>
+            <div key="default-radio2" className="mb-3">
+              <Form.Check
+                name="dog"
+                value="catdog"
+                type="radio"
+                id="gato"
+                label="Gato"
+                onClick={() => setCatDog('gato')}
+              />
+              <Form.Check
+                name="dog"
+                value="dog"
+                type="radio"
+                id="perro"
+                label="Perro"
+                onClick={() => setCatDog('perro')}
+              />
+            </div>
+          </Form.Group>
 
           <Form.Group className="mb-0" controlId="colornegro">
             <h4 className="hh2">
-              <i className="fas fa-palette"></i>Seleccione los colores del perro
+              <i className="fas fa-palette"></i>Seleccione los colores
             </h4>
 
             <Form.Check
@@ -266,6 +296,7 @@ function InputBar() {
                 type="radio"
                 id="pequeño"
                 label="Pequeño"
+                disabled={catdog === 'gato' ? true : false}
                 onClick={() => setSize('Pequeño')}
               />
               <Form.Check
@@ -275,6 +306,7 @@ function InputBar() {
                 value="mediano"
                 label="
                 Mediano"
+                disabled={catdog === 'gato' ? true : false}
                 onClick={() => setSize('Mediano')}
               />
               <Form.Check
@@ -283,13 +315,14 @@ function InputBar() {
                 id="grande"
                 label="Grande"
                 value="grande"
+                disabled={catdog === 'gato' ? true : false}
                 onClick={() => setSize('Grande')}
               />
             </div>
           </Form.Group>
           <Form.Group>
             <h4 className="hh2">
-              <i className="fas fa-camera-retro"></i>Subir imagen del perro
+              <i className="fas fa-camera-retro"></i>Subir imagen
             </h4>
             <input
               className="btn btn-info inputfile"
@@ -332,7 +365,7 @@ function InputBar() {
             <Map setPosition={setPosition} />
           </div>
           <Button className="mt-5 w-100" onClick={handleShow}>
-            Reportar perro
+            Reportar mascota perdida
           </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -353,7 +386,7 @@ function InputBar() {
                 Cerrar
               </Button>
               <Button variant="primary" type="submit" onClick={sendToDb}>
-                Reportar perro
+                Reportar mascota
               </Button>
             </Modal.Footer>
             {waiting ? (
