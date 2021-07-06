@@ -29,7 +29,6 @@ function UserBar({ uploadDog, seeAllDogs }) {
         variant="light"
         className="navbar sticky-top border shadow"
       >
-        {/*  NO SE VUIELVE STICKY TOP */}
         <Navbar.Brand href="#home" className="d-none d-sm-block">
           <i className="fas fa-paw"></i> Mascotas perdidas
           <i className="fas fa-paw"></i>

@@ -126,29 +126,48 @@ function MapAllDogs({
                               src={info.data[index].url}
                             ></img>
                           </div>
-                          <li key={'fecha' + index}>
-                            <strong>Fecha: </strong>
+                          <li className="nodecoration" key={'fecha' + index}>
+                            <strong>
+                              <i class="fas fa-bone greyicon"></i> Fecha:{' '}
+                            </strong>
                             {JSON.stringify(info.data[index].date).substr(
                               1,
                               10
                             )}
                           </li>
-                          <li key={'estado' + index}>
-                            <strong>Estado: </strong>
+                          <li className="nodecoration" key={'estado' + index}>
+                            <strong>
+                              <i className="fas fa-bone greyicon"></i> Estado:{' '}
+                            </strong>
                             {info.data[index].estado}
                           </li>
-                          <li key={'sex' + index}>
-                            <strong>Sexo:</strong>
+                          <li className="nodecoration" key={'sex' + index}>
+                            <strong>
+                              <i className="fas fa-bone greyicon"></i> Sexo:
+                            </strong>
                             {info.data[index].sex}
                           </li>
-                          <li key={'email' + index}>
-                            <strong>Contacto:</strong> {info.data[index].email}
+                          <li className="nodecoration" key={'email' + index}>
+                            <strong>
+                              <i className="fas fa-bone greyicon"></i> Contacto:
+                            </strong>{' '}
+                            {info.data[index].email}
                           </li>
-                          <li key={'size' + index}>
-                            <strong> Tamaño:</strong> {info.data[index].size}
+                          <li className="nodecoration" key={'size' + index}>
+                            <strong>
+                              {' '}
+                              <i className="fas fa-bone greyicon"></i> Tamaño:
+                            </strong>{' '}
+                            {info.data[index].size}
                           </li>
-                          <li key={'commentary' + index}>
-                            <strong>Comentario:</strong>{' '}
+                          <li
+                            className="nodecoration"
+                            key={'commentary' + index}
+                          >
+                            <strong>
+                              <i className="fas fa-bone greyicon"></i>{' '}
+                              Comentario:
+                            </strong>{' '}
                             {info.data[index].commentary}
                           </li>
 

@@ -194,3 +194,12 @@ h4 {
     margin-top: 20px;
   }
 }
+
+.nodecoration {
+  text-decoration: none;
+  list-style: none;
+}
+
+.greyicon {
+  color: grey;
+}
