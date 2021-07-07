@@ -17,9 +17,9 @@ function DogFiltering() {
   const [size, setSize] = useState('Mediano');
   const [catdog, setCatDog] = useState('Perro');
   const auxDate = new Date();
-  const threeMonthsAgo = new Date(
-    auxDate.toLocaleString(auxDate.setDate(auxDate.getDate() - 90))
-  );
+ const threeMonthsAgo=new Date(auxDate.setDate(auxDate.getDate() - 90))
+
+
   const [date, onChange] = useState(threeMonthsAgo); //calendar
   const [date2, onChange2] = useState(new Date()); //calendar
   const [calendarDisplay, calendarDisplayChange] = useState(false);
