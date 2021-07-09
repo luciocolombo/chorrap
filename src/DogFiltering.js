@@ -33,7 +33,7 @@ function DogFiltering() {
   useEffect(() => calendarDisplayChange(false), [date]);
   useEffect(() => calendarDisplayChange2(false), [date2]);
   useEffect(() => {
-    if (catdog === 'gato') {
+    if (catdog === 'Gato') {
       setSize('Pequeño');
     }
   }, [catdog]);
@@ -138,7 +138,7 @@ function DogFiltering() {
                 value="Pequeño"
                 name="size"
                 onChange={() => setSize('Pequeño')}
-                disabled={catdog === 'gato' ? true : false}
+                disabled={catdog === 'Gato' ? true : false}
                 id="Pequeño"
               />
               <Form.Check
@@ -148,7 +148,7 @@ function DogFiltering() {
                 name="size"
                 defaultChecked
                 onChange={() => setSize('Mediano')}
-                disabled={catdog === 'gato' ? true : false}
+                disabled={catdog === 'Gato' ? true : false}
                 id="Mediano"
               />
               <Form.Check
@@ -157,7 +157,7 @@ function DogFiltering() {
                 value="Grande"
                 name="size"
                 onChange={() => setSize('Grande')}
-                disabled={catdog === 'gato' ? true : false}
+                disabled={catdog === 'Gato' ? true : false}
                 id="Grande"
               />
             </div>
@@ -173,7 +173,7 @@ function DogFiltering() {
                   type="radio"
                   id="gato"
                   label="Gato"
-                  onClick={() => setCatDog('gato')}
+                  onClick={() => setCatDog('Gato')}
                 />
                 <Form.Check
                   name="dog"
@@ -182,7 +182,7 @@ function DogFiltering() {
                   id="perro"
                   label="Perro"
                   defaultChecked
-                  onClick={() => setCatDog('perro')}
+                  onClick={() => setCatDog('Perro')}
                 />
               </div>
             </Form.Group>

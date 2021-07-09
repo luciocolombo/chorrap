@@ -42,7 +42,7 @@ function InputBar() {
   }
   useEffect(goLogin, [history]); //aca agregue history por warning de react
   useEffect(() => {
-    if (catdog === 'gato') {
+    if (catdog === 'Gato') {
       setSize('Pequeño');
     }
   }, [catdog]);
@@ -194,7 +194,7 @@ function InputBar() {
                 type="radio"
                 id="gato"
                 label="Gato"
-                onClick={() => setCatDog('gato')}
+                onClick={() => setCatDog('Gato')}
               />
               <Form.Check
                 name="dog"
@@ -202,7 +202,7 @@ function InputBar() {
                 type="radio"
                 id="perro"
                 label="Perro"
-                onClick={() => setCatDog('perro')}
+                onClick={() => setCatDog('Perro')}
               />
             </div>
           </Form.Group>
@@ -296,7 +296,7 @@ function InputBar() {
                 type="radio"
                 id="pequeño"
                 label="Pequeño"
-                disabled={catdog === 'gato' ? true : false}
+                disabled={catdog === 'Gato' ? true : false}
                 onClick={() => setSize('Pequeño')}
               />
               <Form.Check
@@ -306,7 +306,7 @@ function InputBar() {
                 value="mediano"
                 label="
                 Mediano"
-                disabled={catdog === 'gato' ? true : false}
+                disabled={catdog === 'Gato' ? true : false}
                 onClick={() => setSize('Mediano')}
               />
               <Form.Check
@@ -315,7 +315,7 @@ function InputBar() {
                 id="grande"
                 label="Grande"
                 value="grande"
-                disabled={catdog === 'gato' ? true : false}
+                disabled={catdog === 'Gato' ? true : false}
                 onClick={() => setSize('Grande')}
               />
             </div>

@@ -10,7 +10,7 @@ function UserPage() {
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
     e.preventDefault();
-    setShow(true);
+    if(pass!=''&&pass.length>=6){    setShow(true)}else{alert("Inserte un password de al menos 6 caracteres")}
   };
   const [show2, setShow2] = useState(false);
   const handleClose2 = () => setShow2(false);
