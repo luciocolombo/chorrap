@@ -29,7 +29,7 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
               {button && (
                 <Button
                   name="submit"
-                  onClick={() => window.location.replace(`/${title}`)}
+                  onClick={() => window.location.replace('/register')}
                 >
                   {t(button)}
                 </Button>
