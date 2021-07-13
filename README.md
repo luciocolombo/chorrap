@@ -26,7 +26,8 @@ Select in the map the position of the dog. If you picked it up, you may prefer t
 
 You can eliminate your reports in www.mascotasperdidas.club/reported, specially if the dog was found/returned to it's owner. Let's avoid unuseful old posts! Post older than 3 months will be deleted automatically.
 
-
+<hr>
+<br>
 <h3>:wrench::wrench:Technical details :wrench::wrench:</h3>
 For the technically inclined, the site is built with <strong>ReactJs</strong> and uses OpenStreetMaps (Leaflet library). Bootstrap made easier the design and also Landy by adrinlol 
 https://reactjs.org/
