@@ -29,12 +29,12 @@ You can eliminate your reports in www.mascotasperdidas.club/reported, specially 
 <hr>
 <br>
 <h3> 🙏 User's Privacy</h3>
-The information that is provided for finding the pet is obviously <strong>public</strong>
-The user that made the post can remain anonymous just chainging the default email presented in the form.
+The information that is provided for finding the pet is obviously. <strong>public</strong> <br>
+The user that made the post can remain anonymous just changing the default email presented in the form.
 The contact email is the only personal information needed for making the post, but if for some reason you hate it, you can lie with the email (but please, give a contact information if you can help in any way!!)
 Passwords are saved encrypted.
 
-
+<br>
 <hr>
 <br>
 <h3>:wrench::wrench:Technical details :wrench::wrench:</h3>
