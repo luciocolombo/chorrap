@@ -56,10 +56,10 @@ Password reset emails are sent by Sendgrid https://sendgrid.com/
 <hr>
 <h3> 📤 📗 Roadmap</h3>
 In the future I plan to gamify the game to make it more engaging. Using level and feats to make everything more appealing. Social approval can be healpful in determining whether a certain feat has been achieved or not. But this is will be discussed in more detail when the future arrives.
-
+<br>
 <strong>
 ☑️ Add cats to search<br>
- ☑️ Eliminate size for cats in search and upload forms.
+ ☑️ Eliminate size for cats in search and upload forms.<br>
 🔲 Gamification <br>
 🔲 In site chats (promoves engagement) <br>
 🔲 Record of found pets<br>
