@@ -6,6 +6,8 @@
 It's very simple, you have to create an account :closed_lock_with_key:(this is to easier spot junk-uploading users) and then, it depends of what you want to do!
 find your dog or tell everybody you found one. The idea for the moment is for people to comunicate by email. I may add extra ways in the future if requested.
 
+
+
 :paw_prints: <strong>1)Find your lost dog</strong>
 Go to the lost dogs section www.mascotasperdidas.club/all, and search for your dog giving their characteristics.
 Colors-> The search is inclusive, so you need only one color to find your dog :dog2: If the amount of dogs grows large, I can add an exact search mode to be more specific in the query.
