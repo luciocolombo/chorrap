@@ -4,7 +4,7 @@
 
 <h3>How to use the site?</h3>
 It's very simple, you have to create an account :closed_lock_with_key:(this is to easier spot junk-uploading users) and then, it depends of what you want to do!
-find your dog or tell everybody you found one. The idea for the moment is for people to comunicate by email. I may add extra ways in the future if requested.
+find your dog or tell everybody you found one. You need an email for contact, but you can add phone number or whatever as means of communication. I didn't add phone number as default to protect user privacy
 
 <hr>
 <br>
