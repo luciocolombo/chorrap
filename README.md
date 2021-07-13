@@ -6,7 +6,7 @@
 It's very simple, you have to create an account :closed_lock_with_key:(this is to easier spot junk-uploading users) and then, it depends of what you want to do!
 find your dog or tell everybody you found one. The idea for the moment is for people to comunicate by email. I may add extra ways in the future if requested.
 
-<br/>
+
 <br/>
 :paw_prints: <strong>1)Find your lost dog</strong>
 Go to the lost dogs section www.mascotasperdidas.club/all, and search for your dog giving their characteristics.
@@ -14,6 +14,7 @@ Colors-> The search is inclusive, so you need only one color to find your dog :d
 Sex->Male or Female. Some dogs may have been uploaded as unknown sex, so even if you selected a sex, you may encounter "?" sex dogs
 Size->Yes, this is very subjective. You may need to try two sizes to spot your dog, given that the submitter may had chosen a size larger or smaller than your opinion or your dog. :stuck_out_tongue:
 Any opinion in how to improve this? Let me know 	:smile:
+<br/>
 
 :paw_prints: <strong>2)Report dog   </strong>
 Navigate to www.mascotasperdidas.club/reportar and fill in the form. You will be asked to input basic information. First, you should choose whether you saw a dog on the street, you lost it or you carried it to your house (need more people like that!:clap:)
