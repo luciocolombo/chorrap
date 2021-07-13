@@ -1,6 +1,6 @@
 www.mascotasperdidas.club
 
-Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.:dog:
+<h2>Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.:dog: </h2>
 
 How to use the site?
 It's very simple, you have to create an account :closed_lock_with_key:(this is to easier spot junk-uploading users) and then, it depends of what you want to do!
