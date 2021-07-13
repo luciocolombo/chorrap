@@ -28,6 +28,15 @@ You can eliminate your reports in www.mascotasperdidas.club/reported, specially 
 
 <hr>
 <br>
+<h3> 🙏 User's Privacy</h3>
+The information that is provided for finding the pet is obviously <strong>public</strong>
+The user that made the post can remain anonymous just chainging the default email presented in the form.
+The contact email is the only personal information needed for making the post, but if for some reason you hate it, you can lie with the email (but please, give a contact information if you can help in any way!!)
+Passwords are saved encrypted.
+
+
+<hr>
+<br>
 <h3>:wrench::wrench:Technical details :wrench::wrench:</h3>
 For the technically inclined, the site is built with <strong>ReactJs</strong> and uses OpenStreetMaps (Leaflet library). Bootstrap made easier the design and also Landy by adrinlol 
 https://reactjs.org/
