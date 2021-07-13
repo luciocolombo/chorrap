@@ -68,4 +68,4 @@ In the future I plan to gamify the game to make it more engaging. Using level an
 <br>
 <hr>
 <br>
-If you want more information or you want to contribute with the project, feel free to leave a message. ✉️✉️✉️
+If you want more information or you want to contribute with the project, feel free to leave a message. ✉
