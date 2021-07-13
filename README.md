@@ -65,5 +65,7 @@ In the future I plan to gamify the game to make it more engaging. Using level an
 🔲 Record of found pets<br>
 🔲 All pets in a list, in order for "players" to be able to "find them". Like if there were Pokemons! </strong><br>
 
-
+<br>
+<hr>
+<br>
 If you want more information or you want to contribute with the project, feel free to leave a message.
