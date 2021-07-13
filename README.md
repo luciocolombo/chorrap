@@ -43,4 +43,9 @@ Authentication is done with <strong>JWT</strong>.
 Passwords are stored <strong>encrypted</strong> with the help of Bcrypt library. 
 Password reset emails are sent by Sendgrid https://sendgrid.com/
 
+<br>
+<hr>
+<h3> 📤 📗 Roadmap</h3>
+In the future I plan to gamify the game to make it more engaging. Using level and feats to make everything more appealing. Social approval can be healpful in determining whether a certain feat has been achieved or not. But this is will be discussed in more detail when the future arrives.
+
 If you want more information or you want to contribute with the project, feel free to leave a message.
