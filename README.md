@@ -1,4 +1,4 @@
-<strong>www.mascotasperdidas.club</strong>
+--><strong>www.mascotasperdidas.club</strong><--
 
 <h2>Mascotas Perdidas is a free to use project with the sole objective of bringing lost pets and owners together.:dog: </h2>
 
